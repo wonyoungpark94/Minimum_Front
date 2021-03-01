@@ -96,14 +96,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="메모를 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-mz-NVv">
-                                <rect key="frame" x="16" y="243" width="358" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tOB-SN-U7A">
+                                <rect key="frame" x="16" y="239" width="354" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 / 60" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N2-8Y-m82">
-                                <rect key="frame" x="317" y="328" width="57" height="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 / 60" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-dQ-EyH">
+                                <rect key="frame" x="300" y="320" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -126,8 +128,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="countCharacterLabel" destination="0N2-8Y-m82" id="6GS-PC-aTo"/>
-                        <outlet property="memoTextField" destination="uuh-mz-NVv" id="Osh-UT-qdP"/>
+                        <outlet property="countCharacterLabel" destination="aRB-dQ-EyH" id="E2W-54-T2J"/>
+                        <outlet property="memoTextView" destination="tOB-SN-U7A" id="UnE-hZ-WAV"/>
                         <outlet property="recordedDate" destination="ZZn-KU-yEI" id="JtO-78-7my"/>
                         <outlet property="selectDatePicker" destination="L4N-h1-ka5" id="55f-Xl-86p"/>
                     </connections>
@@ -171,6 +173,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

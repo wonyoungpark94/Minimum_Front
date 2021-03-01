@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecordViewController: UIViewController, UITextFieldDelegate {
+class RecordViewController: UIViewController, UITextViewDelegate {
     
     //날짜//
     @IBOutlet weak var recordedDate: UIButton!
@@ -15,8 +15,10 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
     
     
     //메모//
-    @IBOutlet weak var memoTextField: UITextField!
+    @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var countCharacterLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
         selectDatePicker.isHidden = true
         
         //메모//
-        memoTextField.delegate = self
+        memoTextView.delegate = self
         
         
     }
@@ -69,20 +71,16 @@ class RecordViewController: UIViewController, UITextFieldDelegate {
     }
     
     //메모// 글자 수 제한
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
         let limitLength = 60
         
-            guard let text = textField.text else { return true }
-            let newLength = text.count + string.count - range.length
+        guard let str = textView.text else { return true }
+        let newLength = str.count + text.count - range.length
         
-            //print(text.count)
-            countCharacterLabel.text = "\(text.count + 1) / 60"
-        
-            return newLength < limitLength
+        countCharacterLabel.text = "\(str.count + 1) / 60"
+        return newLength < limitLength
     }
-    
-    
-    
     
     
 
