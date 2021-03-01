@@ -33,7 +33,9 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         //메모//
         memoTextView.delegate = self
         
-        
+        //메모// placeholder
+        memoTextView.text = "메모를 입력해주세요"
+        memoTextView.textColor = .lightGray
     }
     
     //날짜// view load시 현재 날짜 자동 입력
@@ -68,6 +70,20 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         selectDatePicker.isHidden = true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "메모를 입력해주세요."
+            textView.textColor = UIColor.lightGray
+        }
     }
     
     //메모// 글자 수 제한
