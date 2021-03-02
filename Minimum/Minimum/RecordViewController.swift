@@ -7,11 +7,26 @@
 
 import UIKit
 
+//data 테스트
+struct RecordData {
+    var date : String
+    var weight : Double?
+    var memo : String?
+    var image : UIImage?
+}
+
+//data 테스트
+var data = RecordData(date: "", weight: nil, memo: nil, image: nil)
+var dataArray = [RecordData]()
+
 class RecordViewController: UIViewController, UITextViewDelegate {
     
     //날짜//
     @IBOutlet weak var recordedDate: UIButton!
     @IBOutlet weak var selectDatePicker: UIDatePicker!
+    
+    //체중
+    @IBOutlet weak var weightTextField: UITextField!
     
     
     //메모//
@@ -50,6 +65,9 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         
         let dateString = formatter.string(from: date)
         recordedDate.setTitle(dateString, for: .normal)
+        
+        //data
+        data.date = dateString
     }
     
     //날짜// 클릭 시 하단에서 pickerView 보이기&숨기기
@@ -66,8 +84,11 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM월 dd일, 20YY"
         
-        let dataString = formatter.string(from: sender.date)
-        recordedDate.setTitle(dataString, for: .normal)
+        let dateString = formatter.string(from: sender.date)
+        recordedDate.setTitle(dateString, for: .normal)
+        
+        //data
+        data.date = dateString
     }
     
     //날짜// view 아무데나 누르면 pikcerView 사라짐
@@ -99,6 +120,9 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         let newLength = str.count + text.count - range.length
         
         countCharacterLabel.text = "\(str.count + 1) / 60"
+        
+        //data
+        data.memo = str
         return newLength < limitLength
     }
     
@@ -121,8 +145,29 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         //화면 이동
         self.navigationController?.popViewController(animated: true)
         
-        //data 저장
+        //data// 저장
+        saveData()
     }
+    
+    func saveData() {
+        data.weight = Double(weightTextField.text!)
+        
+        //data// 날짜가 같다면
+        for savedData in dataArray {
+            
+            if savedData.date == data.date {
+                print("동일한 날짜의 data가 이미 있습니다.")
+            } else {
+                print("새로운 날짜의 기록입니다.")
+            }
+
+        }
+
+        dataArray.append(data)
+        print(dataArray)
+    }
+    
+    
 
 }
 
@@ -142,10 +187,9 @@ extension RecordViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         
         imageView.image = image
+        data.image = image
+        
         takePhoto.setTitle("", for: .normal)
-//        if let imageView.image != nil {
-//            takePhoto.setTitle("", for: .normal)
-//        }
     }
     
 }

@@ -178,6 +178,7 @@
                         <outlet property="recordedDate" destination="ZZn-KU-yEI" id="JtO-78-7my"/>
                         <outlet property="selectDatePicker" destination="L4N-h1-ka5" id="55f-Xl-86p"/>
                         <outlet property="takePhoto" destination="L9t-sn-MCB" id="iwA-Tc-thz"/>
+                        <outlet property="weightTextField" destination="x5C-wf-tYF" id="o6K-0K-7f1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAM-sY-n4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
