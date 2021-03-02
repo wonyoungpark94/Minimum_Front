@@ -20,6 +20,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     
     //사진//
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var takePhoto: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -140,6 +142,10 @@ extension RecordViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         
         imageView.image = image
+        takePhoto.setTitle("", for: .normal)
+//        if let imageView.image != nil {
+//            takePhoto.setTitle("", for: .normal)
+//        }
     }
     
 }
