@@ -18,6 +18,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var countCharacterLabel: UILabel!
     
+    //사진//
+    @IBOutlet weak var imageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -98,6 +100,16 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         return newLength < limitLength
     }
     
+    //사진// 버튼
+    @IBAction func cameraButton(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+
+    
     
 
     //완료//
@@ -110,4 +122,24 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         //data 저장
     }
 
+}
+
+//사진//
+extension RecordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        
+        imageView.image = image
+    }
+    
 }

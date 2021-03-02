@@ -69,7 +69,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZn-KU-yEI">
                                 <rect key="frame" x="20" y="133" width="354" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="기록 날짜">
+                                <state key="normal" title="3월 1일 2021년">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -111,6 +111,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0mY-Ii-FfG">
+                                <rect key="frame" x="269" y="438" width="74" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9t-sn-MCB">
+                                <rect key="frame" x="20" y="471" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="사진 촬영하기"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="edq-UH-L1M" eventType="touchUpInside" id="ecG-ZL-dsU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fxV-EC-FoQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,6 +142,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countCharacterLabel" destination="aRB-dQ-EyH" id="E2W-54-T2J"/>
+                        <outlet property="imageView" destination="0mY-Ii-FfG" id="0ri-Wb-Y1a"/>
                         <outlet property="memoTextView" destination="tOB-SN-U7A" id="UnE-hZ-WAV"/>
                         <outlet property="recordedDate" destination="ZZn-KU-yEI" id="JtO-78-7my"/>
                         <outlet property="selectDatePicker" destination="L4N-h1-ka5" id="55f-Xl-86p"/>
