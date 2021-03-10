@@ -8,16 +8,16 @@
 import UIKit
 
 //data 테스트
-struct RecordData {
-    var date : String
+struct Data {
+    var date : Date?
     var weight : Double?
     var memo : String?
     var image : UIImage?
 }
 
 //data 테스트
-var data = RecordData(date: "", weight: nil, memo: nil, image: nil)
-var dataArray = [RecordData]()
+var data = Data(date: nil, weight: nil, memo: nil, image: nil)
+var dataArray = [Data]()
 
 class RecordViewController: UIViewController, UITextViewDelegate {
     
@@ -37,6 +37,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var takePhoto: UIButton!
     
+    var arrayNum = 0
     
     
     override func viewDidLoad() {
@@ -67,7 +68,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         recordedDate.setTitle(dateString, for: .normal)
         
         //data
-        data.date = dateString
+        data.date = date
     }
     
     //날짜// 클릭 시 하단에서 pickerView 보이기&숨기기
@@ -88,7 +89,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         recordedDate.setTitle(dateString, for: .normal)
         
         //data
-        data.date = dateString
+        data.date = sender.date
     }
     
     //날짜// view 아무데나 누르면 pikcerView 사라짐
@@ -97,6 +98,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         selectDatePicker.isHidden = true
     }
     
+    //메모// place holder 제거
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -104,6 +106,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    //메모// place holder 강제
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "메모를 입력해주세요."
@@ -134,37 +137,77 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         picker.delegate = self
         present(picker, animated: true)
     }
-
-    
     
 
     //완료//
     @IBAction func completeButtonTapped(_ sender: Any) {
-        print("완료 버튼이 눌렸습니다.")
-        
-        //화면 이동
-        self.navigationController?.popViewController(animated: true)
         
         //data// 저장
         saveData()
+        
+        //화면 이동
+        self.navigationController?.popViewController(animated: true)
     }
     
     func saveData() {
-        data.weight = Double(weightTextField.text!)
         
-        //data// 날짜가 같다면
-        for savedData in dataArray {
-            
-            if savedData.date == data.date {
-                print("동일한 날짜의 data가 이미 있습니다.")
-            } else {
-                print("새로운 날짜의 기록입니다.")
-            }
-
+        //data// 몸무게
+        if let recordedWeight = Double(weightTextField.text!) {
+            data.weight = recordedWeight
+        } else { //몸무게 기록 없으면 alert
+            showWeightInfoAlert()
         }
-
-        dataArray.append(data)
-        print(dataArray)
+        
+        
+        data.memo = memoTextView.text
+        
+        if dataArray.count == 0 { //기록이 없으면 바로 data 추가
+            dataArray.append(data)
+            print(dataArray)
+        } else { //기록이 존재하면 날짜 같은 data update
+            for recordedData in dataArray {
+                            
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM월 dd일, 20YY"
+                
+                let tempData = formatter.string(from: recordedData.date!)
+                let comparedData = formatter.string(from: data.date!)
+                
+                if tempData == comparedData {
+                    print("동일한 날짜의 data가 이미 있습니다.")
+                    
+                    let tempArrayNum = arrayNum
+                    print(tempArrayNum)
+                    
+                    dataArray[tempArrayNum].date = data.date
+                    dataArray[tempArrayNum].weight = data.weight
+                    dataArray[tempArrayNum].memo = data.memo
+                    dataArray[tempArrayNum].image = data.image
+                    
+                    print(dataArray)
+                    
+                } else {
+                    print("새로운 날짜의 기록입니다.")
+                    dataArray.append(data)
+                    print(dataArray)
+                }
+                
+                arrayNum += 1
+            }
+        }
+        
+        
+    }
+    
+    func showWeightInfoAlert() {
+        let alert = UIAlertController(title: "체중 입력", message: "체중이 입력되지 않았습니다.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { action in
+            print("tapped dismiss")
+        }))
+        
+        present(alert, animated: true)
+        
     }
     
     
