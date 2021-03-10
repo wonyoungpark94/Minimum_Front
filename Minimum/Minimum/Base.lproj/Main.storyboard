@@ -32,6 +32,28 @@
                                     <segue destination="gpl-VA-zBP" kind="show" id="uLm-HJ-zh8"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="il0-hm-yYn" customClass="FSCalendar" colorLabel="IBBuiltInLabel-Red">
+                                <rect key="frame" x="34" y="401" width="346" height="356"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="bma-WW-hE5"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RSu-9C-6bY"/>
+                                </connections>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="mainview" text="-0.5 kg 55.15kg &gt;&gt; 55.00kg 03.01부터 지금까지 아보카도 1개만큼 :)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Pa-9o-8F1">
+                                <rect key="frame" x="34" y="198" width="346" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -287,11 +309,5 @@
         <image name="recordFrame1" width="375" height="6"/>
         <image name="recordFrame2" width="375" height="5"/>
         <image name="recordFrame3" width="375" height="6"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  CalendarViewController.swift
 //  Minimum
 //
-//  Created by park wonyoung on 2021/02/25.
+//  Created by kkh on 2021/03/10.
 //
 
 import UIKit
@@ -11,9 +11,9 @@ import Foundation
 import FSCalendar
 
 
-class MainViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     
-    weak var calendar: FSCalendar!
+    @IBOutlet fileprivate weak var calendar: FSCalendar!
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1: DateFormatter = {
