@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */; };
 		0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED72FD25E778F700A5E122 /* AppDelegate.swift */; };
 		0BED730025E778F700A5E122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED72FF25E778F700A5E122 /* SceneDelegate.swift */; };
 		0BED730225E778F700A5E122 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED730125E778F700A5E122 /* MainViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0BED72FA25E778F700A5E122 /* Minimum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minimum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BED72FD25E778F700A5E122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BED72FF25E778F700A5E122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				0BED72FF25E778F700A5E122 /* SceneDelegate.swift */,
 				0BED730125E778F700A5E122 /* MainViewController.swift */,
 				0BED730325E778F700A5E122 /* Main.storyboard */,
+				0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */,
 				0BED730925E778FA00A5E122 /* Assets.xcassets */,
 				0BED730B25E778FA00A5E122 /* LaunchScreen.storyboard */,
 				0BED730E25E778FA00A5E122 /* Info.plist */,
@@ -402,6 +405,7 @@
 			files = (
 				0BED730825E778F700A5E122 /* Minimum.xcdatamodeld in Sources */,
 				0BED730225E778F700A5E122 /* MainViewController.swift in Sources */,
+				0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */,
 				0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */,
 				0BED733925E7795800A5E122 /* RecordViewController.swift in Sources */,
 				0BED730025E778F700A5E122 /* SceneDelegate.swift in Sources */,
