@@ -23,16 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Pl2-kM-doL">
-                                <rect key="frame" x="16" y="44" width="360" height="766"/>
+                                <rect key="frame" x="16" y="44" width="358" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJh-iC-vFd">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="294"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="294"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="268" translatesAutoresizingMaskIntoConstraints="NO" id="viw-ue-anT">
-                                                <rect key="frame" x="20" y="20" width="320" height="24"/>
+                                                <rect key="frame" x="20" y="20" width="318" height="24"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGz-An-axV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="MfX-pK-cqu"/>
                                                             <constraint firstAttribute="width" constant="26" id="mNL-Xw-euK"/>
@@ -46,7 +46,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-5W-lRY">
-                                                        <rect key="frame" x="294" y="0.0" width="26" height="24"/>
+                                                        <rect key="frame" x="293" y="0.0" width="25" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="4C8-oE-viz"/>
                                                             <constraint firstAttribute="width" constant="24" id="BoI-8k-nVE"/>
@@ -55,7 +55,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="gpl-VA-zBP" kind="show" id="uLm-HJ-zh8"/>
+                                                            <segue destination="cMR-IV-hsZ" kind="show" id="6kn-Nx-xNy"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -67,7 +67,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-N0-CRK">
-                                                <rect key="frame" x="60.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
+                                                <rect key="frame" x="59.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-gG-uqj">
                                                         <rect key="frame" x="96.999999999999986" y="0.0" width="45.000000000000014" height="48"/>
@@ -106,7 +106,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDB-SZ-Pvy">
-                                        <rect key="frame" x="0.0" y="318" width="360" height="350"/>
+                                        <rect key="frame" x="0.0" y="318" width="358" height="350"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt8-7F-V37">
                                                 <rect key="frame" x="8" y="8" width="68.333333333333329" height="20"/>
@@ -115,46 +115,46 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-qN-gIL">
-                                                <rect key="frame" x="8" y="46" width="344" height="20"/>
+                                                <rect key="frame" x="8" y="46" width="342" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tup-hb-2kk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="36.333333333333336" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-iO-dzv">
-                                                        <rect key="frame" x="51.333333333333329" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <rect key="frame" x="51" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCR-BV-obg">
-                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <rect key="frame" x="102" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaL-l8-bJp">
-                                                        <rect key="frame" x="154" y="0.0" width="36" height="20"/>
+                                                        <rect key="frame" x="153" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-5g-kgd">
-                                                        <rect key="frame" x="205" y="0.0" width="36.333333333333343" height="20"/>
+                                                        <rect key="frame" x="204" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STB-pz-pj9">
-                                                        <rect key="frame" x="256.33333333333331" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <rect key="frame" x="255" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-ye-Ss3">
-                                                        <rect key="frame" x="307.66666666666669" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <rect key="frame" x="306" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-hy-gLM">
-                                                <rect key="frame" x="288.66666666666669" y="8" width="63.333333333333314" height="22"/>
+                                                <rect key="frame" x="286.66666666666669" y="8" width="63.333333333333314" height="22"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0or-KB-l3f">
                                                         <rect key="frame" x="0.0" y="0.0" width="19.666666666666668" height="22"/>
@@ -183,7 +183,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-eT-5Gw">
-                                                <rect key="frame" x="8" y="74" width="344" height="276"/>
+                                                <rect key="frame" x="8" y="74" width="342" height="276"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cKs-a7-A57">
@@ -245,7 +245,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-MT-0f5">
-                                        <rect key="frame" x="156" y="692" width="48" height="74"/>
+                                        <rect key="frame" x="155" y="692" width="48" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="Pa3-1k-c97"/>
                                             <constraint firstAttribute="width" constant="48" id="sFJ-6g-RUq"/>
@@ -363,32 +363,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdX-mK-36J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1790.7692307692307" y="-634.12322274881512"/>
-        </scene>
-        <!--차트 보기-->
-        <scene sceneID="nUU-4c-H6S">
-            <objects>
-                <viewController id="gpl-VA-zBP" customClass="ChartViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="swK-ba-MIU">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dej-x7-bYE">
-                                <rect key="frame" x="16" y="44" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="gpl-VA-zBP" eventType="touchUpInside" id="U90-Tz-1sd"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="JVx-wU-PnW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="차트 보기" largeTitleDisplayMode="never" id="eGK-T0-vwD"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b55-zh-jFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1792.753623188406" y="83.705357142857139"/>
         </scene>
         <!--체중 기록하기-->
         <scene sceneID="WQo-QN-cdh">
@@ -737,6 +711,108 @@
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="83.705357142857139"/>
         </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="YFT-f3-wa0">
+            <objects>
+                <viewController id="cMR-IV-hsZ" customClass="ChartViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YeE-0g-1gM">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5Y-C4-a7o">
+                                <rect key="frame" x="0.0" y="615" width="390" height="229"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxx-Wf-LuF">
+                                        <rect key="frame" x="0.0" y="20" width="390" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="Cqd-xF-pRy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.3 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-NC-bzN">
+                                        <rect key="frame" x="0.0" y="90" width="390" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양 음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Vd-poK">
+                                        <rect key="frame" x="0.0" y="149" width="390" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="AXR-c7-OAN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92878693339999996" green="0.94462329150000002" blue="0.97779244180000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="229" id="5Fo-QL-Ubf"/>
+                                    <constraint firstItem="Xnw-NC-bzN" firstAttribute="leading" secondItem="h5Y-C4-a7o" secondAttribute="leading" id="63i-5r-6nf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vxx-Wf-LuF" secondAttribute="trailing" id="IkB-7K-bK4"/>
+                                    <constraint firstItem="Vxx-Wf-LuF" firstAttribute="leading" secondItem="h5Y-C4-a7o" secondAttribute="leading" id="JGf-b7-edT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9F-Vd-poK" secondAttribute="trailing" id="Kgf-Zt-rf1"/>
+                                    <constraint firstItem="Vxx-Wf-LuF" firstAttribute="top" secondItem="h5Y-C4-a7o" secondAttribute="top" constant="20" id="Qqx-mE-bYO"/>
+                                    <constraint firstItem="Xnw-NC-bzN" firstAttribute="top" secondItem="Vxx-Wf-LuF" secondAttribute="bottom" constant="24" id="ZEn-3d-GMy"/>
+                                    <constraint firstItem="Q9F-Vd-poK" firstAttribute="leading" secondItem="h5Y-C4-a7o" secondAttribute="leading" id="ncy-wc-adA"/>
+                                    <constraint firstItem="Q9F-Vd-poK" firstAttribute="top" secondItem="Xnw-NC-bzN" secondAttribute="bottom" constant="10" id="upo-Up-den"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xnw-NC-bzN" secondAttribute="trailing" id="xky-48-3yw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38t-Eo-08R" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="17" y="28" width="356" height="587"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dMW-js-32m">
+                                        <rect key="frame" x="90" y="524" width="176" height="32"/>
+                                        <color key="backgroundColor" red="0.92878693339999996" green="0.94462329150000002" blue="0.97779244180000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="176" id="1rb-nT-ocB"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Day"/>
+                                            <segment title="Week"/>
+                                            <segment title="Month"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="DayChangeButton:" destination="cMR-IV-hsZ" eventType="valueChanged" id="nQ9-ak-dlJ"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dMW-js-32m" firstAttribute="centerX" secondItem="38t-Eo-08R" secondAttribute="centerX" id="9Cu-E3-hEN"/>
+                                    <constraint firstItem="dMW-js-32m" firstAttribute="top" secondItem="38t-Eo-08R" secondAttribute="top" constant="524" id="MAL-PF-cS5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fn5-rQ-Cun"/>
+                        <color key="backgroundColor" red="0.2075890303" green="0.49324643610000002" blue="0.96272438760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="h5Y-C4-a7o" firstAttribute="top" secondItem="38t-Eo-08R" secondAttribute="bottom" id="Q4u-qR-ZJz"/>
+                            <constraint firstItem="fn5-rQ-Cun" firstAttribute="trailing" secondItem="38t-Eo-08R" secondAttribute="trailing" constant="17" id="QHD-wp-vq6"/>
+                            <constraint firstAttribute="bottom" secondItem="h5Y-C4-a7o" secondAttribute="bottom" id="a0N-9k-k6e"/>
+                            <constraint firstItem="h5Y-C4-a7o" firstAttribute="leading" secondItem="fn5-rQ-Cun" secondAttribute="leading" id="dfA-ce-5fG"/>
+                            <constraint firstItem="38t-Eo-08R" firstAttribute="leading" secondItem="fn5-rQ-Cun" secondAttribute="leading" constant="17" id="fJV-ZA-faN"/>
+                            <constraint firstItem="38t-Eo-08R" firstAttribute="top" secondItem="YeE-0g-1gM" secondAttribute="top" constant="28" id="muP-j1-ufX"/>
+                            <constraint firstItem="h5Y-C4-a7o" firstAttribute="trailing" secondItem="fn5-rQ-Cun" secondAttribute="trailing" id="w5I-ez-x4O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yJv-y5-1Dz"/>
+                    <connections>
+                        <outlet property="gainOrLose" destination="Q9F-Vd-poK" id="LyO-I9-0oR"/>
+                        <outlet property="lineChartView" destination="38t-Eo-08R" id="dQs-J9-bxy"/>
+                        <outlet property="period" destination="Vxx-Wf-LuF" id="DoI-AO-Xit"/>
+                        <outlet property="summaryView" destination="h5Y-C4-a7o" id="5dG-X6-qc7"/>
+                        <outlet property="weightVariation" destination="Xnw-NC-bzN" id="7Gd-QO-ePD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yke-Gm-FGf" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790.7692307692307" y="82.464454976303315"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Frame1" width="329" height="4"/>
@@ -754,9 +830,6 @@
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
