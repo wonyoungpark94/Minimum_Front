@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B19B9EB2600AB3F007EC75C /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19B9EA2600AB3F007EC75C /* LockViewController.swift */; };
 		0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */; };
+		0B8B85BB260055B70092B44A /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */; };
 		0BBBF26525FC83B5008C04DC /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */; };
 		0BBBF26A25FC83DB008C04DC /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBF26925FC83DB008C04DC /* CalendarCell.swift */; };
 		0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED72FD25E778F700A5E122 /* AppDelegate.swift */; };
@@ -45,7 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B19B9EA2600AB3F007EC75C /* LockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
 		0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
 		0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		0BBBF26925FC83DB008C04DC /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		0BED72FA25E778F700A5E122 /* Minimum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minimum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,14 +109,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BBBF26E25FC855D008C04DC /* Cal */ = {
+		0B19B9E92600AB22007EC75C /* LockVC */ = {
+			isa = PBXGroup;
+			children = (
+				0B19B9EA2600AB3F007EC75C /* LockViewController.swift */,
+			);
+			path = LockVC;
+			sourceTree = "<group>";
+		};
+		0B8B85B92600557B0092B44A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		0B8B85C52600987C0092B44A /* RecordVC */ = {
+			isa = PBXGroup;
+			children = (
+				0BED733825E7795800A5E122 /* RecordViewController.swift */,
+			);
+			path = RecordVC;
+			sourceTree = "<group>";
+		};
+		0B8B85C6260098A10092B44A /* HistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				0BED733D25E7796300A5E122 /* HistoryViewController.swift */,
+				0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */,
+			);
+			path = HistoryVC;
+			sourceTree = "<group>";
+		};
+		0B8B85C7260098B00092B44A /* ChartVC */ = {
+			isa = PBXGroup;
+			children = (
+				0BED733325E7794800A5E122 /* ChartViewController.swift */,
+			);
+			path = ChartVC;
+			sourceTree = "<group>";
+		};
+		0B8B85D4260098E10092B44A /* etc */ = {
+			isa = PBXGroup;
+			children = (
+				0BED72FD25E778F700A5E122 /* AppDelegate.swift */,
+				0BED72FF25E778F700A5E122 /* SceneDelegate.swift */,
+				0BED730325E778F700A5E122 /* Main.storyboard */,
+				0BED730925E778FA00A5E122 /* Assets.xcassets */,
+				0BED730B25E778FA00A5E122 /* LaunchScreen.storyboard */,
+				0B8B85B92600557B0092B44A /* Font */,
+			);
+			path = etc;
+			sourceTree = "<group>";
+		};
+		0BBBF26E25FC855D008C04DC /* MainVC+Calendar */ = {
 			isa = PBXGroup;
 			children = (
 				0BED730125E778F700A5E122 /* MainViewController.swift */,
 				0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */,
 				0BBBF26925FC83DB008C04DC /* CalendarCell.swift */,
 			);
-			path = Cal;
+			path = "MainVC+Calendar";
 			sourceTree = "<group>";
 		};
 		0BED72F125E778F700A5E122 = {
@@ -140,16 +198,12 @@
 		0BED72FC25E778F700A5E122 /* Minimum */ = {
 			isa = PBXGroup;
 			children = (
-				0BBBF26E25FC855D008C04DC /* Cal */,
-				0BED733D25E7796300A5E122 /* HistoryViewController.swift */,
-				0BED733825E7795800A5E122 /* RecordViewController.swift */,
-				0BED733325E7794800A5E122 /* ChartViewController.swift */,
-				0BED72FD25E778F700A5E122 /* AppDelegate.swift */,
-				0BED72FF25E778F700A5E122 /* SceneDelegate.swift */,
-				0BED730325E778F700A5E122 /* Main.storyboard */,
-				0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */,
-				0BED730925E778FA00A5E122 /* Assets.xcassets */,
-				0BED730B25E778FA00A5E122 /* LaunchScreen.storyboard */,
+				0BBBF26E25FC855D008C04DC /* MainVC+Calendar */,
+				0B8B85C7260098B00092B44A /* ChartVC */,
+				0B19B9E92600AB22007EC75C /* LockVC */,
+				0B8B85C52600987C0092B44A /* RecordVC */,
+				0B8B85C6260098A10092B44A /* HistoryVC */,
+				0B8B85D4260098E10092B44A /* etc */,
 				0BED730E25E778FA00A5E122 /* Info.plist */,
 				0BED730625E778F700A5E122 /* Minimum.xcdatamodeld */,
 			);
@@ -305,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BED730D25E778FA00A5E122 /* LaunchScreen.storyboard in Resources */,
+				0B8B85BB260055B70092B44A /* GamjaFlower-Regular.ttf in Resources */,
 				0BED730A25E778FA00A5E122 /* Assets.xcassets in Resources */,
 				0BED730525E778F700A5E122 /* Main.storyboard in Resources */,
 			);
@@ -418,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BED730825E778F700A5E122 /* Minimum.xcdatamodeld in Sources */,
+				0B19B9EB2600AB3F007EC75C /* LockViewController.swift in Sources */,
 				0BBBF26525FC83B5008C04DC /* CalendarHelper.swift in Sources */,
 				0BED730225E778F700A5E122 /* MainViewController.swift in Sources */,
 				0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */,

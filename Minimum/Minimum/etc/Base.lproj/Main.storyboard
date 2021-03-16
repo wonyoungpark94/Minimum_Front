@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9QJ-9V-tSI">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GamjaFlower-Regular.ttf">
+            <string>GamjaFlower-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Pl2-kM-doL">
+                                <rect key="frame" x="16" y="44" width="360" height="766"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJh-iC-vFd">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="294"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="268" translatesAutoresizingMaskIntoConstraints="NO" id="viw-ue-anT">
+                                                <rect key="frame" x="20" y="20" width="320" height="24"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGz-An-axV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="MfX-pK-cqu"/>
+                                                            <constraint firstAttribute="width" constant="26" id="mNL-Xw-euK"/>
+                                                        </constraints>
+                                                        <color key="tintColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" image="eye.slash.fill" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="Lng-fi-wyS" kind="show" id="S0g-ly-Y3e"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-5W-lRY">
+                                                        <rect key="frame" x="294" y="0.0" width="26" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="4C8-oE-viz"/>
+                                                            <constraint firstAttribute="width" constant="24" id="BoI-8k-nVE"/>
+                                                        </constraints>
+                                                        <state key="normal" image="buttonChart">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="gpl-VA-zBP" kind="show" id="uLm-HJ-zh8"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="WmT-5W-lRY" firstAttribute="top" secondItem="viw-ue-anT" secondAttribute="top" id="CXN-FQ-KEV"/>
+                                                    <constraint firstItem="pGz-An-axV" firstAttribute="leading" secondItem="viw-ue-anT" secondAttribute="leading" id="DrX-Ac-KEu"/>
+                                                    <constraint firstItem="pGz-An-axV" firstAttribute="top" secondItem="viw-ue-anT" secondAttribute="top" id="axH-RH-MjW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WmT-5W-lRY" secondAttribute="trailing" id="fT7-wd-Qul"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-N0-CRK">
+                                                <rect key="frame" x="60.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-gG-uqj">
+                                                        <rect key="frame" x="96.999999999999986" y="0.0" width="45.000000000000014" height="48"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.5 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZX-fh-kkj">
+                                                        <rect key="frame" x="51.333333333333329" y="54.999999999999986" width="136.33333333333337" height="52"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="52"/>
+                                                        <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55.15kg &gt;&gt; 55.00kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrb-KU-E0x">
+                                                        <rect key="frame" x="62.666666666666664" y="113.99999999999999" width="113.66666666666669" height="17.000000000000014"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                        <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03.01부터 지금까지 아보카도 1개만큼 :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAL-7T-bdL">
+                                                        <rect key="frame" x="0.0" y="138" width="238.66666666666666" height="17"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                        <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.47843137254901957" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="viw-ue-anT" secondAttribute="trailing" constant="20" id="9bO-s3-pfj"/>
+                                            <constraint firstItem="8oX-N0-CRK" firstAttribute="centerY" secondItem="jJh-iC-vFd" secondAttribute="centerY" id="RBt-94-8Ax"/>
+                                            <constraint firstItem="viw-ue-anT" firstAttribute="leading" secondItem="jJh-iC-vFd" secondAttribute="leading" constant="20" id="RjR-zY-J7Q"/>
+                                            <constraint firstItem="8oX-N0-CRK" firstAttribute="centerX" secondItem="jJh-iC-vFd" secondAttribute="centerX" id="rkv-nJ-9d8"/>
+                                            <constraint firstItem="viw-ue-anT" firstAttribute="top" secondItem="jJh-iC-vFd" secondAttribute="top" constant="20" id="zi2-H5-6cX"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDB-SZ-Pvy">
+                                        <rect key="frame" x="0.0" y="318" width="360" height="350"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt8-7F-V37">
+                                                <rect key="frame" x="8" y="8" width="68.333333333333329" height="20"/>
+                                                <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-qN-gIL">
+                                                <rect key="frame" x="8" y="46" width="344" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tup-hb-2kk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="36.333333333333336" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-iO-dzv">
+                                                        <rect key="frame" x="51.333333333333329" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCR-BV-obg">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaL-l8-bJp">
+                                                        <rect key="frame" x="154" y="0.0" width="36" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-5g-kgd">
+                                                        <rect key="frame" x="205" y="0.0" width="36.333333333333343" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STB-pz-pj9">
+                                                        <rect key="frame" x="256.33333333333331" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-ye-Ss3">
+                                                        <rect key="frame" x="307.66666666666669" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-hy-gLM">
+                                                <rect key="frame" x="288.66666666666669" y="8" width="63.333333333333314" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0or-KB-l3f">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19.666666666666668" height="22"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="arrowshape.turn.up.backward.circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="previousMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVe-3o-dOr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3R-Q9-CjU">
+                                                        <rect key="frame" x="43.666666666666629" y="0.0" width="19.666666666666671" height="22"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="arrowshape.turn.up.right.circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="nextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X4N-lY-3n4"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-eT-5Gw">
+                                                <rect key="frame" x="8" y="74" width="344" height="276"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cKs-a7-A57">
+                                                    <size key="itemSize" width="20" height="20"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calCell" id="vNW-be-qmK" customClass="CalendarCell" customModule="Minimum" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7e1-LQ-LlA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoD-A7-R8H">
+                                                                    <rect key="frame" x="8" y="1" width="4.3333333333333321" height="18"/>
+                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="18"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="highlightedColor" systemColor="labelColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="QoD-A7-R8H" firstAttribute="centerY" secondItem="7e1-LQ-LlA" secondAttribute="centerY" id="Of1-ul-LCo"/>
+                                                                <constraint firstItem="QoD-A7-R8H" firstAttribute="centerX" secondItem="7e1-LQ-LlA" secondAttribute="centerX" id="bX0-TH-n7C"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <size key="customSize" width="20" height="20"/>
+                                                        <connections>
+                                                            <outlet property="dayOfMonth" destination="QoD-A7-R8H" id="Zzh-Wp-Cm7"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CTS-XW-0LE"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UnH-Yy-A84"/>
+                                                </connections>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="nvW-eT-5Gw" secondAttribute="trailing" constant="8" id="38d-ca-Rka"/>
+                                            <constraint firstItem="nvW-eT-5Gw" firstAttribute="top" secondItem="ijE-qN-gIL" secondAttribute="bottom" constant="8" id="4jA-jL-t5Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="DPF-hy-gLM" secondAttribute="trailing" constant="8" id="8Ri-ES-sBq"/>
+                                            <constraint firstAttribute="height" constant="350" id="BKs-qT-GU7"/>
+                                            <constraint firstAttribute="trailing" secondItem="ijE-qN-gIL" secondAttribute="trailing" constant="8" id="KcT-vB-ODv"/>
+                                            <constraint firstItem="nvW-eT-5Gw" firstAttribute="leading" secondItem="NDB-SZ-Pvy" secondAttribute="leading" constant="8" id="NAj-ma-wQC"/>
+                                            <constraint firstItem="ijE-qN-gIL" firstAttribute="leading" secondItem="NDB-SZ-Pvy" secondAttribute="leading" constant="8" id="Pei-yi-mOc"/>
+                                            <constraint firstItem="Yt8-7F-V37" firstAttribute="leading" secondItem="NDB-SZ-Pvy" secondAttribute="leading" constant="8" id="iGQ-fx-Jbj"/>
+                                            <constraint firstItem="ijE-qN-gIL" firstAttribute="top" secondItem="DPF-hy-gLM" secondAttribute="bottom" constant="16" id="si1-Ot-mM1"/>
+                                            <constraint firstItem="Yt8-7F-V37" firstAttribute="top" secondItem="NDB-SZ-Pvy" secondAttribute="top" constant="8" id="tT9-vO-ipq"/>
+                                            <constraint firstItem="DPF-hy-gLM" firstAttribute="top" secondItem="NDB-SZ-Pvy" secondAttribute="top" constant="8" id="uQJ-bO-RRq"/>
+                                            <constraint firstAttribute="bottom" secondItem="nvW-eT-5Gw" secondAttribute="bottom" id="wnb-ZX-A7j"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-MT-0f5">
+                                        <rect key="frame" x="156" y="692" width="48" height="74"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="74" id="Pa3-1k-c97"/>
+                                            <constraint firstAttribute="width" constant="48" id="sFJ-6g-RUq"/>
+                                        </constraints>
+                                        <state key="normal" image="buttonRecord"/>
+                                        <connections>
+                                            <segue destination="edq-UH-L1M" kind="show" id="bYg-Ro-jYh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NDB-SZ-Pvy" firstAttribute="leading" secondItem="Pl2-kM-doL" secondAttribute="leading" id="7Yy-uP-zCc"/>
+                                    <constraint firstAttribute="trailing" secondItem="NDB-SZ-Pvy" secondAttribute="trailing" id="B0K-Ci-HH0"/>
+                                    <constraint firstAttribute="trailing" secondItem="jJh-iC-vFd" secondAttribute="trailing" id="BLY-pA-7EL"/>
+                                    <constraint firstItem="aX1-MT-0f5" firstAttribute="centerX" secondItem="Pl2-kM-doL" secondAttribute="centerX" id="Bk1-XL-zHt"/>
+                                    <constraint firstItem="jJh-iC-vFd" firstAttribute="leading" secondItem="Pl2-kM-doL" secondAttribute="leading" id="EVZ-A8-aXL"/>
+                                    <constraint firstItem="jJh-iC-vFd" firstAttribute="top" secondItem="Pl2-kM-doL" secondAttribute="top" id="IQ9-Qh-HmR"/>
+                                    <constraint firstAttribute="bottom" secondItem="aX1-MT-0f5" secondAttribute="bottom" id="IRo-Ix-h1e"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pl2-kM-doL" secondAttribute="trailing" constant="16" id="AdZ-34-wav"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pl2-kM-doL" secondAttribute="bottom" id="Cyo-fR-9dc"/>
+                            <constraint firstItem="Pl2-kM-doL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="U8O-NL-7C8"/>
+                            <constraint firstItem="Pl2-kM-doL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r16-Tu-a0q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vue-iH-ZEU"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nvW-eT-5Gw" id="V2t-Do-HqM"/>
+                        <outlet property="mainView" destination="jJh-iC-vFd" id="LSY-fZ-iPI"/>
+                        <outlet property="monthLabel" destination="Yt8-7F-V37" id="Qa0-tf-Niy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015.3846153846154" y="83.175355450236964"/>
+        </scene>
+        <!--Lock View Controller-->
+        <scene sceneID="pNP-Dq-wAs">
+            <objects>
+                <viewController id="Lng-fi-wyS" customClass="LockViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yhL-NB-BK4">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="GiY-8v-b3D">
+                                <rect key="frame" x="97.666666666666686" y="148" width="195" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="암호해제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZg-DM-vOA">
+                                        <rect key="frame" x="45.999999999999986" y="0.0" width="103.00000000000001" height="32"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화면에 실제 체중이 표기됩니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yo3-8F-g6K">
+                                        <rect key="frame" x="0.0" y="58" width="195" height="17"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="256" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-Lf-eHh">
+                                <rect key="frame" x="24" y="68" width="342" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-mL-1t1">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="32"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="Lng-fi-wyS" eventType="touchUpInside" id="ql1-RE-7Ab"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-sx-nW5">
+                                        <rect key="frame" x="312" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                        <state key="normal" title="완료"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Dhw-sx-nW5" firstAttribute="top" secondItem="ftQ-Lf-eHh" secondAttribute="top" id="d8e-5h-Gay"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dhw-sx-nW5" secondAttribute="trailing" id="fee-Wt-kUS"/>
+                                </constraints>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="****" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfn-t5-7nX">
+                                <rect key="frame" x="45" y="267" width="300" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="CjY-FT-g65"/>
+                                    <constraint firstAttribute="height" constant="64" id="OIX-go-AC8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="32"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ax6-0t-M5p"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GiY-8v-b3D" firstAttribute="top" secondItem="ftQ-Lf-eHh" secondAttribute="bottom" constant="48" id="AL5-kj-jTa"/>
+                            <constraint firstItem="kfn-t5-7nX" firstAttribute="centerX" secondItem="Ax6-0t-M5p" secondAttribute="centerX" id="D9O-ux-5d3"/>
+                            <constraint firstItem="ftQ-Lf-eHh" firstAttribute="top" secondItem="Ax6-0t-M5p" secondAttribute="top" constant="24" id="GA7-CT-0Ib"/>
+                            <constraint firstItem="ftQ-Lf-eHh" firstAttribute="leading" secondItem="Ax6-0t-M5p" secondAttribute="leading" constant="24" id="OgG-ZS-pAW"/>
+                            <constraint firstItem="kfn-t5-7nX" firstAttribute="top" secondItem="GiY-8v-b3D" secondAttribute="bottom" constant="44" id="Zwb-II-IY9"/>
+                            <constraint firstItem="GiY-8v-b3D" firstAttribute="centerX" secondItem="Ax6-0t-M5p" secondAttribute="centerX" id="y3C-Q5-fov"/>
+                            <constraint firstItem="Ax6-0t-M5p" firstAttribute="trailing" secondItem="ftQ-Lf-eHh" secondAttribute="trailing" constant="24" id="zob-wP-KDa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ayj-Qz-9sk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdX-mK-36J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790.7692307692307" y="-634.12322274881512"/>
+        </scene>
+        <!--차트 보기-->
+        <scene sceneID="nUU-4c-H6S">
+            <objects>
+                <viewController id="gpl-VA-zBP" customClass="ChartViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="swK-ba-MIU">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dej-x7-bYE">
+                                <rect key="frame" x="16" y="44" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="gpl-VA-zBP" eventType="touchUpInside" id="U90-Tz-1sd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JVx-wU-PnW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="차트 보기" largeTitleDisplayMode="never" id="eGK-T0-vwD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b55-zh-jFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792.753623188406" y="83.705357142857139"/>
+        </scene>
+        <!--체중 기록하기-->
+        <scene sceneID="WQo-QN-cdh">
+            <objects>
+                <viewController id="edq-UH-L1M" customClass="RecordViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Kd-h1-vzD">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="L4N-h1-ka5">
+                                <rect key="frame" x="0.0" y="594" width="390" height="216"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                                <connections>
+                                    <action selector="selectDateAction:" destination="edq-UH-L1M" eventType="valueChanged" id="Asf-Hm-JP9"/>
+                                </connections>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="aSR-Gn-toL">
+                                <rect key="frame" x="24" y="68" width="342" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANq-gw-Pst">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="edq-UH-L1M" eventType="touchUpInside" id="2VO-ee-fnW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzQ-oQ-b7Q">
+                                        <rect key="frame" x="120" y="0.0" width="102" height="32"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                        <state key="normal" title="체중 기록하기">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showDateButton:" destination="edq-UH-L1M" eventType="touchUpInside" id="qxY-Ja-YQf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y9-7v-G8X">
+                                        <rect key="frame" x="312" y="0.0" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                        <state key="normal" title="완료"/>
+                                        <connections>
+                                            <action selector="completeButtonTapped:" destination="edq-UH-L1M" eventType="touchUpInside" id="ljj-3d-jbm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="AK7-FZ-YX5">
+                                <rect key="frame" x="24" y="112.00000000000003" width="342" height="483.66666666666674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="F6O-td-Yjf" userLabel="Stack View1">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="125.66666666666667"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame1" translatesAutoresizingMaskIntoConstraints="NO" id="rB2-lv-jeS">
+                                                <rect key="frame" x="0.0" y="0.0" width="329" height="4"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NDn-B7-uQG">
+                                                <rect key="frame" x="0.0" y="35" width="125" height="35"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZn-KU-yEI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89" height="29"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                        <state key="normal" title="3월 1일 2021년">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="showDateButton:" destination="edq-UH-L1M" eventType="touchUpInside" id="GUX-gZ-Rbw"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame2" translatesAutoresizingMaskIntoConstraints="NO" id="A4b-it-3WG">
+                                                        <rect key="frame" x="0.0" y="29" width="125" height="6"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="125" id="ARZ-5O-Nbd"/>
+                                                            <constraint firstAttribute="height" constant="6" id="LWM-cm-k7c"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GbT-sL-8rZ">
+                                                <rect key="frame" x="0.0" y="101" width="84" height="24.666666666666671"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gOp-iH-0Hb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="24.666666666666668"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x5C-wf-tYF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="62" height="18.666666666666668"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                            </textField>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame2" translatesAutoresizingMaskIntoConstraints="NO" id="qZQ-sG-aXa">
+                                                                <rect key="frame" x="0.0" y="18.666666666666657" width="62" height="6"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="6" id="Jpt-Ix-1Kk"/>
+                                                                    <constraint firstAttribute="width" constant="62" id="ny5-Xe-4Cn"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqK-GH-Ths">
+                                                        <rect key="frame" x="70" y="0.0" width="14" height="24.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-FO-8oT" userLabel="Stack View2">
+                                        <rect key="frame" x="0.0" y="180.66666666666669" width="342" height="132"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tOB-SN-U7A">
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="rND-7E-pLY"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 60" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-dQ-EyH">
+                                                <rect key="frame" x="0.0" y="115" width="342" height="17"/>
+                                                <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tOB-SN-U7A" firstAttribute="top" secondItem="sWG-FO-8oT" secondAttribute="top" id="7aM-7u-V3a"/>
+                                            <constraint firstAttribute="trailing" secondItem="tOB-SN-U7A" secondAttribute="trailing" id="JUF-Ip-2H0"/>
+                                            <constraint firstItem="tOB-SN-U7A" firstAttribute="leading" secondItem="sWG-FO-8oT" secondAttribute="leading" id="Ui6-WY-qr6"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4s-mF-arF" userLabel="Stack View3">
+                                        <rect key="frame" x="0.0" y="367.66666666666669" width="342" height="116"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame4" translatesAutoresizingMaskIntoConstraints="NO" id="edw-sR-Jdx">
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="4"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="fMy-A7-Zx1">
+                                                <rect key="frame" x="0.0" y="21" width="342" height="74"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="눈바디 기록하기" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KZ-rc-ydd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="168" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="130" id="fOl-P4-Xms"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CB-S9-iIi">
+                                                        <rect key="frame" x="268" y="0.0" width="74" height="74"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9t-sn-MCB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="74"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="74" id="IzQ-Z2-4a4"/>
+                                                                    <constraint firstAttribute="height" constant="74" id="l3s-IP-gEj"/>
+                                                                </constraints>
+                                                                <state key="normal" image="buttonCamera"/>
+                                                                <connections>
+                                                                    <action selector="cameraButton:" destination="edq-UH-L1M" eventType="touchUpInside" id="ecG-ZL-dsU"/>
+                                                                </connections>
+                                                            </button>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLh-Hx-qeW">
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="74"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="74" id="fEu-aJ-CLL"/>
+                                                                    <constraint firstAttribute="width" constant="74" id="jVw-T4-h8s"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="HLh-Hx-qeW" firstAttribute="centerY" secondItem="8CB-S9-iIi" secondAttribute="centerY" id="5Hx-dJ-9ka"/>
+                                                            <constraint firstAttribute="width" constant="74" id="PFh-O3-47S"/>
+                                                            <constraint firstItem="L9t-sn-MCB" firstAttribute="centerX" secondItem="8CB-S9-iIi" secondAttribute="centerX" id="RPu-Df-0AB"/>
+                                                            <constraint firstItem="HLh-Hx-qeW" firstAttribute="centerX" secondItem="8CB-S9-iIi" secondAttribute="centerX" id="gxM-Sr-7Nl"/>
+                                                            <constraint firstAttribute="height" constant="74" id="ooX-OY-xAp"/>
+                                                            <constraint firstItem="L9t-sn-MCB" firstAttribute="centerY" secondItem="8CB-S9-iIi" secondAttribute="centerY" id="rrg-O9-TMx"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame5" translatesAutoresizingMaskIntoConstraints="NO" id="dc9-dk-Hc5">
+                                                <rect key="frame" x="0.0" y="111.99999999999994" width="342" height="4"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fxV-EC-FoQ"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="L4N-h1-ka5" firstAttribute="bottom" secondItem="fxV-EC-FoQ" secondAttribute="bottom" id="2Se-JT-uXa"/>
+                            <constraint firstItem="L4N-h1-ka5" firstAttribute="leading" secondItem="fxV-EC-FoQ" secondAttribute="leading" id="4RU-Ju-LSK"/>
+                            <constraint firstItem="fxV-EC-FoQ" firstAttribute="trailing" secondItem="aSR-Gn-toL" secondAttribute="trailing" constant="24" id="5Fc-QE-dIC"/>
+                            <constraint firstItem="L4N-h1-ka5" firstAttribute="trailing" secondItem="fxV-EC-FoQ" secondAttribute="trailing" id="BHZ-63-8Gg"/>
+                            <constraint firstItem="L4N-h1-ka5" firstAttribute="leading" secondItem="fxV-EC-FoQ" secondAttribute="leading" id="CyZ-ZH-pjU"/>
+                            <constraint firstItem="L4N-h1-ka5" firstAttribute="trailing" secondItem="fxV-EC-FoQ" secondAttribute="trailing" id="H7L-KD-Dpk"/>
+                            <constraint firstItem="aSR-Gn-toL" firstAttribute="leading" secondItem="fxV-EC-FoQ" secondAttribute="leading" constant="24" id="QBh-0h-6B7"/>
+                            <constraint firstItem="fxV-EC-FoQ" firstAttribute="bottom" secondItem="L4N-h1-ka5" secondAttribute="bottom" id="e9a-sd-vQi"/>
+                            <constraint firstItem="aSR-Gn-toL" firstAttribute="top" secondItem="fxV-EC-FoQ" secondAttribute="top" constant="24" id="hQ2-9T-a1l"/>
+                            <constraint firstAttribute="trailing" secondItem="AK7-FZ-YX5" secondAttribute="trailing" constant="24" id="iuI-Pk-FLo"/>
+                            <constraint firstItem="AK7-FZ-YX5" firstAttribute="leading" secondItem="fxV-EC-FoQ" secondAttribute="leading" constant="24" id="rZt-SU-YXj"/>
+                            <constraint firstItem="AK7-FZ-YX5" firstAttribute="top" secondItem="aSR-Gn-toL" secondAttribute="bottom" constant="12" id="rcQ-hi-dBy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="체중 기록하기" largeTitleDisplayMode="never" id="osC-AO-5wl">
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="RTt-Sp-HW0"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="countCharacterLabel" destination="aRB-dQ-EyH" id="E2W-54-T2J"/>
+                        <outlet property="imageView" destination="HLh-Hx-qeW" id="hJ5-BX-3Ml"/>
+                        <outlet property="memoTextView" destination="tOB-SN-U7A" id="UnE-hZ-WAV"/>
+                        <outlet property="recordedDate" destination="ZZn-KU-yEI" id="JtO-78-7my"/>
+                        <outlet property="selectDatePicker" destination="L4N-h1-ka5" id="55f-Xl-86p"/>
+                        <outlet property="weightTextField" destination="x5C-wf-tYF" id="o6K-0K-7f1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAM-sY-n4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790.7692307692307" y="809.71563981042652"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="Usk-Wc-r88">
+            <objects>
+                <viewController id="hZZ-N3-OKk" customClass="HistoryViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhI-Se-TFw">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="327" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-Cn-AJm">
+                                <rect key="frame" x="0.0" y="98" width="390" height="746"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="200" id="eye-6b-yHE" customClass="CustomTableViewCell" customModule="Minimum" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="390" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eye-6b-yHE" id="NaG-lP-Gma">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2021년 1월 21일 오전 10시 17분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwy-xC-b3G">
+                                                    <rect key="frame" x="20" y="35" width="215.66666666666666" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1일 전과 비교해서" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSm-aI-aTk">
+                                                    <rect key="frame" x="20" y="90" width="160" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKb-XH-oH9">
+                                                    <rect key="frame" x="348" y="159" width="19" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="trash.fill" catalog="system"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQr-rR-45V">
+                                                    <rect key="frame" x="338" y="34" width="24" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="photo.fill" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="어제 고은이랑 떡볶이를 먹었다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHO-vB-243">
+                                                    <rect key="frame" x="20" y="145" width="250" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+0.2kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB6-DD-2xX">
+                                                    <rect key="frame" x="170" y="78" width="82" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="32"/>
+                                                    <color key="textColor" red="0.88235294119999996" green="0.41960784309999999" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-Z9-XXq">
+                                                    <rect key="frame" x="313" y="159" width="18" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="pencil" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="cellView" destination="NaG-lP-Gma" id="VsC-6w-lK2"/>
+                                            <outlet property="dateLabel" destination="Zwy-xC-b3G" id="r5z-Rl-58h"/>
+                                            <outlet property="memoLabel" destination="YHO-vB-243" id="nXy-eA-fhF"/>
+                                            <outlet property="weightLabel" destination="vSm-aI-aTk" id="07s-Vq-oGl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTH-ip-Com">
+                                <rect key="frame" x="25" y="54" width="30" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3KN-fv-GRV"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="XBy-Cn-AJm" id="Aic-UV-G9a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYJ-BT-Usn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2582" y="810"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hpt-Wg-RYy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="9QJ-9V-tSI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Olq-FW-IWe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yGH-Fq-zPF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCZ-Ah-m0h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.79710144927537" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Frame1" width="329" height="4"/>
+        <image name="Frame2" width="119" height="1.3333333730697632"/>
+        <image name="Frame4" width="329" height="4"/>
+        <image name="Frame5" width="329" height="4"/>
+        <image name="arrowshape.turn.up.backward.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="buttonCamera" width="74" height="74"/>
+        <image name="buttonChart" width="24" height="24"/>
+        <image name="buttonRecord" width="48" height="54"/>
+        <image name="eye.slash.fill" catalog="system" width="128" height="82"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
