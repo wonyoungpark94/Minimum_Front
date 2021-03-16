@@ -28,6 +28,13 @@ class ChartViewController: UIViewController, ChartViewDelegate {
 
     @IBOutlet weak var lineChartView: LineChartView!
     
+    
+    @IBAction func backButton(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 
     @IBAction func DayChangeButton(_ sender: UISegmentedControl) {
            switch sender.selectedSegmentIndex{
@@ -132,6 +139,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
           yAxis.labelTextColor = .white
           yAxis.axisLineColor = .white
           yAxis.labelPosition = .outsideChart
+          yAxis.drawGridLinesEnabled = false
       }
     func ChartXaxis(xAxis: XAxis, xAxisFormat: Array<Any>){
           xAxis.labelPosition = .bottom
@@ -141,6 +149,8 @@ class ChartViewController: UIViewController, ChartViewDelegate {
           xAxis.axisLineColor = .white
           xAxis.labelCount =  5
           xAxis.axisMinimum = 0
+          xAxis.drawGridLinesEnabled = false
+
           //            // 날짜 변환
 
           xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisFormat as! [String])
