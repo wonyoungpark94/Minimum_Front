@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-MinimumTests/Pods-MinimumTests-frameworks.sh
+${PODS_ROOT}/Target Support Files/Pods-Minimum/Pods-Minimum-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
 ${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework

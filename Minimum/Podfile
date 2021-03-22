@@ -7,16 +7,8 @@ target 'Minimum' do
 
   # Pods for Minimum
 
-  target 'MinimumTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'Charts'
-    pod 'TinyConstraints'
-    pod 'FSCalendar'
-  end
-
-  target 'MinimumUITests' do
-    # Pods for testing
-  end
-
+  pod 'Charts'
+  pod 'TinyConstraints'
+  pod 'FSCalendar'
+  
 end
