@@ -11,20 +11,36 @@ import Foundation
 //import FSCalendar
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var selectedDate = Date()
     var totalSquares = [String]()
     
+    let firstRecordDays = ["03월 01일, 2021"]
+    let plusRecordDays = ["03월 02일, 2021"]
+    let minusRecordDays = ["03월 03일, 2021"]
+    let maintainRecordDays = ["03월 04일, 2021"]
+    let noRecordDays = ["03월 05일, 2021"]
+    let noTodayRecordDay = ["03월 24일, 2021"]
     
-    @IBOutlet weak var mainView: UIView!
+//    let data: [CalendarModel] = [CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "FirstRecord"),
+//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "TodayNoRecord"),
+//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "MinusRecord"),
+//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "PlusRecord"),
+//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "MaintainRecord"),
+//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "NoRecord")]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         mainView.layer.cornerRadius = 20
+        
+//        collectionView.dataSource = self
+//        collectionView.delegate = self
+        collectionView.register(UINib.init(nibName: "CalendarCell", bundle: nil), forCellWithReuseIdentifier: "CalendarCell")
         
         setCellsView()
         setMonthView()
@@ -75,6 +91,56 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
         
         cell.dayOfMonth.text = totalSquares[indexPath.item]
+        cell.label.text = totalSquares[indexPath.item]
+        
+        if (cell.dayOfMonth.text != "") {
+            let day = CalendarHelper().itemMonth(date: selectedDate, day: Int(cell.dayOfMonth.text!)!)
+//            print(day)
+            
+            if (firstRecordDays.contains(day)) {
+                cell.image.image = UIImage(named: "first_record.png")
+                cell.dayOfMonth.isHidden = true
+                cell.image.isHidden = false
+                cell.label.isHidden = false
+            }
+            else if (minusRecordDays.contains(day)) {
+//                cell.layer.backgroundColor = UIColor.blue.cgColor
+                cell.image.image = UIImage(named: "minus_record.png")
+                cell.dayOfMonth.isHidden = true
+                cell.image.isHidden = false
+                cell.label.isHidden = false
+            }
+            else if (plusRecordDays.contains(day)) {
+                cell.image.image = UIImage(named: "plus_record.png")
+                cell.dayOfMonth.isHidden = true
+                cell.image.isHidden = false
+                cell.label.isHidden = false
+            }
+            else if (maintainRecordDays.contains(day)) {
+                cell.image.image = UIImage(named: "maintain_record.png")
+                cell.dayOfMonth.isHidden = true
+                cell.image.isHidden = false
+                cell.label.isHidden = false
+            }
+            else if (noRecordDays.contains(day)) {
+                cell.image.image = UIImage(named: "no_record.png")
+                cell.dayOfMonth.isHidden = true
+                cell.image.isHidden = false
+                cell.label.isHidden = false
+            }
+            else if (noTodayRecordDay.contains(day)) {
+                cell.image.image = UIImage(named: "today_no_record.png")
+                cell.dayOfMonth.isHidden = true
+                cell.image.isHidden = false
+                cell.label.isHidden = false
+            }
+            else {
+                cell.dayOfMonth.isHidden = false
+                cell.image.isHidden = true
+                cell.label.isHidden = true
+            }
+            
+        }
         
         return cell
     }
