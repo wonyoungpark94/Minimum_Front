@@ -44,7 +44,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("----------")
             print("----------")
             print("----------")
-            print(loadedNoteFile)
+            print(loadedNoteFile[0])
             
             
         } else {

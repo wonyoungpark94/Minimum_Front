@@ -215,12 +215,22 @@ class RecordViewController: UIViewController, UITextViewDelegate {
                     
                     print(dataArray)
                     
+                    noteArray.append(note)
+                    print(">>>>>>>>")
+                    print(">>>>>>>>")
+                    print(noteArray)
+                    
+                    Note.saveToFile(notes: [noteArray])
+                    
                 } else {
                     print("새로운 날짜의 기록입니다.")
                     dataArray.append(data)
                     print(dataArray)
                     
                     noteArray.append(note)
+                    print(">>>>>>>>")
+                    print(">>>>>>>>")
+                    print(noteArray)
                     
                     Note.saveToFile(notes: [noteArray])
                 }
