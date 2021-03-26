@@ -8,7 +8,7 @@
 import UIKit
 
 //data 테스트
-struct Data {
+struct TestData {
     var date : Date?
     var weight : Double?
     var memo : String?
@@ -16,8 +16,12 @@ struct Data {
 }
 
 //data 테스트
-var data = Data(date: nil, weight: nil, memo: nil, image: nil)
-var dataArray = [Data]()
+var data = TestData(date: nil, weight: nil, memo: nil, image: nil)
+var dataArray = [TestData]()
+var note = Note(date: Date(), weight: nil, memo: nil)
+var noteArray = [Note]()
+
+//Emoji.saveToFile(emojis: emojisCategorized)
 
 class RecordViewController: UIViewController, UITextViewDelegate {
     
@@ -70,6 +74,9 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         
         //data
         data.date = date
+        
+        //저장용
+        note.date = date
     }
     
     //날짜// 클릭 시 하단에서 pickerView 보이기&숨기기
@@ -127,6 +134,9 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         
         //data
         data.memo = str
+        
+        //저장용
+        note.memo = str
         return newLength < limitLength
     }
     
@@ -162,6 +172,9 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         //data// 몸무게
         if let recordedWeight = Double(weightTextField.text!) {
             data.weight = recordedWeight
+            
+            //저장용
+            note.weight = recordedWeight
         } else { //몸무게 기록 없으면 alert
             showWeightInfoAlert()
         }
@@ -169,8 +182,16 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         
         data.memo = memoTextView.text
         
+        //저장용
+        note.memo = memoTextView.text
+        
         if dataArray.count == 0 { //기록이 없으면 바로 data 추가
             dataArray.append(data)
+            
+            noteArray.append(note)
+            
+            Note.saveToFile(notes: [noteArray])
+            
             print(dataArray)
         } else { //기록이 존재하면 날짜 같은 data update
             for recordedData in dataArray {
@@ -198,6 +219,10 @@ class RecordViewController: UIViewController, UITextViewDelegate {
                     print("새로운 날짜의 기록입니다.")
                     dataArray.append(data)
                     print(dataArray)
+                    
+                    noteArray.append(note)
+                    
+                    Note.saveToFile(notes: [noteArray])
                 }
                 
                 arrayNum += 1
