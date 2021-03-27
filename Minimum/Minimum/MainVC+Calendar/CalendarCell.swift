@@ -23,5 +23,16 @@ class CalendarCell: UICollectionViewCell
         image.image = model.image
         label.text = model.label
     }
+    
 
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                
+            }
+            else {
+                
+            }
+        }
+    }
 }

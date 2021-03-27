@@ -23,16 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Pl2-kM-doL">
-                                <rect key="frame" x="16" y="44" width="360" height="766"/>
+                                <rect key="frame" x="16" y="44" width="358" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJh-iC-vFd">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="294"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="294"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="268" translatesAutoresizingMaskIntoConstraints="NO" id="viw-ue-anT">
-                                                <rect key="frame" x="20" y="20" width="320" height="24"/>
+                                                <rect key="frame" x="20" y="20" width="318" height="24"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGz-An-axV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="MfX-pK-cqu"/>
                                                             <constraint firstAttribute="width" constant="26" id="mNL-Xw-euK"/>
@@ -46,7 +46,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-5W-lRY">
-                                                        <rect key="frame" x="294" y="0.0" width="26" height="24"/>
+                                                        <rect key="frame" x="293" y="0.0" width="25" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="4C8-oE-viz"/>
                                                             <constraint firstAttribute="width" constant="24" id="BoI-8k-nVE"/>
@@ -67,7 +67,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-N0-CRK">
-                                                <rect key="frame" x="60.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
+                                                <rect key="frame" x="59.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-gG-uqj">
                                                         <rect key="frame" x="96.999999999999986" y="0.0" width="45.000000000000014" height="48"/>
@@ -106,7 +106,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDB-SZ-Pvy">
-                                        <rect key="frame" x="0.0" y="318" width="360" height="350"/>
+                                        <rect key="frame" x="0.0" y="318" width="358" height="350"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt8-7F-V37">
                                                 <rect key="frame" x="8" y="8" width="68.333333333333329" height="20"/>
@@ -115,46 +115,46 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-qN-gIL">
-                                                <rect key="frame" x="8" y="46" width="344" height="20"/>
+                                                <rect key="frame" x="8" y="46" width="342" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tup-hb-2kk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="36.333333333333336" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-iO-dzv">
-                                                        <rect key="frame" x="51.333333333333329" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <rect key="frame" x="51" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCR-BV-obg">
-                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <rect key="frame" x="102" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaL-l8-bJp">
-                                                        <rect key="frame" x="154" y="0.0" width="36" height="20"/>
+                                                        <rect key="frame" x="153" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-5g-kgd">
-                                                        <rect key="frame" x="205" y="0.0" width="36.333333333333343" height="20"/>
+                                                        <rect key="frame" x="204" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STB-pz-pj9">
-                                                        <rect key="frame" x="256.33333333333331" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <rect key="frame" x="255" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-ye-Ss3">
-                                                        <rect key="frame" x="307.66666666666669" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <rect key="frame" x="306" y="0.0" width="36" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-hy-gLM">
-                                                <rect key="frame" x="288.66666666666669" y="8" width="63.333333333333314" height="22"/>
+                                                <rect key="frame" x="286.66666666666669" y="8" width="63.333333333333314" height="22"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0or-KB-l3f">
                                                         <rect key="frame" x="0.0" y="0.0" width="19.666666666666668" height="22"/>
@@ -183,7 +183,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-eT-5Gw">
-                                                <rect key="frame" x="8" y="74" width="344" height="276"/>
+                                                <rect key="frame" x="8" y="74" width="342" height="276"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cKs-a7-A57">
@@ -264,7 +264,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-MT-0f5">
-                                        <rect key="frame" x="156" y="692" width="48" height="74"/>
+                                        <rect key="frame" x="155" y="692" width="48" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="Pa3-1k-c97"/>
                                             <constraint firstAttribute="width" constant="48" id="sFJ-6g-RUq"/>
@@ -616,7 +616,7 @@
         <!--History View Controller-->
         <scene sceneID="Usk-Wc-r88">
             <objects>
-                <viewController id="hZZ-N3-OKk" customClass="HistoryViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryView" id="hZZ-N3-OKk" customClass="HistoryViewController" customModule="Minimum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uhI-Se-TFw">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -700,6 +700,9 @@
                                 <state key="normal" title="&lt;">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="backButton:" destination="hZZ-N3-OKk" eventType="touchUpInside" id="Cr2-Nw-0Fc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3KN-fv-GRV"/>
@@ -711,7 +714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYJ-BT-Usn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2582" y="810"/>
+            <point key="canvasLocation" x="2581.5384615384614" y="809.71563981042652"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hpt-Wg-RYy">

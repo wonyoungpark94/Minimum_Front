@@ -87,6 +87,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         totalSquares.count
     }
     
+    // 셀에 숫자를 입혀주고, 기록에 따라 적당한 아이콘을 보여줌
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
         
@@ -95,7 +96,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if (cell.dayOfMonth.text != "") {
             let day = CalendarHelper().itemMonth(date: selectedDate, day: Int(cell.dayOfMonth.text!)!)
-//            print(day)
             
             if (firstRecordDays.contains(day)) {
                 cell.image.image = UIImage(named: "first_record.png")
@@ -104,7 +104,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 cell.label.isHidden = false
             }
             else if (minusRecordDays.contains(day)) {
-//                cell.layer.backgroundColor = UIColor.blue.cgColor
                 cell.image.image = UIImage(named: "minus_record.png")
                 cell.dayOfMonth.isHidden = true
                 cell.image.isHidden = false
@@ -139,11 +138,49 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 cell.image.isHidden = true
                 cell.label.isHidden = true
             }
-            
+        }
+        else {
+            cell.dayOfMonth.isHidden = true
+            cell.image.isHidden = true
+            cell.label.isHidden = true
         }
         
         return cell
     }
+    
+    // 기록이 있는 날짜 셀 선택 시, HistoryView로 이동
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
+       
+        cell.dayOfMonth.text = totalSquares[indexPath.item]
+        cell.label.text = totalSquares[indexPath.item]
+        
+        if (cell.dayOfMonth.text != "") {
+            let day = CalendarHelper().itemMonth(date: selectedDate, day: Int(cell.dayOfMonth.text!)!)
+            
+            if (firstRecordDays.contains(day) || minusRecordDays.contains(day) || plusRecordDays.contains(day) || maintainRecordDays.contains(day)) {
+                
+                if cell.isSelected {
+                    collectionView.deselectItem(at: indexPath, animated: true)
+                    let vcName = self.storyboard?.instantiateViewController(withIdentifier: "HistoryView")
+                    vcName?.modalTransitionStyle = .coverVertical
+                    self.present(vcName!, animated: true, completion: nil)
+                    return false
+               }
+                else {
+                    return true
+               }
+            }
+        }
+        
+        if cell.isSelected {
+            collectionView.deselectItem(at: indexPath, animated: true)
+           return false
+       }
+        else {
+           return true
+        }
+   }
     
     @IBAction func previousMonth(_ sender: Any)
     {

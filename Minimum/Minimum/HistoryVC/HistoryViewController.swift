@@ -19,6 +19,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         var image : UIImage?
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBOutlet weak var tableView: UITableView!
     
