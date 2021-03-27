@@ -10,6 +10,7 @@
 		0B19B9EB2600AB3F007EC75C /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19B9EA2600AB3F007EC75C /* LockViewController.swift */; };
 		0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */; };
 		0B8B85BB260055B70092B44A /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */; };
+		0B9B13CF260EFDDE00BFB370 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B13CE260EFDDE00BFB370 /* Note.swift */; };
 		0BBBF26525FC83B5008C04DC /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */; };
 		0BBBF26A25FC83DB008C04DC /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBF26925FC83DB008C04DC /* CalendarCell.swift */; };
 		0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED72FD25E778F700A5E122 /* AppDelegate.swift */; };
@@ -22,7 +23,6 @@
 		0BED733425E7794800A5E122 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED733325E7794800A5E122 /* ChartViewController.swift */; };
 		0BED733925E7795800A5E122 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED733825E7795800A5E122 /* RecordViewController.swift */; };
 		0BED733E25E7796300A5E122 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED733D25E7796300A5E122 /* HistoryViewController.swift */; };
-		0BF2379D260DE7C30066D822 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2379C260DE7C30066D822 /* Note.swift */; };
 		11C6E318F435635EAEE96091 /* Pods_Minimum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD209D0ED305EF7A8596DE6 /* Pods_Minimum.framework */; };
 		57EC2ABC260B1A0900FE5E96 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EC2ABB260B1A0900FE5E96 /* CalendarModel.swift */; };
 		57EC2AC4260B243300FE5E96 /* maintain_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 57EC2ABE260B243300FE5E96 /* maintain_record.png */; };
@@ -50,6 +50,7 @@
 		0B19B9EA2600AB3F007EC75C /* LockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
 		0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
+		0B9B13CE260EFDDE00BFB370 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		0BBBF26925FC83DB008C04DC /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		0BED72FA25E778F700A5E122 /* Minimum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minimum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +65,6 @@
 		0BED733325E7794800A5E122 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		0BED733825E7795800A5E122 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		0BED733D25E7796300A5E122 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		0BF2379C260DE7C30066D822 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../../../../Note.swift; sourceTree = "<group>"; };
 		38F4D490B3F41A2810A92F19 /* Pods-Minimum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minimum.release.xcconfig"; path = "Target Support Files/Pods-Minimum/Pods-Minimum.release.xcconfig"; sourceTree = "<group>"; };
 		57EC2ABB260B1A0900FE5E96 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		57EC2ABE260B243300FE5E96 /* maintain_record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintain_record.png; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 		0BED72FC25E778F700A5E122 /* Minimum */ = {
 			isa = PBXGroup;
 			children = (
-				0BF2379C260DE7C30066D822 /* Note.swift */,
 				0BBBF26E25FC855D008C04DC /* MainVC+Calendar */,
 				0B8B85C7260098B00092B44A /* ChartVC */,
 				0B19B9E92600AB22007EC75C /* LockVC */,
@@ -185,6 +184,7 @@
 				0B8B85D4260098E10092B44A /* etc */,
 				0BED730E25E778FA00A5E122 /* Info.plist */,
 				0BED730625E778F700A5E122 /* Minimum.xcdatamodeld */,
+				0B9B13CE260EFDDE00BFB370 /* Note.swift */,
 			);
 			path = Minimum;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 				0B19B9EB2600AB3F007EC75C /* LockViewController.swift in Sources */,
 				0BBBF26525FC83B5008C04DC /* CalendarHelper.swift in Sources */,
 				0BED730225E778F700A5E122 /* MainViewController.swift in Sources */,
-				0BF2379D260DE7C30066D822 /* Note.swift in Sources */,
+				0B9B13CF260EFDDE00BFB370 /* Note.swift in Sources */,
 				0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */,
 				0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */,
 				0BED733925E7795800A5E122 /* RecordViewController.swift in Sources */,
