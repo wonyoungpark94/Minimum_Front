@@ -98,6 +98,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         //formmatting
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
         formatter.dateFormat = "MM월 dd일, 20YY"
 
         for i in 0..<countMinusOne {
@@ -116,6 +118,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let today = Date()
         let formatter = DateFormatter()
         var sameData = false
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
         formatter.dateFormat = "MM월 dd일, 20YY"
         
         for i in 0..<sortedNotes.count{

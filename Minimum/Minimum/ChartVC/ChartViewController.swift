@@ -26,8 +26,6 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-
     @IBAction func DayChangeButton(_ sender: UISegmentedControl) {
            switch sender.selectedSegmentIndex{
            case 0:
@@ -53,10 +51,17 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             break
             }
     }
+    var notes: [Note] = []
+    var sortedNotes: [Note] = []
     
+    var daysDic:[Int:Double] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+        sortData()
+        daysData()
+        
         view.backgroundColor = #colorLiteral(red: 0.2045887411, green: 0.4775372744, blue: 0.942905724, alpha: 1)
         // Do any additional setup after loading the view.
         setData(dataset: yValues, category: days)
@@ -68,13 +73,98 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         // Bottom display
         BottomDisplay(weightList: yValues)
     }
+    
+    //data 가져오기
+    func loadData(){
+        let loadedNoteFile = Note.loadFromFile()
+        
+        if loadedNoteFile.count > 0 { //data가 저장되어 있으면
+            notes = loadedNoteFile[0]
+            print(notes)
+            print("저장된 데이터가 있어서 데이터를 불러옵니다.")
+            print("----------")
+        } else { //data가 하나도 없으면 sample data를 읽어와라
+            notes = Note.loadSampleNotes()
+            print(notes)
+            print("더미데이터입니다.")
+            print("----------")
+        }
+    }
+    
+    //date 기준으로 재정렬
+    func sortData(){
+        sortedNotes = notes.sorted { (first, second) -> Bool in
+            return first.date < second.date
+        }
+    }
+    
+    func daysData(){
+        let today = Date()
+        let yesterDay = today.addingTimeInterval(-86400)
+        let twoDaysAgo = today.addingTimeInterval(-86400 * 2)
+        let threeDaysAgo = today.addingTimeInterval(-86400 * 3)
+        let fourDaysAgo = today.addingTimeInterval(-86400 * 4)
+        let fiveDaysAgo = today.addingTimeInterval(-86400 * 5)
+        let sixDaysAgo = today.addingTimeInterval(-86400 * 6)
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "MM월 dd일, 20YY"
+        
+        let days = [
+            formatter.string(from: today),
+            formatter.string(from: yesterDay),
+            formatter.string(from: twoDaysAgo),
+            formatter.string(from: threeDaysAgo),
+            formatter.string(from: fourDaysAgo),
+            formatter.string(from: fiveDaysAgo),
+            formatter.string(from: sixDaysAgo)
+        ]
+        
+        let count = sortedNotes.count
+        
+        //일주일 이내 data와 같은게 있다면 daysDic에 집어넣어라
+        for i in 0..<count{
+            if formatter.string(from: sortedNotes[i].date) == days[0]{
+                daysDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[1] {
+                daysDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[2] {
+                daysDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[3] {
+                daysDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[4] {
+                daysDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[5] {
+                daysDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[6] {
+                daysDic[6] = sortedNotes[i].weight
+            }
+        }
+        print(daysDic)
+        print("----------")
+        
+        let sorteddaysDic = Array(daysDic.keys).sorted(by: <)
+        print(sorteddaysDic)
+        
+//        for (key,value) in sorteddaysDic{
+//            print(key)
+//            print(value)
+//        }
+        
+//        for i in 0..<sorteddaysDic.count {
+//
+//        }
+        
+    }
 
     // x 축 날짜로 변환
-    let days = ["월","화","수","목","금","토","일"]
+    let days = ["6일 전","5일 전","4일 전","3일 전","2일 전","1일 전","오늘"]
     //화 목이 없으면 없애는 방식으로.
     
-    let weeks = ["7주 전","6주 전","5주 전","4주 전","3주 전","2주 전","1주 전"]
-    let months = ["7달 전","6달 전","5달 전","4달 전","3달 전","2달 전","1달 전"]
+    let weeks = ["6주 전","5주 전","4주 전","3주 전","2주 전","1주 전","이번 주"]
+    let months = ["6달 전","5달 전","4달 전","3달 전","2달 전","1달 전","이번 달"]
     // 기본 더미 데이터
     
     //월화수목금토일
@@ -94,7 +184,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         let set1 = LineChartDataSet(entries: dataset, label: "Weights")
         set1.drawCirclesEnabled = true  // 값들을 원으로 표시
         set1.mode = .linear   //꺽은선그래프로 할 건지, 어떻게 할 것인지
-        set1.lineWidth = 4
+        set1.lineWidth = 3
         set1.setColor(.white)
         set1.drawVerticalHighlightIndicatorEnabled = false
         set1.drawHorizontalHighlightIndicatorEnabled = false
@@ -141,8 +231,8 @@ class ChartViewController: UIViewController, ChartViewDelegate {
           //            // 날짜 변환
 
           xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisFormat as! [String])
-              
       }
+    
     func ChartLegend(legend: Legend){
           legend.textColor = .white
           legend.horizontalAlignment = .right

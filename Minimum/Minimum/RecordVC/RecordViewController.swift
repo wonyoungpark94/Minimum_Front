@@ -91,6 +91,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     func getDate() {
         let date = Date()
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
         formatter.dateFormat = "MM월 dd일, 20YY"
         
         let dateString = formatter.string(from: date)
@@ -112,6 +114,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     //날짜// datePicekr 조정하면 String 바꾸기
     @IBAction func selectDateAction(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
         formatter.dateFormat = "MM월 dd일, 20YY"
         
         let dateString = formatter.string(from: sender.date)
@@ -211,6 +215,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         } else { //기록이 존재하면 날짜 같은 data update
             for recordedData in notes {
                 let formatter = DateFormatter()
+                formatter.locale = Locale(identifier:"ko_KR")
+                formatter.timeZone = TimeZone(abbreviation: "KST")
                 formatter.dateFormat = "MM월 dd일, 20YY"
                 let tempData = formatter.string(from: recordedData.date)
                 let comparedData = formatter.string(from: note.date)
@@ -237,6 +243,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
 
                 print("동일한 날짜의 기록이 이미 있습니다. data가 업로드 됩니다.")
                 print(notes.count)
+//                showSameRecordInfoAlert()
 
             } else {
                 notes.append(note)
@@ -260,7 +267,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         present(alert, animated: true)
     }
     
-    //체중 미입력시 alert
+    //동일 날짜 기록 alert
     func showSameRecordInfoAlert() {
         let alert = UIAlertController(title: "동일 날짜 기록", message: "동일한 날짜의 기록이 이미 있습니다. 최신 기록으로 업로드 됩니다.", preferredStyle: .alert)
         
