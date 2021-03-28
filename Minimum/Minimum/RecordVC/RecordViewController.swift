@@ -15,13 +15,8 @@ struct TestData {
     var image : UIImage?
 }
 
-//data 테스트
-var data = TestData(date: nil, weight: nil, memo: nil, image: nil)
-var dataArray = [TestData]()
 var note = Note(date: Date(), weight: 0.0, memo: nil, imagePath: nil)
-var noteArray = [Note]()
-
-//Emoji.saveToFile(emojis: emojisCategorized)
+var notes: [Note] = []
 
 class RecordViewController: UIViewController, UITextViewDelegate {
     
@@ -41,13 +36,17 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var takePhoto: UIButton!
     
-    var arrayNum = 0
+    var defaultData = false
+    var notesArrayNum = 0
     
+    var sameDateData = false
+    var sameArrayNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //날짜//
-        loadDate()
+        getDate()
+        loadData()
         
         //날짜//DatePicker 기본 설정
         selectDatePicker.datePickerMode = .date
@@ -60,22 +59,36 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         //메모// placeholder
         memoTextView.text = "메모를 입력해주세요"
         memoTextView.textColor = .lightGray
-
-
+    }
+    
+    //data 불러오기
+    func loadData(){
+        let loadedNoteFile = Note.loadFromFile()
+        
+        if loadedNoteFile.count > 0 { //data가 저장되어 있으면
+            print("----------")
+            print("저장된 데이터가 있어서 데이터를 불러옵니다.")
+            notes = loadedNoteFile[0]
+            print(notes)
+            defaultData = false
+        } else { //data가 하나도 없으면 sample data를 읽어와라
+            notes = Note.loadSampleNotes()
+            print("----------")
+            print("더미데이터입니다.")
+            print(notes)
+            defaultData = true
+        }
     }
     
     //날짜// view load시 현재 날짜 자동 입력
-    func loadDate() {
+    func getDate() {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MM월 dd일, 20YY"
         
         let dateString = formatter.string(from: date)
         recordedDate.setTitle(dateString, for: .normal)
-        
-        //data
-        data.date = date
-        
+                
         //저장용
         note.date = date
     }
@@ -97,8 +110,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         let dateString = formatter.string(from: sender.date)
         recordedDate.setTitle(dateString, for: .normal)
         
-        //data
-        data.date = sender.date
+        //저장용
+        note.date = sender.date
     }
     
     //날짜// view 아무데나 누르면 pikcerView 사라짐
@@ -132,10 +145,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         let newLength = str.count + text.count - range.length
         
         countCharacterLabel.text = "\(str.count + 1) / 60"
-        
-        //data
-        data.memo = str
-        
+                
         //저장용
         note.memo = str
         return newLength < limitLength
@@ -162,87 +172,79 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     @IBAction func completeButtonTapped(_ sender: Any) {
         
         //data// 저장
-        saveData()
+        completeButton()
         
         //화면 이동
         self.navigationController?.popViewController(animated: true)
     }
     
-    func saveData() {
-        
+    //완료// 버튼 눌리면 몸무게 입력 되어있는지 아닌지 봐야함.
+    func completeButton() {
         //data// 몸무게
         if let recordedWeight = Double(weightTextField.text!) {
-            data.weight = recordedWeight
-            
             //저장용
             note.weight = recordedWeight
+            note.memo = memoTextView.text
+            
+            saveData()
         } else { //몸무게 기록 없으면 alert
             showWeightInfoAlert()
         }
-        
-        
-        data.memo = memoTextView.text
-        
-        //저장용
-        note.memo = memoTextView.text
-        
-        if dataArray.count == 0 { //기록이 없으면 바로 data 추가
-            dataArray.append(data)
-            
-            noteArray.append(note)
-            
-            Note.saveToFile(notes: [noteArray])
-            
-            print(dataArray)
-        } else { //기록이 존재하면 날짜 같은 data update
-            for recordedData in dataArray {
-                            
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MM월 dd일, 20YY"
-                
-                let tempData = formatter.string(from: recordedData.date!)
-                let comparedData = formatter.string(from: data.date!)
-                
-                if tempData == comparedData {
-                    print("동일한 날짜의 data가 이미 있습니다.")
-                    
-                    let tempArrayNum = arrayNum
-                    print(tempArrayNum)
-                    
-                    dataArray[tempArrayNum].date = data.date
-                    dataArray[tempArrayNum].weight = data.weight
-                    dataArray[tempArrayNum].memo = data.memo
-                    dataArray[tempArrayNum].image = data.image
-                    
-                    print(dataArray)
-                    
-                    noteArray.append(note)
-                    print(">>>>>>>>")
-                    print(">>>>>>>>")
-                    print(noteArray)
-                    
-                    Note.saveToFile(notes: [noteArray])
-                    
-                } else {
-                    print("새로운 날짜의 기록입니다.")
-                    dataArray.append(data)
-                    print(dataArray)
-                    
-                    noteArray.append(note)
-                    print(">>>>>>>>")
-                    print(">>>>>>>>")
-                    print(noteArray)
-                    
-                    Note.saveToFile(notes: [noteArray])
-                }
-                
-                arrayNum += 1
-            }
-        }
-        
-        
     }
     
+    func saveData(){
+        if defaultData == true { //기록이 없으면 default data 지우고 첫 data 추가
+            notes.removeAll()
+            notes.append(note)
+            Note.saveToFile(notes: [notes])
+            
+            print("첫 기록입니다.")
+            print(notes.count)
+            
+        } else { //기록이 존재하면 날짜 같은 data update
+            for recordedData in notes {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM월 dd일, 20YY"
+                let tempData = formatter.string(from: recordedData.date)
+                let comparedData = formatter.string(from: note.date)
+                
+                print("tempDate: \(tempData)")
+                print("comparedData: \(comparedData)")
+                print("----------")
+                print(tempData == comparedData)
+                
+                if(tempData == comparedData) {
+                    sameArrayNum = notesArrayNum
+                    sameDateData = true
+                } else {
+                    sameDateData = false
+                }
+                notesArrayNum += 1
+            }
+            
+            if sameDateData {
+                notes[sameArrayNum].date = note.date
+                notes[sameArrayNum].weight = note.weight
+                notes[sameArrayNum].memo = note.memo
+                notes[sameArrayNum].imagePath = note.imagePath
+
+                Note.saveToFile(notes: [notes])
+
+                print("동일한 날짜의 기록이 이미 있습니다. data가 업로드 됩니다.")
+                print(notes.count)
+
+            } else {
+                notes.append(note)
+                Note.saveToFile(notes: [notes])
+                print("새로운 날짜의 기록입니다.")
+                print(notes.count)
+            }
+        }
+    }
+    
+    
+    
+    //체중 미입력시 alert
     func showWeightInfoAlert() {
         let alert = UIAlertController(title: "체중 입력", message: "체중이 입력되지 않았습니다.", preferredStyle: .alert)
         
@@ -251,7 +253,17 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         }))
         
         present(alert, animated: true)
+    }
+    
+    //체중 미입력시 alert
+    func showSameRecordInfoAlert() {
+        let alert = UIAlertController(title: "동일 날짜 기록", message: "동일한 날짜의 기록이 이미 있습니다. 최신 기록으로 업로드 됩니다.", preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { action in
+            print("tapped dismiss")
+        }))
+        
+        present(alert, animated: true)
     }
 
     //사진 경로 저장
@@ -281,13 +293,6 @@ class RecordViewController: UIViewController, UITextViewDelegate {
             return filepath
         }
     }
-    
-    
-    
-    
-   
-    
-    
 
 }
 
@@ -306,20 +311,17 @@ extension RecordViewController: UIImagePickerControllerDelegate, UINavigationCon
             return
         }
         
-        //imageView.image = image
-        data.image = image
+        imageView.image = image
         
-        print("----------")
-        print(saveImageToDocumentDirectory(image))
-        
-//        imageView.image =
-//        print(UIImage(contentsOfFile: "/Documents/20210328101417"))
-        
-        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        print(documentsPath)
-        
-        documentsPath.append("/20210328101726.jpg")
-        imageView.image = UIImage(contentsOfFile: documentsPath)
+        //이미지 경로 저장
+        note.imagePath = (saveImageToDocumentDirectory(image))
+
+        //경로 받아와서 이미지 뿌려주기
+//        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+//        print(documentsPath)
+//
+//        documentsPath.append("/20210328101726.jpg")
+//        imageView.image = UIImage(contentsOfFile: documentsPath)
         
         takePhoto.setTitle("", for: .normal)
     }
