@@ -61,6 +61,8 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         memoTextView.text = "메모를 입력해주세요"
         memoTextView.textColor = .lightGray
 
+        
+        
     }
     
     //날짜// view load시 현재 날짜 자동 입력
@@ -253,6 +255,38 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
+            let directoryPath =  NSHomeDirectory().appending("/Documents/")
+            if !FileManager.default.fileExists(atPath: directoryPath) {
+                do {
+                    try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
+                } catch {
+                    print(error)
+                }
+            }
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMddhhmmss"
+
+            let filename = dateFormatter.string(from: Date()).appending(".jpg")
+            let filepath = directoryPath.appending(filename)
+            let url = NSURL.fileURL(withPath: filepath)
+            do {
+                try chosenImage.jpegData(compressionQuality: 1.0)?.write(to: url, options: .atomic)
+                return String.init("/Documents/\(filename)")
+
+            } catch {
+                print(error)
+                print("file cant not be save at path \(filepath), with error : \(error)");
+                return filepath
+            }
+        }
+    
+    
+    
+    
+   
+    
     
 
 }
@@ -272,8 +306,20 @@ extension RecordViewController: UIImagePickerControllerDelegate, UINavigationCon
             return
         }
         
-        imageView.image = image
+        //imageView.image = image
         data.image = image
+        
+        print("----------")
+        print(saveImageToDocumentDirectory(image))
+        
+//        imageView.image =
+//        print(UIImage(contentsOfFile: "/Documents/20210328101417"))
+        
+        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsPath)
+        
+        documentsPath.append("/20210328101452.jpg")
+        imageView.image = UIImage(contentsOfFile: documentsPath)
         
         takePhoto.setTitle("", for: .normal)
     }
