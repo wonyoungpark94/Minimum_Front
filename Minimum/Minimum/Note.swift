@@ -7,7 +7,6 @@ class Note: Codable {
     var weight: Double
     var memo: String?
     var imagePath: String?
-   
     
     init(date: Date, weight: Double, memo: String?, imagePath: String?) {
         self.date = date

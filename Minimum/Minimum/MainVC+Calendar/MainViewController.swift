@@ -25,30 +25,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let noRecordDays = ["03월 05일, 2021"]
     let noTodayRecordDay = ["03월 24일, 2021"]
     
+    //data 받아오기
     var notes: [Note] = []
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        print("----------")
-        print(Date())
-        
-        
-        let loadedNoteFile = Note.loadFromFile()
-        
-        if loadedNoteFile.count > 0 { //data가 저장되어 있으면
-            print("----------")
-            print("----------")
-            print("----------")
-            print(loadedNoteFile[0])
-        } else {
-            notes = Note.loadSampleNotes()
-            print(notes[0].date)
-            print(notes[1].date)
-            print(notes[2].date)
-        }
-        
+        loadData()
         
         //상단 뷰 r값
         mainView.layer.cornerRadius = 20
@@ -58,6 +41,29 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setCellsView()
         setMonthView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    //data 가져오기
+    func loadData(){
+        let loadedNoteFile = Note.loadFromFile()
+        
+        if loadedNoteFile.count > 0 { //data가 저장되어 있으면
+            print("----------")
+            print("----------")
+            print("----------")
+            notes = loadedNoteFile[0]
+            print(notes)
+        } else { //data가 하나도 없으면 sample data를 읽어와라
+            notes = Note.loadSampleNotes()
+            print("----------")
+            print("더미데이터입니다.")
+            print(notes)
+        }
+    }
+    
     
     func setCellsView()
     {
