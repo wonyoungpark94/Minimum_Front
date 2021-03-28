@@ -14,23 +14,15 @@ class ChartViewController: UIViewController, ChartViewDelegate {
  
     @IBOutlet weak var period: UILabel!
     
-    
     @IBOutlet weak var weightVariation: UILabel!
     
     @IBOutlet weak var gainOrLose: UILabel!
     
-    
-    
-    
     @IBOutlet weak var summaryView: UIView!
     
-    
-
     @IBOutlet weak var lineChartView: LineChartView!
     
-    
     @IBAction func backButton(_ sender: Any) {
-        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -53,19 +45,14 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             let yvaluesMonth = DatasetEntries(category: category)
             setData(dataset: yvaluesMonth, category: months)
             BottomDisplay(weightList: yvaluesMonth)
-
-
-
-
            default:
             let category: String = "Day"  // 날짜 분별을 위한 카테고리
             let yvalues = DatasetEntries(category: category)
             setData(dataset: yvalues, category: days)
             BottomDisplay(weightList: yvalues)
             break
-
-
-                       }    }
+            }
+    }
     
     
     override func viewDidLoad() {
@@ -84,9 +71,13 @@ class ChartViewController: UIViewController, ChartViewDelegate {
 
     // x 축 날짜로 변환
     let days = ["월","화","수","목","금","토","일"]
+    //화 목이 없으면 없애는 방식으로.
+    
     let weeks = ["7주 전","6주 전","5주 전","4주 전","3주 전","2주 전","1주 전"]
     let months = ["7달 전","6달 전","5달 전","4달 전","3달 전","2달 전","1달 전"]
     // 기본 더미 데이터
+    
+    //월화수목금토일
     var yValues: [ChartDataEntry] = [
          ChartDataEntry(x:0, y: 1),
          ChartDataEntry(x:1, y: -0.9),
@@ -178,16 +169,16 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             
             if (firstWeight!<lastWeight!){
                 gainOrLose.text = "살 쪘어요"
-                weightVariation.textColor = .systemBlue
+                weightVariation.textColor = .systemRed
             }
             else if (firstWeight!==lastWeight!){
                 gainOrLose.text = "변화가 없어요"
-                weightVariation.textColor = .systemGreen
+                weightVariation.textColor = .systemGray
             }
             else {
                 gainOrLose.text = "살이 빠졌어요"
-                weightVariation.textColor = .systemRed
-            }
+                weightVariation.textColor = .systemBlue
+                }
             }
 
         else  {

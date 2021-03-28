@@ -17,6 +17,7 @@ class Note: Codable {
     var date: Date
     var weight: Double?
     var memo: String?
+   
     
 //    var symbol: String
 //    var name: String
