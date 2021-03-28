@@ -25,28 +25,23 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let noRecordDays = ["03월 05일, 2021"]
     let noTodayRecordDay = ["03월 24일, 2021"]
     
-//    let data: [CalendarModel] = [CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "FirstRecord"),
-//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "TodayNoRecord"),
-//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "MinusRecord"),
-//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "PlusRecord"),
-//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "MaintainRecord"),
-//                                 CalendarModel(image: #imageLiteral(resourceName: "calendarRecord"), dayOfMonth: "NoRecord")]
     var notes: [Note] = []
-//    var emojisCategorized: [[Emoji]] = [[],[],[],[],[],[],[]]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        print("----------")
+        print(Date())
+        
+        
         let loadedNoteFile = Note.loadFromFile()
         
-        if loadedNoteFile.count > 0 {
+        if loadedNoteFile.count > 0 { //data가 저장되어 있으면
             print("----------")
             print("----------")
             print("----------")
             print(loadedNoteFile[0])
-            
-            
         } else {
             notes = Note.loadSampleNotes()
             print(notes[0].date)
@@ -58,12 +53,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //상단 뷰 r값
         mainView.layer.cornerRadius = 20
         
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
-        
         //collectionview 셋팅
         collectionView.register(UINib.init(nibName: "CalendarCell", bundle: nil), forCellWithReuseIdentifier: "CalendarCell")
-        
         setCellsView()
         setMonthView()
     }

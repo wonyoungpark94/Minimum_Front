@@ -18,7 +18,7 @@ struct TestData {
 //data 테스트
 var data = TestData(date: nil, weight: nil, memo: nil, image: nil)
 var dataArray = [TestData]()
-var note = Note(date: Date(), weight: nil, memo: nil)
+var note = Note(date: Date(), weight: 0.0, memo: nil, imagePath: nil)
 var noteArray = [Note]()
 
 //Emoji.saveToFile(emojis: emojisCategorized)
@@ -61,8 +61,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         memoTextView.text = "메모를 입력해주세요"
         memoTextView.textColor = .lightGray
 
-        
-        
+
     }
     
     //날짜// view load시 현재 날짜 자동 입력
@@ -254,33 +253,34 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         present(alert, animated: true)
         
     }
-    
+
+    //사진 경로 저장
     func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
-            let directoryPath =  NSHomeDirectory().appending("/Documents/")
-            if !FileManager.default.fileExists(atPath: directoryPath) {
-                do {
-                    try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
-                } catch {
-                    print(error)
-                }
-            }
-
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyyMMddhhmmss"
-
-            let filename = dateFormatter.string(from: Date()).appending(".jpg")
-            let filepath = directoryPath.appending(filename)
-            let url = NSURL.fileURL(withPath: filepath)
+        let directoryPath =  NSHomeDirectory().appending("/Documents/")
+        if !FileManager.default.fileExists(atPath: directoryPath) {
             do {
-                try chosenImage.jpegData(compressionQuality: 1.0)?.write(to: url, options: .atomic)
-                return String.init("/Documents/\(filename)")
-
+                try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
             } catch {
                 print(error)
-                print("file cant not be save at path \(filepath), with error : \(error)");
-                return filepath
             }
         }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddhhmmss"
+
+        let filename = dateFormatter.string(from: Date()).appending(".jpg")
+        let filepath = directoryPath.appending(filename)
+        let url = NSURL.fileURL(withPath: filepath)
+        do {
+            try chosenImage.jpegData(compressionQuality: 1.0)?.write(to: url, options: .atomic)
+            return String.init("/Documents/\(filename)")
+
+        } catch {
+            print(error)
+            print("file cant not be save at path \(filepath), with error : \(error)");
+            return filepath
+        }
+    }
     
     
     
@@ -318,7 +318,7 @@ extension RecordViewController: UIImagePickerControllerDelegate, UINavigationCon
         var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsPath)
         
-        documentsPath.append("/20210328101452.jpg")
+        documentsPath.append("/20210328101726.jpg")
         imageView.image = UIImage(contentsOfFile: documentsPath)
         
         takePhoto.setTitle("", for: .normal)
