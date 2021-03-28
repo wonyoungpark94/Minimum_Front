@@ -87,10 +87,6 @@ class ChartViewController: UIViewController, ChartViewDelegate {
          ChartDataEntry(x:5, y: -0.1),
          ChartDataEntry(x:6, y: -0.1),
      ]
-
-    
-    
-
     
     // 세트를 만들고 라인을 만드는 곳임.
     func setData(dataset: [ChartDataEntry], category: Array<Any>){
