@@ -48,6 +48,13 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         getDate()
         loadData()
         
+        let count = notes.count
+        let i = 0
+        for i in 0..<count {
+            print(notes[i].date)
+            print(notes[i].weight)
+        }
+        
         //날짜//DatePicker 기본 설정
         selectDatePicker.datePickerMode = .date
         selectDatePicker.preferredDatePickerStyle = .wheels
@@ -208,16 +215,14 @@ class RecordViewController: UIViewController, UITextViewDelegate {
                 let tempData = formatter.string(from: recordedData.date)
                 let comparedData = formatter.string(from: note.date)
                 
-                print("tempDate: \(tempData)")
-                print("comparedData: \(comparedData)")
-                print("----------")
-                print(tempData == comparedData)
+//                print("tempDate: \(tempData)")
+//                print("comparedData: \(comparedData)")
+//                print("----------")
+//                print(tempData == comparedData)
                 
                 if(tempData == comparedData) {
                     sameArrayNum = notesArrayNum
                     sameDateData = true
-                } else {
-                    sameDateData = false
                 }
                 notesArrayNum += 1
             }
