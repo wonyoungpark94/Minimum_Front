@@ -18,20 +18,37 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var selectedDate = Date()
     var totalSquares = [String]()
     
-    let firstRecordDays = ["03월 01일, 2021"]
-    let plusRecordDays = ["03월 02일, 2021"]
-    let minusRecordDays = ["03월 03일, 2021"]
-    let maintainRecordDays = ["03월 04일, 2021"]
-    let noRecordDays = ["03월 05일, 2021"]
-    let noTodayRecordDay = ["03월 24일, 2021"]
+//    var firstRecordDays = ["03월 01일, 2021"]
+//    var plusRecordDays = ["03월 02일, 2021"]
+//    var minusRecordDays = ["03월 03일, 2021"]
+//    var maintainRecordDays = ["03월 04일, 2021"]
+//    var noRecordDays = ["03월 05일, 2021"]
+//    var noTodayRecordDay = ["03월 24일, 2021"]
+    
+    var firstRecordDays = [""]
+    var plusRecordDays = [""]
+    var minusRecordDays = [""]
+    var maintainRecordDays = [""]
+    var noRecordDays = [""]
+    var noTodayRecordDay = [""]
     
     //data 받아오기
     var notes: [Note] = []
+    var sortedNotes: [Note] = []
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         loadData()
+        sortData()
+        uploadCalendarIcon()
+        uploadTodayIcon()
+        
+        let count = notes.count
+
+        for i in 0..<count {
+            print("\(sortedNotes[i].date), \(sortedNotes[i].weight), \(sortedNotes[i].memo), \(sortedNotes[i].imagePath) \n")
+        }
         
         //상단 뷰 r값
         mainView.layer.cornerRadius = 20
@@ -44,6 +61,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidAppear(_ animated: Bool) {
         loadData()
+        sortData()
+        uploadCalendarIcon()
+        uploadTodayIcon()
+        setCellsView()
+        setMonthView()
     }
     
     //data 가져오기
@@ -51,17 +73,61 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let loadedNoteFile = Note.loadFromFile()
         
         if loadedNoteFile.count > 0 { //data가 저장되어 있으면
-            print("----------")
-            print("----------")
-            print("----------")
             notes = loadedNoteFile[0]
             print(notes)
+            print("저장된 데이터가 있어서 데이터를 불러옵니다.")
+            print("----------")
         } else { //data가 하나도 없으면 sample data를 읽어와라
             notes = Note.loadSampleNotes()
-            print("----------")
-            print("더미데이터입니다.")
             print(notes)
+            print("더미데이터입니다.")
+            print("----------")
         }
+    }
+    
+    //date 기준으로 재정렬
+    func sortData(){
+        sortedNotes = notes.sorted { (first, second) -> Bool in
+            return first.date < second.date
+        }
+    }
+    
+    func uploadCalendarIcon(){
+        let count = sortedNotes.count
+        let countMinusOne = count - 1
+        
+        //formmatting
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM월 dd일, 20YY"
+
+        for i in 0..<countMinusOne {
+            firstRecordDays = [formatter.string(from: sortedNotes[0].date)]
+            if sortedNotes[i].weight < sortedNotes[i+1].weight {
+                plusRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+            } else if sortedNotes[i].weight > sortedNotes[i+1].weight {
+                minusRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+            } else {
+                maintainRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+            }
+        }
+    }
+    
+    func uploadTodayIcon(){
+        let today = Date()
+        let formatter = DateFormatter()
+        var sameData = false
+        formatter.dateFormat = "MM월 dd일, 20YY"
+        
+        for i in 0..<sortedNotes.count{
+            if today == sortedNotes[i].date {
+                sameData = true
+            }
+        }
+        
+        if sameData == false {
+            noTodayRecordDay = [formatter.string(from: today)]
+        }
+        
     }
     
     
