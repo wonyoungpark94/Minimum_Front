@@ -56,6 +56,17 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     var daysDic:[Int:Double] = [:]
     
+    //월화수목금토일
+    var yValues: [ChartDataEntry] = [
+//         ChartDataEntry(x:0, y: 1),
+//         ChartDataEntry(x:1, y: -0.9),
+//         ChartDataEntry(x:2, y: -0.5),
+//         ChartDataEntry(x:3, y: 0.3),
+//         ChartDataEntry(x:4, y: 0.2),
+//         ChartDataEntry(x:5, y: -0.1),
+//         ChartDataEntry(x:6, y: -0.1),
+     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -98,6 +109,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         }
     }
     
+    //segment : day
     func daysData(){
         let today = Date()
         let yesterDay = today.addingTimeInterval(-86400)
@@ -142,21 +154,29 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                 daysDic[6] = sortedNotes[i].weight
             }
         }
-        print(daysDic)
+        print(daysDic) // 값만 받아옴
+        
+        
+        let sorteddaysDicKeys = Array(daysDic.keys).sorted(by: >)
+        print(sorteddaysDicKeys) //daysDic key값 내림차순 정렬
         print("----------")
         
-        let sorteddaysDic = Array(daysDic.keys).sorted(by: <)
-        print(sorteddaysDic)
+        var sorteddaysDicValues = Array(daysDic.values).sorted(by: >) //갯수 맞게 array 생성
         
-//        for (key,value) in sorteddaysDic{
-//            print(key)
-//            print(value)
-//        }
+        sorteddaysDicValues[0] = Double(0)
         
-//        for i in 0..<sorteddaysDic.count {
-//
-//        }
+        for i in 1..<sorteddaysDicKeys.count{
+            sorteddaysDicValues[i] = daysDic[4 - i]! - daysDic[5 - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
+        }
+        print("----------")
+        print(sorteddaysDicValues)
         
+        
+        for i in 0..<sorteddaysDicKeys.count {
+            yValues.append(ChartDataEntry(x:Double(6 - sorteddaysDicKeys[i]), y: sorteddaysDicValues[i]))
+        }
+        
+        print(yValues)
     }
 
     // x 축 날짜로 변환
@@ -167,16 +187,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     let months = ["6달 전","5달 전","4달 전","3달 전","2달 전","1달 전","이번 달"]
     // 기본 더미 데이터
     
-    //월화수목금토일
-    var yValues: [ChartDataEntry] = [
-         ChartDataEntry(x:0, y: 1),
-         ChartDataEntry(x:1, y: -0.9),
-         ChartDataEntry(x:2, y: -0.5),
-         ChartDataEntry(x:3, y: 0.3),
-         ChartDataEntry(x:4, y: 0.2),
-         ChartDataEntry(x:5, y: -0.1),
-         ChartDataEntry(x:6, y: -0.1),
-     ]
+    
     
     // 세트를 만들고 라인을 만드는 곳임.
     func setData(dataset: [ChartDataEntry], category: Array<Any>){
@@ -280,15 +291,16 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
      func DatasetEntries (category: String)-> [ChartDataEntry]{
             if (category == "Day"){
-                let yValues: [ChartDataEntry] = [
-                    ChartDataEntry(x:0, y: -0.8),
-                    ChartDataEntry(x:1, y: 0),
-                    ChartDataEntry(x:2, y: -0.5),
-                    ChartDataEntry(x:3, y: 0.3),
-                    ChartDataEntry(x:4, y: 0.2),
-                    ChartDataEntry(x:5, y: -0.1),
-                    ChartDataEntry(x:6, y: -1),
-                ]
+//                let yValues: [ChartDataEntry] = [
+//                    ChartDataEntry(x:0, y: -0.8),
+//                    ChartDataEntry(x:1, y: 0),
+//                    ChartDataEntry(x:2, y: -0.5),
+//                    ChartDataEntry(x:3, y: 0.3),
+//                    ChartDataEntry(x:4, y: 0.2),
+//                    ChartDataEntry(x:5, y: -0.1),
+//                    ChartDataEntry(x:6, y: -1),
+//                ]
+                daysData()
             return yValues
             }
             else if (category == "Week"){
