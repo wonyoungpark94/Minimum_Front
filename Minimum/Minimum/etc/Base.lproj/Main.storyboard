@@ -87,7 +87,7 @@
                                                         <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03.01부터 지금까지 아보카도 1개만큼 :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAL-7T-bdL">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03.01부터 지금까지 아보카도 1개만큼 :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAL-7T-bdL">
                                                         <rect key="frame" x="0.0" y="138" width="238.66666666666666" height="17"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
                                                         <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>

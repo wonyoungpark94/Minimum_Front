@@ -45,7 +45,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //data 받아오기
     var notes: [Note] = []
     var sortedNotes: [Note] = []
-    var loadSample = false
+    var loadSampleData = false
     
     override func viewDidLoad()
     {
@@ -90,13 +90,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print(notes)
             print("저장된 데이터가 있어서 데이터를 불러옵니다.")
             print("----------")
-            loadSample = false
+            loadSampleData = false
         } else { //data가 하나도 없으면 sample data를 읽어와라
             notes = Note.loadSampleNotes()
             print(notes)
             print("더미데이터입니다.")
             print("----------")
-            loadSample = true
+            loadSampleData = true
         }
     }
     
@@ -113,7 +113,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             emojiLabel.text = ""
             weightLabel.text = ""
             changedWeightLabel.text = "\(sortedNotes[0].weight) kg"
-            descriptionLabel.text = "체중 변화량을 보기 위해서 더 많은 체중 기록을 해주세요."
+            descriptionLabel.text = "현재 체중 기록이 1개 있습니다. \n 체중 변화량을 보기 위해서 \n 더 많은 체중 기록을 해주세요."
         } else {
             firstDay = sortedNotes[0].date
             changedWeight = sortedNotes[sortedNotes.count - 1].weight - sortedNotes[0].weight
@@ -142,106 +142,117 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if magnitudeWeight < 0.13 {
             emojiLabel.text = "🥝"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 키위 한 개 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 키위 한 개 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 키위 한 개 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 키위 한 개 만큼 쪘어요."
             }
         } else if magnitudeWeight < 0.24 {
             emojiLabel.text = "🥑"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 아보카도 한 개 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 아보카도 한 개 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 아보카도 한 개 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 아보카도 한 개 만큼 쪘어요."
             }
         } else if magnitudeWeight < 0.30 {
             emojiLabel.text = "🍊"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 오렌지 한 개 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 오렌지 한 개 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 오렌지 한 개 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 오렌지 한 개 만큼 쪘어요."
             }
         } else if magnitudeWeight < 0.60 {
             emojiLabel.text = "🍎"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 한 개 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 사과 한 개 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 한 개 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 사과 한 개 만큼 쪘어요."
             }
         } else if magnitudeWeight < 0.90 {
             emojiLabel.text = "🍎🍎"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 두 개 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 사과 두 개 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 두 개 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 사과 두 개 만큼 쪘어요."
             }
         } else if magnitudeWeight < 1.5 {
             emojiLabel.text = "🍎🍎🍎"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 세 개 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 사과 세 개 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 세 개 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 사과 세 개 만큼 쪘어요."
             }
         } else if magnitudeWeight < 2.5 {
             emojiLabel.text = "🥥"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 코코넛 한 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 코코넛 한 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 코코넛 한 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 코코넛 한 통 만큼 쪘어요."
             }
         } else if magnitudeWeight < 5.0 {
             emojiLabel.text = "🍈"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 한 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 멜론 한 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 한 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 멜론 한 통 만큼 쪘어요."
             }
         } else if magnitudeWeight < 8.0 {
             emojiLabel.text = "🍈🍈"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 두 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 멜론 두 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 두 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 멜론 두 통 만큼 쪘어요."
             }
         } else if magnitudeWeight < 16.0 {
             emojiLabel.text = "🍉"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 한 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 한 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 한 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 한 통 만큼 쪘어요."
             }
         } else if magnitudeWeight < 24.0 {
             emojiLabel.text = "🍉🍉"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 두 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 두 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 두 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 두 통 만큼 쪘어요."
             }
         } else if magnitudeWeight < 32.0 {
             emojiLabel.text = "🍉🍉🍉"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 세한 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 세 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 세 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 세 통 만큼 쪘어요."
             }
         } else if magnitudeWeight < 40.0 {
             emojiLabel.text = "🍉🍉🍉🍉"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 네 통 만큼 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 네 통 만큼 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 네 통 만큼 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 네 통 만큼 쪘어요."
             }
         } else {
             emojiLabel.text = "🍉🍉🍉🍉🍉"
             if minus == true {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 다섯 통 넘게 빠졌어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 다섯 통 넘게 빠졌어요."
             } else {
-                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 다섯 통 넘게 쪘어요."
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 수박 다섯 통 넘게 쪘어요."
             }
+        }
+        
+        if loadSampleData == true {
+            descriptionLabel.text = "(샘플데이터) 멜론 두 통만큼 빠졌어요."
         }
     }
     
     func uploadCalendarIcon(){
         let count = sortedNotes.count
+        if count == 1 {
+            plusRecordDays.removeAll()
+            minusRecordDays.removeAll()
+            maintainRecordDays.removeAll()
+        }
+        
+        
         let countMinusOne = count - 1
         
         //formmatting
