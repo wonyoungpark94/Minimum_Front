@@ -230,6 +230,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
             
         }
+        else {
+            cell.dayOfMonth.isHidden = true
+            cell.image.isHidden = true
+            cell.label.isHidden = true
+        }
         
         return cell
     }
