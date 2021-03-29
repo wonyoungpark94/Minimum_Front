@@ -60,7 +60,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     var yValues: [ChartDataEntry] = []
     
     var daysDic:[Int:Double] = [:]
-//    var monthsDic:[String:Double] = [:]
+    var monthsDic:[Int:Double] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,77 +102,16 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         sortedNotes = notes.sorted { (first, second) -> Bool in
             return first.date < second.date
         }
+        
+        print("sorted:")
+        for i in 0..<sortedNotes.count{
+            print(sortedNotes[i].date)
+        }
+        
+        
     }
     
-    //segment : day
-    func daysData(){
-        let today = Date()
-        let yesterDay = today.addingTimeInterval(-86400)
-        let twoDaysAgo = today.addingTimeInterval(-86400 * 2)
-        let threeDaysAgo = today.addingTimeInterval(-86400 * 3)
-        let fourDaysAgo = today.addingTimeInterval(-86400 * 4)
-        let fiveDaysAgo = today.addingTimeInterval(-86400 * 5)
-        let sixDaysAgo = today.addingTimeInterval(-86400 * 6)
-        
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier:"ko_KR")
-        formatter.timeZone = TimeZone(abbreviation: "KST")
-        formatter.dateFormat = "MM월 dd일, 20YY"
-        
-        let days = [
-            formatter.string(from: today),
-            formatter.string(from: yesterDay),
-            formatter.string(from: twoDaysAgo),
-            formatter.string(from: threeDaysAgo),
-            formatter.string(from: fourDaysAgo),
-            formatter.string(from: fiveDaysAgo),
-            formatter.string(from: sixDaysAgo)
-        ]
-        
-        let count = sortedNotes.count
-        
-        //일주일 이내 data와 같은게 있다면 daysDic에 집어넣어라
-        for i in 0..<count{
-            if formatter.string(from: sortedNotes[i].date) == days[0]{
-                daysDic[0] = sortedNotes[i].weight
-            } else if formatter.string(from: sortedNotes[i].date) == days[1] {
-                daysDic[1] = sortedNotes[i].weight
-            } else if formatter.string(from: sortedNotes[i].date) == days[2] {
-                daysDic[2] = sortedNotes[i].weight
-            } else if formatter.string(from: sortedNotes[i].date) == days[3] {
-                daysDic[3] = sortedNotes[i].weight
-            } else if formatter.string(from: sortedNotes[i].date) == days[4] {
-                daysDic[4] = sortedNotes[i].weight
-            } else if formatter.string(from: sortedNotes[i].date) == days[5] {
-                daysDic[5] = sortedNotes[i].weight
-            } else if formatter.string(from: sortedNotes[i].date) == days[6] {
-                daysDic[6] = sortedNotes[i].weight
-            }
-        }
-        print(daysDic) // 값만 받아옴
-        
-        
-        let sorteddaysDicKeys = Array(daysDic.keys).sorted(by: >)
-        print(sorteddaysDicKeys) //daysDic key값 내림차순 정렬
-        print("----------")
-        
-        var sorteddaysDicValues = Array(daysDic.values).sorted(by: >) //갯수 맞게 array 생성
-        
-        sorteddaysDicValues[0] = Double(0)
-        
-        for i in 1..<sorteddaysDicKeys.count{
-            sorteddaysDicValues[i] = daysDic[4 - i]! - daysDic[5 - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
-        }
-        print("----------")
-        print(sorteddaysDicValues)
-        
-        
-        for i in 0..<sorteddaysDicKeys.count {
-            yValues.append(ChartDataEntry(x:Double(6 - sorteddaysDicKeys[i]), y: sorteddaysDicValues[i]))
-        }
-        
-        print(yValues)
-    }
+    
     
     
 
@@ -295,6 +234,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
 //                    ChartDataEntry(x:5, y: -0.1),
 //                    ChartDataEntry(x:6, y: -1),
 //                ]
+                yValues.removeAll()
                 daysData()
             return yValues
             }
@@ -311,15 +251,16 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             return yValues
             }
             else if (category == "Month") {
-                let yValues: [ChartDataEntry] = [
-                    ChartDataEntry(x:0, y: -3),
-                    ChartDataEntry(x:1, y: -4),
-                    ChartDataEntry(x:2, y: -1),
-                    ChartDataEntry(x:3, y: 0),
-                    ChartDataEntry(x:4, y: 2),
-                    ChartDataEntry(x:5, y: 2),
-                    ChartDataEntry(x:6, y: 3),
-                ]
+//                let yValues: [ChartDataEntry] = [
+//                    ChartDataEntry(x:0, y: -3),
+//                    ChartDataEntry(x:1, y: -4),
+//                    ChartDataEntry(x:2, y: -1),
+//                    ChartDataEntry(x:3, y: 0),
+//                    ChartDataEntry(x:4, y: 2),
+//                    ChartDataEntry(x:5, y: 2),
+//                    ChartDataEntry(x:6, y: 3),
+//                ]
+                yValues.removeAll()
                 monthsData()
             return yValues
             }
@@ -327,6 +268,79 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         return yValues
         }
     }
+    
+    //MARK : segment : day
+    func daysData(){
+        let today = Date()
+        let yesterDay = today.addingTimeInterval(-86400)
+        let twoDaysAgo = today.addingTimeInterval(-86400 * 2)
+        let threeDaysAgo = today.addingTimeInterval(-86400 * 3)
+        let fourDaysAgo = today.addingTimeInterval(-86400 * 4)
+        let fiveDaysAgo = today.addingTimeInterval(-86400 * 5)
+        let sixDaysAgo = today.addingTimeInterval(-86400 * 6)
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "MM월 dd일, 20YY"
+        
+        let days = [
+            formatter.string(from: today),
+            formatter.string(from: yesterDay),
+            formatter.string(from: twoDaysAgo),
+            formatter.string(from: threeDaysAgo),
+            formatter.string(from: fourDaysAgo),
+            formatter.string(from: fiveDaysAgo),
+            formatter.string(from: sixDaysAgo)
+        ]
+        
+        let count = sortedNotes.count
+        
+        //일주일 이내 data와 같은게 있다면 daysDic에 집어넣어라
+        for i in 0..<count{
+            if formatter.string(from: sortedNotes[i].date) == days[0]{
+                daysDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[1] {
+                daysDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[2] {
+                daysDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[3] {
+                daysDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[4] {
+                daysDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[5] {
+                daysDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[6] {
+                daysDic[6] = sortedNotes[i].weight
+            }
+        }
+        print(daysDic) // 값만 받아옴
+        
+        
+        let sorteddaysDicKeys = Array(daysDic.keys).sorted(by: >)
+        print(sorteddaysDicKeys) //daysDic key값 내림차순 정렬
+        print("----------")
+        
+        var sorteddaysDicValues = Array(daysDic.values).sorted(by: >) //갯수 맞게 array 생성
+        
+        sorteddaysDicValues[0] = Double(0)
+        
+        for i in 1..<sorteddaysDicKeys.count{
+            sorteddaysDicValues[i] = daysDic[sorteddaysDicKeys.count - 1 - i]! - daysDic[sorteddaysDicKeys.count - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
+        }
+        print("----------")
+        print(sorteddaysDicKeys.count)
+        print("----------")
+        print(sorteddaysDicValues)
+        
+        
+        for i in 0..<sorteddaysDicKeys.count {
+            yValues.append(ChartDataEntry(x:Double(6 - sorteddaysDicKeys[i]), y: sorteddaysDicValues[i]))
+        }
+        
+        print(yValues)
+    }
+    
     
     //segment : Month
     func monthsData(){
@@ -339,6 +353,8 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         var fourMMAgo = [Double]()
         var fiveMMAgo = [Double]()
         var sixMMAgo = [Double]()
+        
+        var dicTest = [Date]()
         
         let monthFormatter = DateFormatter()
         monthFormatter.locale = Locale(identifier:"ko_KR")
@@ -624,6 +640,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                 
                 if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
                     thisMM.append(sortedNotes[i].weight)
+                    dicTest.append(sortedNotes[i].date)
                 } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
                     oneMMAgo.append(sortedNotes[i].weight)
                 } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
@@ -694,15 +711,78 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                     sixMMAgo.append(sortedNotes[i].weight)
                 }
             }
+        } //오른쪽으로 들어올수록 가장 최근 data
+        
+        if thisMM.count > 0 {
+            let count = thisMM.count - 1
+            let thisMMdata = thisMM[count]
+            
+            monthsDic[0] = thisMMdata
         }
         
-        print(thisMM)
-        print(oneMMAgo)
-        print(twoMMAgo)
-        print(threeMMAgo)
-        print(fourMMAgo)
-        print(fiveMMAgo)
-        print(sixMMAgo)
+        if oneMMAgo.count > 0 {
+            let count = oneMMAgo.count - 1
+            let oneMMAgodata = oneMMAgo[count]
+            
+            monthsDic[1] = oneMMAgodata
+        }
+        
+        if twoMMAgo.count > 0 {
+            let count = twoMMAgo.count - 1
+            let twoMMAgodata = twoMMAgo[count]
+            
+            monthsDic[2] = twoMMAgodata
+        }
+        
+        if threeMMAgo.count > 0 {
+            let count = threeMMAgo.count - 1
+            let threeMMAgodata = threeMMAgo[count]
+            
+            monthsDic[3] = threeMMAgodata
+        }
+        
+        if fourMMAgo.count > 0 {
+            let count = fourMMAgo.count - 1
+            let fourMMAgodata = fourMMAgo[count]
+            
+            monthsDic[4] = fourMMAgodata
+        }
+        
+        if fiveMMAgo.count > 0 {
+            let count = fourMMAgo.count - 1
+            let fiveMMAgodata = fiveMMAgo[count]
+            
+            monthsDic[5] = fiveMMAgodata
+        }
+        
+        if sixMMAgo.count > 0 {
+            let count = sixMMAgo.count - 1
+            let sixMMAgodata = sixMMAgo[count]
+            
+            monthsDic[6] = sixMMAgodata
+        }
+
+        //print(monthsDic)
+        
+        
+        let sortedMonthsDicKeys = Array(monthsDic.keys).sorted(by: >)
+        print(sortedMonthsDicKeys) //daysDic key값 내림차순 정렬
+        print("----------")
+
+        var sortedMonthsDicValues = Array(monthsDic.values).sorted(by: >) //갯수 맞게 array 생성
+
+        sortedMonthsDicValues[0] = Double(0)
+
+        for i in 1..<sortedMonthsDicKeys.count{
+            sortedMonthsDicValues[i] = monthsDic[sortedMonthsDicKeys.count - 1 - i]! - monthsDic[sortedMonthsDicKeys.count - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
+        }
+        print("----------")
+        print(sortedMonthsDicValues)
+
+
+        for i in 0..<sortedMonthsDicKeys.count {
+            yValues.append(ChartDataEntry(x:Double(6 - sortedMonthsDicKeys[i]), y: sortedMonthsDicValues[i]))
+        }
     }
 }
 
