@@ -54,18 +54,13 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     var notes: [Note] = []
     var sortedNotes: [Note] = []
     
-    var daysDic:[Int:Double] = [:]
     
-    //월화수목금토일
-    var yValues: [ChartDataEntry] = [
-//         ChartDataEntry(x:0, y: 1),
-//         ChartDataEntry(x:1, y: -0.9),
-//         ChartDataEntry(x:2, y: -0.5),
-//         ChartDataEntry(x:3, y: 0.3),
-//         ChartDataEntry(x:4, y: 0.2),
-//         ChartDataEntry(x:5, y: -0.1),
-//         ChartDataEntry(x:6, y: -0.1),
-     ]
+    
+    //chary 표시 data 초기화
+    var yValues: [ChartDataEntry] = []
+    
+    var daysDic:[Int:Double] = [:]
+//    var monthsDic:[String:Double] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,15 +173,15 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         
         print(yValues)
     }
+    
+    
 
+    
+    
     // x 축 날짜로 변환
     let days = ["6일 전","5일 전","4일 전","3일 전","2일 전","1일 전","오늘"]
-    //화 목이 없으면 없애는 방식으로.
-    
     let weeks = ["6주 전","5주 전","4주 전","3주 전","2주 전","1주 전","이번 주"]
     let months = ["6달 전","5달 전","4달 전","3달 전","2달 전","1달 전","이번 달"]
-    // 기본 더미 데이터
-    
     
     
     // 세트를 만들고 라인을 만드는 곳임.
@@ -325,11 +320,389 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                     ChartDataEntry(x:5, y: 2),
                     ChartDataEntry(x:6, y: 3),
                 ]
+                monthsData()
             return yValues
             }
             else {
         return yValues
         }
+    }
+    
+    //segment : Month
+    func monthsData(){
+        let today = Date()
+                
+        var thisMM = [Double]()
+        var oneMMAgo = [Double]()
+        var twoMMAgo = [Double]()
+        var threeMMAgo = [Double]()
+        var fourMMAgo = [Double]()
+        var fiveMMAgo = [Double]()
+        var sixMMAgo = [Double]()
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.locale = Locale(identifier:"ko_KR")
+        monthFormatter.timeZone = TimeZone(abbreviation: "KST")
+        monthFormatter.dateFormat = "MM"
+        monthFormatter.string(from: today)
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.locale = Locale(identifier:"ko_KR")
+        yearFormatter.timeZone = TimeZone(abbreviation: "KST")
+        yearFormatter.dateFormat = "YY"
+        yearFormatter.string(from: today)
+        let lastYear = Int(yearFormatter.string(from: today))! - 1
+        print("This is lasy Year: \(lastYear)")
+        
+        
+        print(monthFormatter.string(from: today))
+        print(yearFormatter.string(from: today))
+        
+        if monthFormatter.string(from: today) == "12"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "12" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "11" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "10" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "09" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "07" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "06" && tempYear == yearFormatter.string(from: today)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "11"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "11" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "10" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "09" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "07" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "06" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "10"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "10" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "09" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "07" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "09"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "09" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "07" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "06" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "08"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "08" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "07" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "06" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "07"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "07" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "06" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "06"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "06" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "12" && tempYear == String(lastYear)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "05"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "05" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "12" && tempYear == String(lastYear)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "11" && tempYear == String(lastYear)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "04"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "04" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "12" && tempYear == String(lastYear)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "11" && tempYear == String(lastYear)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "10" && tempYear == String(lastYear)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "03"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "03" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "12" && tempYear == String(lastYear)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "11" && tempYear == String(lastYear)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "10" && tempYear == String(lastYear)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "19" && tempYear == String(lastYear)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "02"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "02" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "12" && tempYear == String(lastYear)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "11" && tempYear == String(lastYear)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "10" && tempYear == String(lastYear)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "09" && tempYear == String(lastYear)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == String(lastYear)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        } else if monthFormatter.string(from: today) == "01"{
+            thisMM.removeAll()
+            oneMMAgo.removeAll()
+            twoMMAgo.removeAll()
+            threeMMAgo.removeAll()
+            fourMMAgo.removeAll()
+            fiveMMAgo.removeAll()
+            sixMMAgo.removeAll()
+            for i in 0..<sortedNotes.count { //month에 맞게 sorting 하기
+                let tempMonth = monthFormatter.string(from: sortedNotes[i].date)
+                let tempYear = yearFormatter.string(from: sortedNotes[i].date)
+                
+                if (tempMonth == "01" && tempYear == yearFormatter.string(from: today)){
+                    thisMM.append(sortedNotes[i].weight)
+                } else if (tempMonth == "12" && tempYear == String(lastYear)){
+                    oneMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "11" && tempYear == String(lastYear)){
+                    twoMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "10" && tempYear == String(lastYear)){
+                    threeMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "09" && tempYear == String(lastYear)){
+                    fourMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "08" && tempYear == String(lastYear)){
+                    fiveMMAgo.append(sortedNotes[i].weight)
+                } else if (tempMonth == "07" && tempYear == String(lastYear)){
+                    sixMMAgo.append(sortedNotes[i].weight)
+                }
+            }
+        }
+        
+        print(thisMM)
+        print(oneMMAgo)
+        print(twoMMAgo)
+        print(threeMMAgo)
+        print(fourMMAgo)
+        print(fiveMMAgo)
+        print(sixMMAgo)
     }
 }
 

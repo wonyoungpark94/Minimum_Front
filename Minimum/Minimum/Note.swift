@@ -50,7 +50,8 @@ class Note: Codable {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        //dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
 
         let date0:Date = dateFormatter.date(from: dateString[0])!
         let date1:Date = dateFormatter.date(from: dateString[1])!
