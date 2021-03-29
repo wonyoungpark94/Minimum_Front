@@ -55,6 +55,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         uploadCalendarIcon()
         uploadTodayIcon()
         
+        changedWeightLabel.isHidden = true //실제 몸무게 표기 안됨
+        
         let count = notes.count
 
         for i in 0..<count {
@@ -386,7 +388,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @IBAction func showEyes(_ sender: UIButton) {
-        eyesOutlet.image(for: eye.slash.fill)
+        if changedWeightLabel.isHidden {
+            eyesOutlet.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+            changedWeightLabel.isHidden = false
+        } else {
+            eyesOutlet.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+            changedWeightLabel.isHidden = true
+        }
+        
+        
+        
     }
     
     

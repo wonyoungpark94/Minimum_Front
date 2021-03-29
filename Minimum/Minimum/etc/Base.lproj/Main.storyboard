@@ -38,7 +38,7 @@
                                                             <constraint firstAttribute="width" constant="26" id="mNL-Xw-euK"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" image="eye.slash.fill" catalog="system">
+                                                        <state key="normal" image="eye.fill" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -859,7 +859,7 @@
         <image name="buttonCamera" width="74" height="74"/>
         <image name="buttonChart" width="24" height="24"/>
         <image name="buttonRecord" width="48" height="54"/>
-        <image name="eye.slash.fill" catalog="system" width="128" height="82"/>
+        <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
