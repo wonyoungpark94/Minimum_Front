@@ -42,7 +42,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Lng-fi-wyS" kind="show" id="S0g-ly-Y3e"/>
+                                                            <action selector="showEyes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTV-Ea-bSL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-5W-lRY">
@@ -69,8 +69,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-N0-CRK">
                                                 <rect key="frame" x="59.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-gG-uqj">
-                                                        <rect key="frame" x="96.999999999999986" y="0.0" width="45.000000000000014" height="48"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥑🥑🥑🥑🥑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-gG-uqj">
+                                                        <rect key="frame" x="7" y="0.0" width="225" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -297,9 +297,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="vue-iH-ZEU"/>
                     <connections>
+                        <outlet property="changedWeightLabel" destination="wrb-KU-E0x" id="SBd-JG-Dbo"/>
                         <outlet property="collectionView" destination="nvW-eT-5Gw" id="V2t-Do-HqM"/>
+                        <outlet property="descriptionLabel" destination="AAL-7T-bdL" id="hIQ-Oy-WJC"/>
+                        <outlet property="emojiLabel" destination="9Ls-gG-uqj" id="JQ4-P8-djU"/>
+                        <outlet property="eyesOutlet" destination="pGz-An-axV" id="8QW-Me-ckT"/>
                         <outlet property="mainView" destination="jJh-iC-vFd" id="LSY-fZ-iPI"/>
                         <outlet property="monthLabel" destination="Yt8-7F-V37" id="Qa0-tf-Niy"/>
+                        <outlet property="weightLabel" destination="tZX-fh-kkj" id="RPV-OV-aIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

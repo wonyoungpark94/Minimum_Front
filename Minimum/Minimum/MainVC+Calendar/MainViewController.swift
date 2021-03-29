@@ -15,15 +15,25 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
+    @IBOutlet weak var emojiLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var changedWeightLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
+    //상단 페이지 정보
+    var firstDay = Date()
+    var changedWeight = Double()
+    var minus = true
+    var magnitudeWeight = Double()
+    
+    @IBOutlet weak var eyesOutlet: UIButton!
+    
+    
+    //calendar 표시
     var selectedDate = Date()
     var totalSquares = [String]()
-    
-//    var firstRecordDays = ["03월 01일, 2021"]
-//    var plusRecordDays = ["03월 02일, 2021"]
-//    var minusRecordDays = ["03월 03일, 2021"]
-//    var maintainRecordDays = ["03월 04일, 2021"]
-//    var noRecordDays = ["03월 05일, 2021"]
-//    var noTodayRecordDay = ["03월 24일, 2021"]
     
     var firstRecordDays = [""]
     var plusRecordDays = [""]
@@ -35,6 +45,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //data 받아오기
     var notes: [Note] = []
     var sortedNotes: [Note] = []
+    var loadSample = false
     
     override func viewDidLoad()
     {
@@ -77,11 +88,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print(notes)
             print("저장된 데이터가 있어서 데이터를 불러옵니다.")
             print("----------")
+            loadSample = false
         } else { //data가 하나도 없으면 sample data를 읽어와라
             notes = Note.loadSampleNotes()
             print(notes)
             print("더미데이터입니다.")
             print("----------")
+            loadSample = true
         }
     }
     
@@ -89,6 +102,139 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func sortData(){
         sortedNotes = notes.sorted { (first, second) -> Bool in
             return first.date < second.date
+        }
+        
+        if sortedNotes.count == 0 {
+            return
+        } else if sortedNotes.count == 1 {
+            firstDay = sortedNotes[0].date
+            emojiLabel.text = ""
+            weightLabel.text = ""
+            changedWeightLabel.text = "\(sortedNotes[0].weight) kg"
+            descriptionLabel.text = "체중 변화량을 보기 위해서 더 많은 체중 기록을 해주세요."
+        } else {
+            firstDay = sortedNotes[0].date
+            changedWeight = sortedNotes[sortedNotes.count - 1].weight - sortedNotes[0].weight
+            weightLabel.text = "\(changedWeight) kg"
+            
+            if changedWeight < 0 {
+                minus = true
+                magnitudeWeight = -changedWeight
+            } else {
+                minus = false
+                magnitudeWeight = changedWeight
+            }
+            
+            changedWeightLabel.text = "\(sortedNotes[0].weight) kg >> \(sortedNotes[sortedNotes.count - 1].weight) kg"
+            uploadEmojiandDescription()
+        }
+        
+    }
+    
+    func uploadEmojiandDescription(){
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "MM.dd"
+        
+        if magnitudeWeight < 0.13 {
+            emojiLabel.text = "🥝"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 키위 한 개 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 키위 한 개 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 0.24 {
+            emojiLabel.text = "🥑"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 아보카도 한 개 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 아보카도 한 개 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 0.30 {
+            emojiLabel.text = "🍊"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 오렌지 한 개 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 오렌지 한 개 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 0.60 {
+            emojiLabel.text = "🍎"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 한 개 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 한 개 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 0.90 {
+            emojiLabel.text = "🍎🍎"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 두 개 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 두 개 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 1.5 {
+            emojiLabel.text = "🍎🍎🍎"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 세 개 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 사과 세 개 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 2.5 {
+            emojiLabel.text = "🥥"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 코코넛 한 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 코코넛 한 통 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 5.0 {
+            emojiLabel.text = "🍈"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 한 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 한 통 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 8.0 {
+            emojiLabel.text = "🍈🍈"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 두 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 멜론 두 통 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 16.0 {
+            emojiLabel.text = "🍉"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 한 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 한 통 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 24.0 {
+            emojiLabel.text = "🍉🍉"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 두 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 두 통 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 32.0 {
+            emojiLabel.text = "🍉🍉🍉"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 세한 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 세 통 만큼 쪘어요."
+            }
+        } else if magnitudeWeight < 40.0 {
+            emojiLabel.text = "🍉🍉🍉🍉"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 네 통 만큼 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 네 통 만큼 쪘어요."
+            }
+        } else {
+            emojiLabel.text = "🍉🍉🍉🍉🍉"
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 다섯 통 넘게 빠졌어요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))부터 지금까지 수박 다섯 통 넘게 쪘어요."
+            }
         }
     }
     
@@ -101,7 +247,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         formatter.locale = Locale(identifier:"ko_KR")
         formatter.timeZone = TimeZone(abbreviation: "KST")
         formatter.dateFormat = "MM월 dd일, 20YY"
-
+        
         for i in 0..<countMinusOne {
             firstRecordDays = [formatter.string(from: sortedNotes[0].date)]
             if sortedNotes[i].weight < sortedNotes[i+1].weight {
@@ -238,6 +384,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return cell
     }
+    
+    @IBAction func showEyes(_ sender: UIButton) {
+        eyesOutlet.image(for: eye.slash.fill)
+    }
+    
     
     @IBAction func previousMonth(_ sender: Any)
     {
