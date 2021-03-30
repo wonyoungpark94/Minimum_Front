@@ -398,6 +398,40 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
+    // 기록이 있는 날짜 셀 선택 시, HistoryView로 이동
+        func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
+           
+            cell.dayOfMonth.text = totalSquares[indexPath.item]
+            cell.label.text = totalSquares[indexPath.item]
+            
+            if (cell.dayOfMonth.text != "") {
+                let day = CalendarHelper().itemMonth(date: selectedDate, day: Int(cell.dayOfMonth.text!)!)
+                
+                if (firstRecordDays.contains(day) || minusRecordDays.contains(day) || plusRecordDays.contains(day) || maintainRecordDays.contains(day)) {
+                    
+                    if cell.isSelected {
+                        collectionView.deselectItem(at: indexPath, animated: true)
+                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "HistoryView")
+                        vcName?.modalTransitionStyle = .coverVertical
+                        self.present(vcName!, animated: true, completion: nil)
+                        return false
+                   }
+                    else {
+                        return true
+                   }
+                }
+            }
+            
+            if cell.isSelected {
+                collectionView.deselectItem(at: indexPath, animated: true)
+               return false
+           }
+            else {
+               return true
+            }
+       }
+    
     @IBAction func showEyes(_ sender: UIButton) {
         if changedWeightLabel.isHidden {
             eyesOutlet.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
