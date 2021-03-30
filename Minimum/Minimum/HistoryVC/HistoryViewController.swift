@@ -13,6 +13,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         var date : String?
         var comparedDay : String?
         var comparedWeight : String?
+        var cellWeight : Double?
         var memo : String?
         var imagePath : String?
     }
@@ -90,7 +91,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             if i == sortedNotes.count - 1 { //마지막 data
                 let comparedDay = "첫 기록입니다."
                 let comparedWeight = "-0.0kg"
-                let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, memo: memo, imagePath: imagePath)
+                let cellWeight = 0.0
+                let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, cellWeight: cellWeight, memo: memo, imagePath: imagePath)
                 dataList.append(cellData)
             } else {
                 let diffComponents = Calendar.current.dateComponents([.day], from: sortedNotes[i+1].date, to: sortedNotes[i].date)
@@ -101,7 +103,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 let comparedDay = "이전 기록과 비교해서"
                 let comparedWeight = "\(sortedNotes[i].weight - sortedNotes[i + 1].weight) kg"
-                let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, memo: memo, imagePath: imagePath)
+                let cellWeight = sortedNotes[i].weight - sortedNotes[i + 1].weight
+                
+                let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, cellWeight: cellWeight, memo: memo, imagePath: imagePath)
                 dataList.append(cellData)
             }
         }
@@ -118,25 +122,34 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        cell.galleryButton.addTarget(self, action: #selector(HistoryViewController.onClickedMapButton(_:)), for: .touchUpInside)
+        //cell.galleryButton.addTarget(self, action: #selector(HistoryViewController.onClickedMapButton(_:)), for: .touchUpInside)
         
         cell.dateLabel.text = dataList[indexPath.row].date
         cell.changedDaysLabel.text = dataList[indexPath.row].comparedDay
         cell.changedWeightLabel.text = dataList[indexPath.row].comparedWeight
         cell.memoLabel.text = dataList[indexPath.row].memo
         
-        //imagePath 없으면 nil
+        //imagePath 없으면 이미지 버튼 없애기
         if dataList[indexPath.row].imagePath == nil {
             cell.galleryButton.isHidden = true
         }
         
+        //cell minus인지, plus인지에 따라 컬러 다르게
+        if dataList[indexPath.row].cellWeight! < 0 {
+            cell.changedWeightLabel.textColor = .systemBlue
+        } else if dataList[indexPath.row].cellWeight! > 0 {
+            cell.changedWeightLabel.textColor = .systemRed
+        } else {
+            cell.changedWeightLabel.textColor = .systemGray
+        }
+                
         return cell
     }
     
-    @objc func onClickedMapButton(_ sender: UIButton?) {
-
-        let tag = sender?.tag
-            print(tag)
-    }
+//    @objc func onClickedMapButton(_ sender: UIButton?) {
+//
+//        let tag = sender?.tag
+//            print(tag)
+//    }
 
 }
