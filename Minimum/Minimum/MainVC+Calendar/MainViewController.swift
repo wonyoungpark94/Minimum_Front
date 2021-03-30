@@ -79,11 +79,26 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         uploadTodayIcon()
         setCellsView()
         setMonthView()
+        
+        print("mainViewAppear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+        sortData()
+        uploadCalendarIcon()
+        uploadTodayIcon()
+        setCellsView()
+        setMonthView()
+        
+        print("viewWillAppear")
     }
     
     //data 가져오기
     func loadData(){
         let loadedNoteFile = Note.loadFromFile()
+        
+        print(loadedNoteFile)
         
         if loadedNoteFile.count > 0 { //data가 저장되어 있으면
             notes = loadedNoteFile[0]
@@ -245,30 +260,32 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func uploadCalendarIcon(){
-        let count = sortedNotes.count
-        if count == 1 {
-            plusRecordDays.removeAll()
-            minusRecordDays.removeAll()
-            maintainRecordDays.removeAll()
-        }
-        
-        
-        let countMinusOne = count - 1
-        
-        //formmatting
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier:"ko_KR")
-        formatter.timeZone = TimeZone(abbreviation: "KST")
-        formatter.dateFormat = "MM월 dd일, 20YY"
-        
-        for i in 0..<countMinusOne {
-            firstRecordDays = [formatter.string(from: sortedNotes[0].date)]
-            if sortedNotes[i].weight < sortedNotes[i+1].weight {
-                plusRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
-            } else if sortedNotes[i].weight > sortedNotes[i+1].weight {
-                minusRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
-            } else {
-                maintainRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+        if sortedNotes.count > 0 {
+            let count = sortedNotes.count
+            if count == 1 {
+                plusRecordDays.removeAll()
+                minusRecordDays.removeAll()
+                maintainRecordDays.removeAll()
+            }
+            
+            
+            let countMinusOne = count - 1
+            
+            //formmatting
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier:"ko_KR")
+            formatter.timeZone = TimeZone(abbreviation: "KST")
+            formatter.dateFormat = "MM월 dd일, 20YY"
+            
+            for i in 0..<countMinusOne {
+                firstRecordDays = [formatter.string(from: sortedNotes[0].date)]
+                if sortedNotes[i].weight < sortedNotes[i+1].weight {
+                    plusRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+                } else if sortedNotes[i].weight > sortedNotes[i+1].weight {
+                    minusRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+                } else {
+                    maintainRecordDays.append(formatter.string(from: sortedNotes[i+1].date))
+                }
             }
         }
     }
@@ -412,9 +429,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     
                     if cell.isSelected {
                         collectionView.deselectItem(at: indexPath, animated: true)
-                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "HistoryView")
-                        vcName?.modalTransitionStyle = .coverVertical
-                        self.present(vcName!, animated: true, completion: nil)
+//                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "HistoryView")
+//                        vcName?.modalTransitionStyle = .coverVertical
+//                        self.present(vcName!, animated: true, completion: nil)
+                        performSegue(withIdentifier: "showHistoryVC", sender: self)
+                        
                         return false
                    }
                     else {

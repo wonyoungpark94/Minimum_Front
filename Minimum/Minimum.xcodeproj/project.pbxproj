@@ -11,6 +11,7 @@
 		0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */; };
 		0B8B85BB260055B70092B44A /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */; };
 		0B9B13CF260EFDDE00BFB370 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B13CE260EFDDE00BFB370 /* Note.swift */; };
+		0B9B13D22613192C00BFB370 /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B13D12613192C00BFB370 /* ShowImageViewController.swift */; };
 		0BBBF26525FC83B5008C04DC /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */; };
 		0BBBF26A25FC83DB008C04DC /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBF26925FC83DB008C04DC /* CalendarCell.swift */; };
 		0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED72FD25E778F700A5E122 /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0B8B85BA260055970092B44A /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
 		0B9B13CE260EFDDE00BFB370 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		0B9B13D12613192C00BFB370 /* ShowImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
 		0BBBF26425FC83B5008C04DC /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		0BBBF26925FC83DB008C04DC /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		0BED72FA25E778F700A5E122 /* Minimum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minimum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				0BED733D25E7796300A5E122 /* HistoryViewController.swift */,
+				0B9B13D12613192C00BFB370 /* ShowImageViewController.swift */,
 				0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */,
 			);
 			path = HistoryVC;
@@ -346,6 +349,7 @@
 				0B19B9EB2600AB3F007EC75C /* LockViewController.swift in Sources */,
 				0BBBF26525FC83B5008C04DC /* CalendarHelper.swift in Sources */,
 				0BED730225E778F700A5E122 /* MainViewController.swift in Sources */,
+				0B9B13D22613192C00BFB370 /* ShowImageViewController.swift in Sources */,
 				0B9B13CF260EFDDE00BFB370 /* Note.swift in Sources */,
 				0B805B5B25F8A6BB001D6141 /* CustomTableViewCell.swift in Sources */,
 				0BED72FE25E778F700A5E122 /* AppDelegate.swift in Sources */,

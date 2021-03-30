@@ -9,12 +9,21 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var galleryButton: UIButton!
+    var vc: HistoryViewController!
     
+    @IBOutlet weak var galleryOutlet: UIButton!
+    
+    //이미지 버튼 눌렸을 때
+    @IBAction func imageButtonTapped(_ sender: Any) {
+        vc.showImage(cell: self);
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        //vc.deleteCellData(cell: self);
+    }
     
     
     @IBOutlet weak var cellView: UIView!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var changedDaysLabel: UILabel!
     @IBOutlet weak var changedWeightLabel: UILabel!
@@ -24,7 +33,4 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    
-
 }

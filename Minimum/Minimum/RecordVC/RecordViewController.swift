@@ -254,8 +254,6 @@ class RecordViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    
-    
     //체중 미입력시 alert
     func showWeightInfoAlert() {
         let alert = UIAlertController(title: "체중 입력", message: "체중이 입력되지 않았습니다.", preferredStyle: .alert)

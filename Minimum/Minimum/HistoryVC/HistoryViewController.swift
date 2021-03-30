@@ -26,7 +26,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     //data 받아오기
     var notes: [Note] = []
     var sortedNotes: [Note] = []
-
+    
+    var cellImagePath : String?
+    var cellDate : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         loadData()
         sortData()
         getData()
-        print(sortedNotes[0].date)
-        print(sortedNotes[1].date)
-        print(sortedNotes[2].date)
+//        print(sortedNotes[0].date)
+//        print(sortedNotes[1].date)
+//        print(sortedNotes[2].date)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -90,16 +92,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             if i == sortedNotes.count - 1 { //마지막 data
                 let comparedDay = "첫 기록입니다."
-                let comparedWeight = "-0.0kg"
+                let comparedWeight = "0.0kg"
                 let cellWeight = 0.0
                 let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, cellWeight: cellWeight, memo: memo, imagePath: imagePath)
                 dataList.append(cellData)
             } else {
                 let diffComponents = Calendar.current.dateComponents([.day], from: sortedNotes[i+1].date, to: sortedNotes[i].date)
                 let hours = diffComponents.day
-                print(hours)
-                print(hours!/24)
-                let days = hours!/24
+//                print(hours)
+//                print(hours!/24)
+//                let days = hours!/24
                 
                 let comparedDay = "이전 기록과 비교해서"
                 let comparedWeight = "\(sortedNotes[i].weight - sortedNotes[i + 1].weight) kg"
@@ -122,8 +124,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        //cell.galleryButton.addTarget(self, action: #selector(HistoryViewController.onClickedMapButton(_:)), for: .touchUpInside)
-        
+        //cell에 data 뿌려주기
         cell.dateLabel.text = dataList[indexPath.row].date
         cell.changedDaysLabel.text = dataList[indexPath.row].comparedDay
         cell.changedWeightLabel.text = dataList[indexPath.row].comparedWeight
@@ -131,7 +132,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //imagePath 없으면 이미지 버튼 없애기
         if dataList[indexPath.row].imagePath == nil {
-            cell.galleryButton.isHidden = true
+            cell.galleryOutlet.isHidden = true
         }
         
         //cell minus인지, plus인지에 따라 컬러 다르게
@@ -142,14 +143,91 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             cell.changedWeightLabel.textColor = .systemGray
         }
+        
+        //
+        cell.vc = self
                 
         return cell
     }
     
-//    @objc func onClickedMapButton(_ sender: UIButton?) {
-//
-//        let tag = sender?.tag
-//            print(tag)
-//    }
+    //이미지 보여주기
+    func showImage( cell: UITableViewCell ) {
+        var indexPath = tableView.indexPath(for: cell)
+        // do whatever you want!
+        
+        let date = dataList[indexPath!.row].date
+        for i in 0..<notes.count {
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier:"ko_KR")
+            formatter.timeZone = TimeZone(abbreviation: "KST")
+            formatter.dateFormat = "20YY년 MM월 dd일 hh시 mm분"
 
+            //print(i)
+
+            //date
+            let notesDate = formatter.string(from: notes[i].date)
+
+            if date == notesDate {
+                cellDate = date
+                cellImagePath = notes[i].imagePath
+            }
+        }
+    
+        performSegue(withIdentifier: "showImage", sender: self)
+        
+        //print(indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showImage") {
+            let vc = segue.destination as! ShowImageViewController
+            vc.imagePath = cellImagePath
+            vc.date = cellDate
+        }
+    }
+    
+//    //해당하는 data 지우기
+//    func deleteCellData( cell: UITableViewCell ) {
+//        let indexPath = tableView.indexPath(for: cell)
+//
+//        let date = dataList[indexPath!.row].date
+//
+//        for i in 0..<notes.count {
+//            let formatter = DateFormatter()
+//            formatter.locale = Locale(identifier:"ko_KR")
+//            formatter.timeZone = TimeZone(abbreviation: "KST")
+//            formatter.dateFormat = "20YY년 MM월 dd일 hh시 mm분"
+//
+//            print(i)
+//
+//            //date
+//            let notesDate = formatter.string(from: notes[i].date)
+//
+//            if date == notesDate {
+//                print(i)
+//                notes.remove(at: i)
+//                Note.saveToFile(notes: [notes])
+//                deleteAlert(date: date!)
+//            }
+//        }
+//
+//            loadData()
+////        tableView.reloadData()
+//    }
+//
+//    func deleteAlert(date: String) {
+//        let alert = UIAlertController(title: "데이터 삭제", message: "\(date)의 기록이 삭제됩니다.", preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { action in
+//            print("tapped dismiss")
+//        }))
+//
+//        present(alert, animated: true)
+//    }
+    
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

@@ -326,7 +326,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         sorteddaysDicValues[0] = Double(0)
         
         for i in 1..<sorteddaysDicKeys.count{
-            sorteddaysDicValues[i] = daysDic[sorteddaysDicKeys.count - 1 - i]! - daysDic[sorteddaysDicKeys.count - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
+            //sorteddaysDicValues[i] = daysDic[sorteddaysDicKeys.count - 1 - i]! - daysDic[sorteddaysDicKeys.count - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
         }
         print("----------")
         print(sorteddaysDicKeys.count)
