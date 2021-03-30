@@ -23,16 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Pl2-kM-doL">
-                                <rect key="frame" x="16" y="44" width="360" height="766"/>
+                                <rect key="frame" x="16" y="44" width="358" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJh-iC-vFd">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="294"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="294"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="268" translatesAutoresizingMaskIntoConstraints="NO" id="viw-ue-anT">
-                                                <rect key="frame" x="20" y="20" width="320" height="24"/>
+                                                <rect key="frame" x="20" y="20" width="318" height="24"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGz-An-axV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="MfX-pK-cqu"/>
                                                             <constraint firstAttribute="width" constant="26" id="mNL-Xw-euK"/>
@@ -46,7 +46,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-5W-lRY">
-                                                        <rect key="frame" x="294" y="0.0" width="26" height="24"/>
+                                                        <rect key="frame" x="293" y="0.0" width="25" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="4C8-oE-viz"/>
                                                             <constraint firstAttribute="width" constant="24" id="BoI-8k-nVE"/>
@@ -67,28 +67,28 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-N0-CRK">
-                                                <rect key="frame" x="60.666666666666671" y="69.666666666666686" width="238.66666666666663" height="155"/>
+                                                <rect key="frame" x="43.333333333333343" y="62.333333333333329" width="271.33333333333326" height="169.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥑🥑🥑🥑🥑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-gG-uqj">
-                                                        <rect key="frame" x="7" y="0.0" width="225" height="48"/>
+                                                        <rect key="frame" x="23.333333333333343" y="0.0" width="225" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.5 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZX-fh-kkj">
-                                                        <rect key="frame" x="51.333333333333329" y="54.999999999999986" width="136.33333333333337" height="52"/>
+                                                        <rect key="frame" x="53.666666666666657" y="55.000000000000014" width="164" height="60.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="52"/>
                                                         <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55.15kg &gt;&gt; 55.00kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrb-KU-E0x">
-                                                        <rect key="frame" x="62.666666666666664" y="113.99999999999999" width="113.66666666666669" height="17.000000000000014"/>
+                                                        <rect key="frame" x="59.666666666666671" y="122.66666666666669" width="152.33333333333331" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
                                                         <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03.01부터 지금까지 아보카도 1개만큼 :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAL-7T-bdL">
-                                                        <rect key="frame" x="0.0" y="138" width="238.66666666666666" height="17"/>
+                                                        <rect key="frame" x="0.0" y="149.66666666666669" width="271.33333333333331" height="20"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
                                                         <color key="textColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -106,55 +106,55 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDB-SZ-Pvy">
-                                        <rect key="frame" x="0.0" y="318" width="360" height="350"/>
+                                        <rect key="frame" x="0.0" y="318" width="358" height="350"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt8-7F-V37">
-                                                <rect key="frame" x="8" y="8" width="68.333333333333329" height="20"/>
+                                                <rect key="frame" x="8" y="7.9999999999999982" width="85" height="23.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-qN-gIL">
-                                                <rect key="frame" x="8" y="46" width="344" height="20"/>
+                                                <rect key="frame" x="8" y="46" width="342" height="23.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tup-hb-2kk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="36.333333333333336" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-iO-dzv">
-                                                        <rect key="frame" x="51.333333333333329" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <rect key="frame" x="51" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCR-BV-obg">
-                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="36.333333333333329" height="20"/>
+                                                        <rect key="frame" x="102" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaL-l8-bJp">
-                                                        <rect key="frame" x="154" y="0.0" width="36" height="20"/>
+                                                        <rect key="frame" x="153" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-5g-kgd">
-                                                        <rect key="frame" x="205" y="0.0" width="36.333333333333343" height="20"/>
+                                                        <rect key="frame" x="204" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STB-pz-pj9">
-                                                        <rect key="frame" x="256.33333333333331" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <rect key="frame" x="255" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-ye-Ss3">
-                                                        <rect key="frame" x="307.66666666666669" y="0.0" width="36.333333333333314" height="20"/>
+                                                        <rect key="frame" x="306" y="0.0" width="36" height="23.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-hy-gLM">
-                                                <rect key="frame" x="288.66666666666669" y="8" width="63.333333333333314" height="22"/>
+                                                <rect key="frame" x="286.66666666666669" y="8" width="63.333333333333314" height="22"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0or-KB-l3f">
                                                         <rect key="frame" x="0.0" y="0.0" width="19.666666666666668" height="22"/>
@@ -183,7 +183,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-eT-5Gw">
-                                                <rect key="frame" x="8" y="74" width="344" height="276"/>
+                                                <rect key="frame" x="8" y="77.333333333333314" width="342" height="272.66666666666669"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="22" minimumInteritemSpacing="10" id="cKs-a7-A57">
@@ -202,7 +202,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="image" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoD-A7-R8H">
-                                                                    <rect key="frame" x="8" y="1" width="4.3333333333333321" height="18"/>
+                                                                    <rect key="frame" x="5.0000000000000009" y="-0.66666666666666607" width="10.333333333333336" height="21.333333333333329"/>
                                                                     <color key="tintColor" systemColor="labelColor"/>
                                                                     <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="18"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -216,7 +216,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvI-C6-bfb">
-                                                                    <rect key="frame" x="8" y="17" width="4.3333333333333321" height="9"/>
+                                                                    <rect key="frame" x="7.3333333333333339" y="17" width="5.3333333333333339" height="10.666666666666664"/>
                                                                     <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="9"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -243,11 +243,11 @@
                                                     </collectionViewCell>
                                                 </cells>
                                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KOb-3V-lq0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="10"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="10"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionReusableView>
                                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZEB-na-Lz1">
-                                                    <rect key="frame" x="0.0" y="30" width="344" height="10"/>
+                                                    <rect key="frame" x="0.0" y="30" width="342" height="10"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionReusableView>
                                                 <connections>
@@ -273,7 +273,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-MT-0f5">
-                                        <rect key="frame" x="156" y="692" width="48" height="74"/>
+                                        <rect key="frame" x="155" y="692" width="48" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="Pa3-1k-c97"/>
                                             <constraint firstAttribute="width" constant="48" id="sFJ-6g-RUq"/>
@@ -330,16 +330,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="GiY-8v-b3D">
-                                <rect key="frame" x="97.666666666666686" y="148" width="195" height="75"/>
+                                <rect key="frame" x="90.000000000000014" y="152" width="210.33333333333337" height="83.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="암호해제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZg-DM-vOA">
-                                        <rect key="frame" x="45.999999999999986" y="0.0" width="103.00000000000001" height="32"/>
+                                        <rect key="frame" x="49.666666666666657" y="0.0" width="111" height="37.333333333333336"/>
                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화면에 실제 체중이 표기됩니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yo3-8F-g6K">
-                                        <rect key="frame" x="0.0" y="58" width="195" height="17"/>
+                                        <rect key="frame" x="0.0" y="63.333333333333343" width="210.33333333333334" height="20"/>
                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -347,10 +347,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="256" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-Lf-eHh">
-                                <rect key="frame" x="24" y="68" width="342" height="32"/>
+                                <rect key="frame" x="24" y="68" width="342" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-mL-1t1">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="36"/>
                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -360,7 +360,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-sx-nW5">
-                                        <rect key="frame" x="312" y="0.0" width="30" height="32"/>
+                                        <rect key="frame" x="312" y="0.0" width="30" height="36"/>
                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="17"/>
                                         <state key="normal" title="완료"/>
                                     </button>
@@ -371,7 +371,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="****" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfn-t5-7nX">
-                                <rect key="frame" x="45" y="267" width="300" height="64"/>
+                                <rect key="frame" x="45" y="279.33333333333331" width="300" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="CjY-FT-g65"/>
                                     <constraint firstAttribute="height" constant="64" id="OIX-go-AC8"/>
@@ -423,6 +423,7 @@
                                         <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                         </state>
                                         <connections>
                                             <action selector="cancelButtonTapped:" destination="edq-UH-L1M" eventType="touchUpInside" id="2VO-ee-fnW"/>
@@ -745,13 +746,15 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfq-mJ-cnH">
-                                <rect key="frame" x="24" y="68" width="20" height="22"/>
+                                <rect key="frame" x="24" y="68" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="BK7-aI-VYE"/>
-                                    <constraint firstAttribute="width" constant="20" id="yPK-1F-tZd"/>
+                                    <constraint firstAttribute="height" constant="32" id="BK7-aI-VYE"/>
+                                    <constraint firstAttribute="width" constant="32" id="yPK-1F-tZd"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="chevron.backward.square.fill" catalog="system"/>
+                                <state key="normal" image="chevron.backward" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="hZZ-N3-OKk" eventType="touchUpInside" id="k9j-d1-3jR"/>
                                 </connections>
@@ -783,13 +786,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCU-fh-fwj">
-                                <rect key="frame" x="24" y="68" width="20" height="22"/>
+                                <rect key="frame" x="24" y="68" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="doK-w7-0NI"/>
-                                    <constraint firstAttribute="width" constant="20" id="kzG-7z-Xoi"/>
+                                    <constraint firstAttribute="height" constant="32" id="doK-w7-0NI"/>
+                                    <constraint firstAttribute="width" constant="32" id="kzG-7z-Xoi"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="chevron.backward.square.fill" catalog="system"/>
+                                <state key="normal" image="chevron.backward" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="w7v-BR-owV" eventType="touchUpInside" id="5OC-oW-LvS"/>
                                 </connections>
@@ -877,14 +882,16 @@
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxn-Va-1e6">
-                                        <rect key="frame" x="16" y="16" width="20" height="22"/>
+                                        <rect key="frame" x="8" y="0.0" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="UHB-UN-EU1"/>
-                                            <constraint firstAttribute="height" constant="22" id="lsU-75-Z3F"/>
+                                            <constraint firstAttribute="width" constant="40" id="UHB-UN-EU1"/>
+                                            <constraint firstAttribute="height" constant="40" id="lsU-75-Z3F"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="chevron.backward.square.fill" catalog="system">
+                                        <state key="normal" image="chevron.backward" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large"/>
                                         </state>
                                         <connections>
                                             <action selector="backButton:" destination="cMR-IV-hsZ" eventType="touchUpInside" id="ZlR-ZR-eCY"/>
@@ -893,9 +900,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Hxn-Va-1e6" firstAttribute="top" secondItem="38t-Eo-08R" secondAttribute="top" constant="16" id="CQf-we-9MX"/>
+                                    <constraint firstItem="Hxn-Va-1e6" firstAttribute="top" secondItem="38t-Eo-08R" secondAttribute="top" id="CQf-we-9MX"/>
                                     <constraint firstAttribute="bottom" secondItem="dMW-js-32m" secondAttribute="bottom" constant="40" id="RWd-MA-Rcf"/>
-                                    <constraint firstItem="Hxn-Va-1e6" firstAttribute="leading" secondItem="38t-Eo-08R" secondAttribute="leading" constant="16" id="c2q-Px-U60"/>
+                                    <constraint firstItem="Hxn-Va-1e6" firstAttribute="leading" secondItem="38t-Eo-08R" secondAttribute="leading" constant="8" id="c2q-Px-U60"/>
                                     <constraint firstItem="dMW-js-32m" firstAttribute="centerX" secondItem="38t-Eo-08R" secondAttribute="centerX" id="h4o-3i-Aei"/>
                                 </constraints>
                             </view>
@@ -907,22 +914,22 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="Cqd-xF-pRy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.3 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-NC-bzN">
-                                        <rect key="frame" x="0.0" y="90" width="390" height="49"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.3 kg" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-NC-bzN">
+                                        <rect key="frame" x="0.0" y="78" width="390" height="39"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="39"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양 음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Vd-poK">
-                                        <rect key="frame" x="0.0" y="149" width="390" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양 음" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Vd-poK">
+                                        <rect key="frame" x="0.0" y="127" width="390" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="AXR-c7-OAN"/>
+                                            <constraint firstAttribute="height" constant="80" id="AXR-c7-OAN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -935,7 +942,7 @@
                                     <constraint firstItem="Vxx-Wf-LuF" firstAttribute="leading" secondItem="h5Y-C4-a7o" secondAttribute="leading" id="JGf-b7-edT"/>
                                     <constraint firstAttribute="trailing" secondItem="Q9F-Vd-poK" secondAttribute="trailing" id="Kgf-Zt-rf1"/>
                                     <constraint firstItem="Vxx-Wf-LuF" firstAttribute="top" secondItem="h5Y-C4-a7o" secondAttribute="top" constant="20" id="Qqx-mE-bYO"/>
-                                    <constraint firstItem="Xnw-NC-bzN" firstAttribute="top" secondItem="Vxx-Wf-LuF" secondAttribute="bottom" constant="24" id="ZEn-3d-GMy"/>
+                                    <constraint firstItem="Xnw-NC-bzN" firstAttribute="top" secondItem="Vxx-Wf-LuF" secondAttribute="bottom" constant="12" id="ZEn-3d-GMy"/>
                                     <constraint firstItem="Q9F-Vd-poK" firstAttribute="leading" secondItem="h5Y-C4-a7o" secondAttribute="leading" id="ncy-wc-adA"/>
                                     <constraint firstItem="Q9F-Vd-poK" firstAttribute="top" secondItem="Xnw-NC-bzN" secondAttribute="bottom" constant="10" id="upo-Up-den"/>
                                     <constraint firstAttribute="trailing" secondItem="Xnw-NC-bzN" secondAttribute="trailing" id="xky-48-3yw"/>
@@ -979,7 +986,7 @@
         <image name="buttonCamera" width="74" height="74"/>
         <image name="buttonChart" width="24" height="24"/>
         <image name="buttonRecord" width="48" height="54"/>
-        <image name="chevron.backward.square.fill" catalog="system" width="128" height="114"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>

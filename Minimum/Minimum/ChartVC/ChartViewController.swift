@@ -237,8 +237,8 @@ class ChartViewController: UIViewController, ChartViewDelegate {
 
         else  {
             weightVariation.text = "0kg"
-            weightVariation.textColor = .green
-            gainOrLose.text = "내일 한번 더 무게를 측정해 주세요"
+            weightVariation.textColor = .black
+            gainOrLose.text = "변화량을 측정하기 위하여 \n 해당 기간내에 한번 더 무게를 측정해 주세요"
 
         }
 
@@ -305,6 +305,20 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     //MARK : segment : day
     func daysData(){
+        let endDay = Date()
+        let startDay = endDay.addingTimeInterval(-86400 * 6)
+        
+        let labelFormatter = DateFormatter()
+        labelFormatter.locale = Locale(identifier:"ko_KR")
+        labelFormatter.timeZone = TimeZone(abbreviation: "KST")
+        labelFormatter.dateFormat = "20YY년 MM월 dd일"
+        
+        let endDayLabel = labelFormatter.string(from: endDay)
+        let startDayLabel = labelFormatter.string(from: startDay)
+        let tempPeriodLabel = startDayLabel + " ~ " + endDayLabel
+        
+        period.text = tempPeriodLabel
+        
         let today = Date()
         let yesterDay = today.addingTimeInterval(-86400)
         let twoDaysAgo = today.addingTimeInterval(-86400 * 2)
@@ -643,25 +657,6 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             }
             
         }
-        
-        
-//        for i in 0..<count{
-//            if formatter.string(from: sortedNotes[i].date) == days[0]{
-//                weeksDic[0] = sortedNotes[i].weight
-//            } else if formatter.string(from: sortedNotes[i].date) == days[1] {
-//                weeksDic[1] = sortedNotes[i].weight
-//            } else if formatter.string(from: sortedNotes[i].date) == days[2] {
-//                weeksDic[2] = sortedNotes[i].weight
-//            } else if formatter.string(from: sortedNotes[i].date) == days[3] {
-//                weeksDic[3] = sortedNotes[i].weight
-//            } else if formatter.string(from: sortedNotes[i].date) == days[4] {
-//                weeksDic[4] = sortedNotes[i].weight
-//            } else if formatter.string(from: sortedNotes[i].date) == days[5] {
-//                weeksDic[5] = sortedNotes[i].weight
-//            } else if formatter.string(from: sortedNotes[i].date) == days[6] {
-//                weeksDic[6] = sortedNotes[i].weight
-//            }
-//        }
         
         print("weeksDic")
         print(weeksDic) // 값만 받아옴
