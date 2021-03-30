@@ -9,9 +9,6 @@ import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    let element = ["1", "2", "3", "4"]
-    
     struct CellData {
         var date : String?
         var weight : String?
@@ -21,6 +18,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+
+    
+    
     
     //더미데이터 test
     let dataList = [
@@ -87,7 +88,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
         cell.dateLabel.text = dataList[indexPath.row].date
-        cell.weightLabel.text = dataList[indexPath.row].weight
+        cell.changedDaysLabel.text = dataList[indexPath.row].weight
         cell.memoLabel.text = dataList[indexPath.row].memo
         
         return cell

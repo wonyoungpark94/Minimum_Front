@@ -719,9 +719,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cellView" destination="NaG-lP-Gma" id="VsC-6w-lK2"/>
-                                            <outlet property="dateLabel" destination="Zwy-xC-b3G" id="r5z-Rl-58h"/>
-                                            <outlet property="memoLabel" destination="YHO-vB-243" id="nXy-eA-fhF"/>
-                                            <outlet property="weightLabel" destination="vSm-aI-aTk" id="07s-Vq-oGl"/>
+                                            <outlet property="changedDaysLabel" destination="vSm-aI-aTk" id="RzB-hB-KKH"/>
+                                            <outlet property="changedWeightLabel" destination="LB6-DD-2xX" id="y2z-8g-H8a"/>
+                                            <outlet property="dateLabel" destination="Zwy-xC-b3G" id="Hx4-kP-BUM"/>
+                                            <outlet property="memoLabel" destination="YHO-vB-243" id="4yE-TO-DF1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

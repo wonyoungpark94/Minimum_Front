@@ -13,7 +13,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var changedDaysLabel: UILabel!
+    @IBOutlet weak var changedWeightLabel: UILabel!
     @IBOutlet weak var memoLabel: UILabel!
     
     override func awakeFromNib() {
