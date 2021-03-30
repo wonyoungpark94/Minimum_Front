@@ -261,7 +261,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if sortedNotes.count > 0 {
             let count = sortedNotes.count
             if count == 1 {
-                firstRecordDays.removeAll()
+                //formmatting
+                let formatter = DateFormatter()
+                formatter.locale = Locale(identifier:"ko_KR")
+                formatter.timeZone = TimeZone(abbreviation: "KST")
+                formatter.dateFormat = "MM월 dd일, 20YY"
+                
+                firstRecordDays = [formatter.string(from: sortedNotes[0].date)]
                 plusRecordDays.removeAll()
                 minusRecordDays.removeAll()
                 maintainRecordDays.removeAll()
