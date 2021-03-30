@@ -150,9 +150,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier:"ko_KR")
         formatter.timeZone = TimeZone(abbreviation: "KST")
-        formatter.dateFormat = "MM.dd"
+        formatter.dateFormat = "MM월 dd일"
         
-        if magnitudeWeight < 0.13 {
+        if magnitudeWeight == 0.0 {
+            emojiLabel.text = ""
+            if minus == true {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))과 비교해서 체중이 그대로예요."
+            } else {
+                descriptionLabel.text = "\(formatter.string(from: firstDay))과 비교해서 체중이 그대로예요."
+            }
+        } else if magnitudeWeight < 0.13 {
             emojiLabel.text = "🥝"
             if minus == true {
                 descriptionLabel.text = "\(formatter.string(from: firstDay))부터 키위 한 개 만큼 빠졌어요."

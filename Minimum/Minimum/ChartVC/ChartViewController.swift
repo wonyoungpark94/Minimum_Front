@@ -53,7 +53,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     }
     var notes: [Note] = []
     var sortedNotes: [Note] = []
-    
+    var loadSampleData = false
     
     
     //chary 표시 data 초기화
@@ -66,7 +66,22 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         loadData()
         sortData()
-        //daysData()
+        
+        if loadSampleData == true {
+            yValues = [
+                ChartDataEntry(x:0, y: -0.8),
+                ChartDataEntry(x:1, y: 0),
+                ChartDataEntry(x:2, y: -0.5),
+                ChartDataEntry(x:3, y: 0.3),
+                ChartDataEntry(x:4, y: 0.2),
+                ChartDataEntry(x:5, y: -0.1),
+                ChartDataEntry(x:6, y: -1),
+            ]            
+            period.text = "** sample data입니다. \n 체중 기록을 시작하고 나의 데이터를 쌓아보세요!"
+        } else {
+            yValues.removeAll()
+            daysData()
+        }        
         
         view.backgroundColor = #colorLiteral(red: 0.2045887411, green: 0.4775372744, blue: 0.942905724, alpha: 1)
         // Do any additional setup after loading the view.
@@ -89,11 +104,13 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             print(notes)
             print("저장된 데이터가 있어서 데이터를 불러옵니다.")
             print("----------")
+            loadSampleData = false
         } else { //data가 하나도 없으면 sample data를 읽어와라
             notes = Note.loadSampleNotes()
             print(notes)
             print("더미데이터입니다.")
             print("----------")
+            loadSampleData = true
         }
     }
     
@@ -230,43 +247,54 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
      func DatasetEntries (category: String)-> [ChartDataEntry]{
             if (category == "Day"){
-//                let yValues: [ChartDataEntry] = [
-//                    ChartDataEntry(x:0, y: -0.8),
-//                    ChartDataEntry(x:1, y: 0),
-//                    ChartDataEntry(x:2, y: -0.5),
-//                    ChartDataEntry(x:3, y: 0.3),
-//                    ChartDataEntry(x:4, y: 0.2),
-//                    ChartDataEntry(x:5, y: -0.1),
-//                    ChartDataEntry(x:6, y: -1),
-//                ]
-                yValues.removeAll()
-                //daysData()
+                if loadSampleData == true {
+                    yValues = [
+                        ChartDataEntry(x:0, y: -0.8),
+                        ChartDataEntry(x:1, y: 0),
+                        ChartDataEntry(x:2, y: -0.5),
+                        ChartDataEntry(x:3, y: 0.3),
+                        ChartDataEntry(x:4, y: 0.2),
+                        ChartDataEntry(x:5, y: -0.1),
+                        ChartDataEntry(x:6, y: -1),
+                    ]
+                } else {
+                    yValues.removeAll()
+                    daysData()
+                }
             return yValues
             }
             else if (category == "Week"){
-                let yValues: [ChartDataEntry] = [
-                    ChartDataEntry(x:0, y: 0),
-                    ChartDataEntry(x:1, y: 2),
-                    ChartDataEntry(x:2, y: 2),
-                    ChartDataEntry(x:3, y: 1),
-                    ChartDataEntry(x:4, y: -4),
-                    ChartDataEntry(x:5, y: -3),
-                    ChartDataEntry(x:6, y: 4),
-                ]
+                if loadSampleData == true {
+                    yValues = [
+                        ChartDataEntry(x:0, y: 0),
+                        ChartDataEntry(x:1, y: 2),
+                        ChartDataEntry(x:2, y: 2),
+                        ChartDataEntry(x:3, y: 1),
+                        ChartDataEntry(x:4, y: -4),
+                        ChartDataEntry(x:5, y: -3),
+                        ChartDataEntry(x:6, y: 4),
+                    ]
+                } else {
+                    yValues.removeAll()
+                    //weekssData()
+                }
             return yValues
             }
             else if (category == "Month") {
-//                let yValues: [ChartDataEntry] = [
-//                    ChartDataEntry(x:0, y: -3),
-//                    ChartDataEntry(x:1, y: -4),
-//                    ChartDataEntry(x:2, y: -1),
-//                    ChartDataEntry(x:3, y: 0),
-//                    ChartDataEntry(x:4, y: 2),
-//                    ChartDataEntry(x:5, y: 2),
-//                    ChartDataEntry(x:6, y: 3),
-//                ]
-                yValues.removeAll()
-                monthsData()
+                if loadSampleData == true {
+                    yValues = [
+                        ChartDataEntry(x:0, y: -3),
+                        ChartDataEntry(x:1, y: -4),
+                        ChartDataEntry(x:2, y: -1),
+                        ChartDataEntry(x:3, y: 0),
+                        ChartDataEntry(x:4, y: 2),
+                        ChartDataEntry(x:5, y: 2),
+                        ChartDataEntry(x:6, y: 3),
+                    ]
+                } else {
+                    yValues.removeAll()
+                    monthsData()
+                }
             return yValues
             }
             else {
