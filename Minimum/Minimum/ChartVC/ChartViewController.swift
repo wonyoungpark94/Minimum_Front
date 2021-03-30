@@ -305,6 +305,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     //MARK : segment : day
     func daysData(){
+        //날짜 label
         let endDay = Date()
         let startDay = endDay.addingTimeInterval(-86400 * 6)
         
@@ -318,6 +319,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         let tempPeriodLabel = startDayLabel + " ~ " + endDayLabel
         
         period.text = tempPeriodLabel
+        
         
         let today = Date()
         let yesterDay = today.addingTimeInterval(-86400)
@@ -400,6 +402,21 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     //MARK : segment : week
     func weeksData(){
+        //날짜 label
+        let endDay = Date()
+        let startDay = endDay.addingTimeInterval(-86400 * 48)
+        
+        let labelFormatter = DateFormatter()
+        labelFormatter.locale = Locale(identifier:"ko_KR")
+        labelFormatter.timeZone = TimeZone(abbreviation: "KST")
+        labelFormatter.dateFormat = "20YY년 MM월 dd일"
+        
+        let endDayLabel = labelFormatter.string(from: endDay)
+        let startDayLabel = labelFormatter.string(from: startDay)
+        let tempPeriodLabel = startDayLabel + " ~ " + endDayLabel
+        
+        period.text = tempPeriodLabel
+        
         //이번 주
         let thisWeek1 = Date()
         let thisWeek2 = thisWeek1.addingTimeInterval(-86400 * 1)
@@ -698,6 +715,22 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     //segment : Month
     func monthsData(){
+        //날짜 label
+        let endDay = Date()
+        let startDay = endDay.addingTimeInterval(-86400 * 365 / 2)
+        
+        let labelFormatter = DateFormatter()
+        labelFormatter.locale = Locale(identifier:"ko_KR")
+        labelFormatter.timeZone = TimeZone(abbreviation: "KST")
+        labelFormatter.dateFormat = "20YY년 MM월 dd일"
+        
+        let endDayLabel = labelFormatter.string(from: endDay)
+        let startDayLabel = labelFormatter.string(from: startDay)
+        let tempPeriodLabel = startDayLabel + " ~ " + endDayLabel
+        
+        period.text = tempPeriodLabel
+        
+        
         let today = Date()
                 
         var thisMM = [Double]()
