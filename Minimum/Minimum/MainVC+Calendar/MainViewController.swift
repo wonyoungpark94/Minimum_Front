@@ -98,8 +98,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func loadData(){
         let loadedNoteFile = Note.loadFromFile()
         
-        print(loadedNoteFile)
-        
         if loadedNoteFile.count > 0 { //data가 저장되어 있으면
             notes = loadedNoteFile[0]
             print(notes)
@@ -128,7 +126,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             emojiLabel.text = ""
             weightLabel.text = ""
             changedWeightLabel.text = "\(sortedNotes[0].weight) kg"
-            descriptionLabel.text = "현재 체중 기록이 1개 있습니다. \n 체중 변화량을 보기 위해서 \n 더 많은 체중 기록을 해주세요."
+            descriptionLabel.text = "현재 체중 기록이 1개 있습니다. \n 체중 변화량을 보기 위해서 \n 2개 이상의 체중 기록을 해주세요."
         } else {
             firstDay = sortedNotes[0].date
             changedWeight = sortedNotes[sortedNotes.count - 1].weight - sortedNotes[0].weight
@@ -255,7 +253,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         if loadSampleData == true {
-            descriptionLabel.text = "(샘플데이터) 멜론 두 통만큼 빠졌어요."
+            descriptionLabel.text = "멜론 두 통만큼 빠졌어요. \n **sample data입니다. 체중 기록을 시작해보세요."
         }
     }
     
@@ -263,6 +261,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if sortedNotes.count > 0 {
             let count = sortedNotes.count
             if count == 1 {
+                firstRecordDays.removeAll()
                 plusRecordDays.removeAll()
                 minusRecordDays.removeAll()
                 maintainRecordDays.removeAll()

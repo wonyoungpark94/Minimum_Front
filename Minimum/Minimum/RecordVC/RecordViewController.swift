@@ -39,8 +39,10 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     var defaultData = false
     var notesArrayNum = 0
     
+    
     var sameDateData = false
     var sameArrayNum = 0
+    var sameDay = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -241,9 +243,18 @@ class RecordViewController: UIViewController, UITextViewDelegate {
 
                 Note.saveToFile(notes: [notes])
 
+                
                 print("동일한 날짜의 기록이 이미 있습니다. data가 업로드 됩니다.")
+                //alert 창에 date 넘겨주기
+                let sameDayFormatter = DateFormatter()
+                sameDayFormatter.locale = Locale(identifier:"ko_KR")
+                sameDayFormatter.timeZone = TimeZone(abbreviation: "KST")
+                sameDayFormatter.dateFormat = "20YY년 MM월 dd일"
+                sameDay = sameDayFormatter.string(from: note.date)
+                
+                
                 print(notes.count)
-//                showSameRecordInfoAlert()
+                showSameRecordInfoAlert(sameDay: sameDay)
 
             } else {
                 notes.append(note)
@@ -266,14 +277,16 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     }
     
     //동일 날짜 기록 alert
-    func showSameRecordInfoAlert() {
-        let alert = UIAlertController(title: "동일 날짜 기록", message: "동일한 날짜의 기록이 이미 있습니다. 최신 기록으로 업로드 됩니다.", preferredStyle: .alert)
+    func showSameRecordInfoAlert(sameDay: String) {
+        let alert = UIAlertController(title: sameDay, message: "동일한 날짜의 기록이 이미 있습니다. \n 최신 기록으로 업로드 됩니다.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { action in
             print("tapped dismiss")
+            self.navigationController?.popViewController(animated: true)
         }))
         
         present(alert, animated: true)
+        
     }
 
     //사진 경로 저장

@@ -188,7 +188,7 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="22" minimumInteritemSpacing="10" id="cKs-a7-A57">
                                                     <size key="itemSize" width="20" height="20"/>
-                                                    <size key="estimatedItemSize" width="35" height="30"/>
+                                                    <size key="estimatedItemSize" width="35" height="35"/>
                                                     <size key="headerReferenceSize" width="10" height="10"/>
                                                     <size key="footerReferenceSize" width="10" height="10"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
