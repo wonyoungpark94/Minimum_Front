@@ -626,8 +626,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="327" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-Cn-AJm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="327" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-Cn-AJm">
                                 <rect key="frame" x="0.0" y="56" width="390" height="788"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -638,26 +639,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="aw9-n5-TfB">
-                                                    <rect key="frame" x="20.000000000000014" y="23" width="229.33333333333337" height="76"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aw9-n5-TfB">
+                                                    <rect key="frame" x="20.000000000000014" y="23" width="216.33333333333337" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021년 1월 21일 오전 10시 17분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwy-xC-b3G">
-                                                            <rect key="frame" x="0.0" y="0.0" width="229.33333333333334" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="216.33333333333334" height="20"/>
                                                             <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="64g-hd-WJG">
-                                                            <rect key="frame" x="0.0" y="44" width="229.33333333333334" height="32"/>
+                                                            <rect key="frame" x="0.0" y="36" width="216.33333333333334" height="32"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1일 전과 비교해서" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSm-aI-aTk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="32"/>
-                                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="32"/>
+                                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="18"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0.2kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB6-DD-2xX">
-                                                                    <rect key="frame" x="151.66666666666666" y="0.0" width="77.666666666666657" height="32"/>
+                                                                    <rect key="frame" x="138.66666666666666" y="0.0" width="77.666666666666657" height="32"/>
                                                                     <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="32"/>
                                                                     <color key="textColor" red="0.88235294119999996" green="0.41960784309999999" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -668,44 +669,51 @@
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQr-rR-45V">
                                                     <rect key="frame" x="346.33333333333331" y="23" width="23.666666666666686" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="V0D-Oq-c66"/>
+                                                        <constraint firstAttribute="width" constant="23.670000000000002" id="eOL-7E-flV"/>
+                                                    </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="photo.fill" catalog="system"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제 고은이랑 떡볶이를 먹었다. 내가 미쳤지. 팥빙수도 먹었다. 뭐 다이어트 한다는 사람끼리 다 먹네. ㅋ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHO-vB-243">
-                                                    <rect key="frame" x="20" y="115" width="276.33333333333331" height="60"/>
-                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="20"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="20" y="103" width="350" height="57"/>
+                                                    <fontDescription key="fontDescription" name="GamjaFlower-Regular" family="Gamja Flower" pointSize="19"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGE-rB-sD1">
-                                                    <rect key="frame" x="308.33333333333331" y="159" width="53.666666666666686" height="22"/>
-                                                </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKb-XH-oH9">
-                                                    <rect key="frame" x="351" y="155" width="19" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKb-XH-oH9">
+                                                    <rect key="frame" x="351" y="167" width="19" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="A5P-K8-CDo"/>
+                                                        <constraint firstAttribute="width" constant="19" id="Ern-jC-EJx"/>
+                                                    </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="trash.fill" catalog="system"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-Z9-XXq">
-                                                    <rect key="frame" x="315.66666666666674" y="155" width="17.333333333333314" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-Z9-XXq">
+                                                    <rect key="frame" x="301.66666666666669" y="167" width="17.333333333333314" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="17.329999999999998" id="43A-bg-sxq"/>
+                                                        <constraint firstAttribute="height" constant="22" id="ni8-fx-Wcy"/>
+                                                    </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="pencil" catalog="system"/>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="YHO-vB-243" firstAttribute="leading" secondItem="NaG-lP-Gma" secondAttribute="leading" constant="20" symbolic="YES" id="0cV-O1-DLa"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="cpW-Z9-XXq" secondAttribute="bottom" constant="12" id="5a8-dC-N3Z"/>
-                                                <constraint firstItem="sQr-rR-45V" firstAttribute="top" secondItem="NaG-lP-Gma" secondAttribute="topMargin" constant="12" id="AMS-RR-pSp"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TGE-rB-sD1" secondAttribute="bottom" constant="8" id="H7N-K2-mIs"/>
-                                                <constraint firstItem="MKb-XH-oH9" firstAttribute="trailing" secondItem="NaG-lP-Gma" secondAttribute="trailingMargin" id="HN1-h2-eVV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="sQr-rR-45V" secondAttribute="trailing" id="ScW-Xf-hl6"/>
-                                                <constraint firstItem="MKb-XH-oH9" firstAttribute="leading" secondItem="cpW-Z9-XXq" secondAttribute="trailing" constant="18" id="VgR-N3-svI"/>
-                                                <constraint firstItem="aw9-n5-TfB" firstAttribute="top" secondItem="NaG-lP-Gma" secondAttribute="topMargin" constant="12" id="ci6-sC-BeX"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="TGE-rB-sD1" secondAttribute="trailing" constant="8" id="dOW-m1-sm5"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="MKb-XH-oH9" secondAttribute="bottom" constant="12" id="jfC-wn-KWg"/>
-                                                <constraint firstItem="aw9-n5-TfB" firstAttribute="leading" secondItem="NaG-lP-Gma" secondAttribute="leadingMargin" id="l5o-5o-aA2"/>
-                                                <constraint firstItem="YHO-vB-243" firstAttribute="top" secondItem="aw9-n5-TfB" secondAttribute="bottom" constant="16" id="lOu-tx-Nnn"/>
-                                                <constraint firstItem="cpW-Z9-XXq" firstAttribute="leading" secondItem="YHO-vB-243" secondAttribute="trailing" constant="11.67" id="n6S-aw-kG0"/>
+                                                <constraint firstItem="sQr-rR-45V" firstAttribute="top" secondItem="NaG-lP-Gma" secondAttribute="topMargin" constant="12" id="2n3-N5-hHU"/>
+                                                <constraint firstItem="MKb-XH-oH9" firstAttribute="bottom" secondItem="NaG-lP-Gma" secondAttribute="bottomMargin" id="3CK-3X-kXi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MKb-XH-oH9" secondAttribute="trailing" id="Gam-k4-bs5"/>
+                                                <constraint firstItem="MKb-XH-oH9" firstAttribute="leading" secondItem="cpW-Z9-XXq" secondAttribute="trailing" constant="32" id="N5q-PJ-6x8"/>
+                                                <constraint firstItem="YHO-vB-243" firstAttribute="top" secondItem="aw9-n5-TfB" secondAttribute="bottom" constant="12" id="NK6-tt-aQx"/>
+                                                <constraint firstItem="YHO-vB-243" firstAttribute="trailing" secondItem="NaG-lP-Gma" secondAttribute="trailingMargin" id="XvW-86-M1q"/>
+                                                <constraint firstItem="cpW-Z9-XXq" firstAttribute="bottom" secondItem="NaG-lP-Gma" secondAttribute="bottomMargin" id="ZJa-2d-pgG"/>
+                                                <constraint firstItem="aw9-n5-TfB" firstAttribute="top" secondItem="NaG-lP-Gma" secondAttribute="topMargin" constant="12" id="kd2-5y-SGc"/>
+                                                <constraint firstItem="YHO-vB-243" firstAttribute="leading" secondItem="NaG-lP-Gma" secondAttribute="leadingMargin" id="t46-2Q-2Lx"/>
+                                                <constraint firstItem="sQr-rR-45V" firstAttribute="trailing" secondItem="NaG-lP-Gma" secondAttribute="trailingMargin" id="tiC-kr-j9s"/>
+                                                <constraint firstItem="aw9-n5-TfB" firstAttribute="leading" secondItem="NaG-lP-Gma" secondAttribute="leadingMargin" id="yj1-Ym-xqN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -721,12 +729,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3KN-fv-GRV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="XBy-Cn-AJm" firstAttribute="top" secondItem="3KN-fv-GRV" secondAttribute="top" constant="12" id="jI2-tA-HvH"/>
-                            <constraint firstItem="XBy-Cn-AJm" firstAttribute="trailing" secondItem="3KN-fv-GRV" secondAttribute="trailing" id="qmR-i2-9yp"/>
-                            <constraint firstItem="XBy-Cn-AJm" firstAttribute="leading" secondItem="3KN-fv-GRV" secondAttribute="leading" id="sEm-za-TpM"/>
-                            <constraint firstAttribute="bottom" secondItem="XBy-Cn-AJm" secondAttribute="bottom" id="xRp-In-vj2"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="XBy-Cn-AJm" id="Aic-UV-G9a"/>
