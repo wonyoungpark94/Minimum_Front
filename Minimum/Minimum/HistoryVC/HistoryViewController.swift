@@ -125,6 +125,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.changedWeightLabel.text = dataList[indexPath.row].comparedWeight
         cell.memoLabel.text = dataList[indexPath.row].memo
         
+        //imagePath 없으면 nil
+        if dataList[indexPath.row].imagePath == nil {
+            cell.galleryButton.isHidden = true
+        }
+        
         return cell
     }
     
