@@ -103,7 +103,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                print(hours!/24)
 //                let days = hours!/24
                 
-                let comparedDay = "이전 기록과 비교해서"
+                let comparedDay = "이전보다"
                 let comparedWeight = "\(sortedNotes[i].weight - sortedNotes[i + 1].weight) kg"
                 let cellWeight = sortedNotes[i].weight - sortedNotes[i + 1].weight
                 

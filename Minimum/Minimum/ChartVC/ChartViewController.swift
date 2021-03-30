@@ -66,7 +66,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         loadData()
         sortData()
-        daysData()
+        //daysData()
         
         view.backgroundColor = #colorLiteral(red: 0.2045887411, green: 0.4775372744, blue: 0.942905724, alpha: 1)
         // Do any additional setup after loading the view.
@@ -107,7 +107,6 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         for i in 0..<sortedNotes.count{
             print(sortedNotes[i].date)
         }
-        
         
     }
     
@@ -199,17 +198,23 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             weightVariation.text = String(variationWeight)+"kg"
             
             if (firstWeight!<lastWeight!){
-                gainOrLose.text = "살 쪘어요"
+                let howMuchEat = String(Int(round(variationWeight/(0.2))))  // 200 g pork
+                
+                gainOrLose.text = "🍖" + howMuchEat + " 인분 먹었어요"
+                
                 weightVariation.textColor = .systemRed
+                
             }
             else if (firstWeight!==lastWeight!){
                 gainOrLose.text = "변화가 없어요"
                 weightVariation.textColor = .systemGray
             }
             else {
-                gainOrLose.text = "살이 빠졌어요"
+                let howMuchEat = String(Int(round(abs(variationWeight)/(0.2))))  // 200 g pork
+                gainOrLose.text = "🍖" + howMuchEat + " 인분 양보했어요"
                 weightVariation.textColor = .systemBlue
-                }
+            }
+
             }
 
         else  {
@@ -235,7 +240,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
 //                    ChartDataEntry(x:6, y: -1),
 //                ]
                 yValues.removeAll()
-                daysData()
+                //daysData()
             return yValues
             }
             else if (category == "Week"){

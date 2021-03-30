@@ -120,6 +120,7 @@
 			children = (
 				0BED733D25E7796300A5E122 /* HistoryViewController.swift */,
 				0B9B13D12613192C00BFB370 /* ShowImageViewController.swift */,
+				0BED72FB25E778F700A5E122 /* Products */,
 				0B805B5A25F8A6BB001D6141 /* CustomTableViewCell.swift */,
 			);
 			path = HistoryVC;
@@ -162,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				0BED72FC25E778F700A5E122 /* Minimum */,
-				0BED72FB25E778F700A5E122 /* Products */,
 				8232AB5011B46B7CD5A50C92 /* Pods */,
 				9172EE1D84AABB233FFD43AE /* Frameworks */,
 			);
@@ -174,6 +174,7 @@
 				0BED72FA25E778F700A5E122 /* Minimum.app */,
 			);
 			name = Products;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		0BED72FC25E778F700A5E122 /* Minimum */ = {
