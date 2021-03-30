@@ -31,12 +31,46 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         CellData(date: "2021년 1월 16일 오전 09시 52분", weight: "1일 전과 비교해서", memo: "운동하고나서 찜닭먹었더니 ㅜㅜ", image: nil)
     ]
     
+    //data 받아오기
+    var notes: [Note] = []
+    var sortedNotes: [Note] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
+        sortData()
+        print(sortedNotes[0].date)
+        print(sortedNotes[1].date)
+        print(sortedNotes[2].date)
 
         tableView.delegate = self
         tableView.dataSource = self
-       
+    }
+    
+    //data 불러오기
+    func loadData(){
+        let loadedNoteFile = Note.loadFromFile()
+        
+        if loadedNoteFile.count > 0 { //data가 저장되어 있으면
+            print("----------")
+            print("저장된 데이터가 있어서 데이터를 불러옵니다.")
+            notes = loadedNoteFile[0]
+            print(notes)
+        } else { //data가 하나도 없으면 sample data를 읽어와라
+            notes = Note.loadSampleNotes()
+            print("----------")
+            print("더미데이터입니다.")
+            print(notes)
+        }
+    }
+    
+    func sortData(){
+        sortedNotes = notes.sorted { (first, second) -> Bool in
+            //최근께 위로
+            return first.date > second.date
+        }
     }
     
     
