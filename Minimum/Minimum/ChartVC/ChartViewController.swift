@@ -76,7 +76,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                 ChartDataEntry(x:4, y: 0.2),
                 ChartDataEntry(x:5, y: -0.1),
                 ChartDataEntry(x:6, y: -1),
-            ]            
+            ]
             period.text = "** sample data입니다. \n 체중 기록을 시작하고 나의 데이터를 쌓아보세요!"
         } else {
             yValues.removeAll()
@@ -347,23 +347,32 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                 daysDic[6] = sortedNotes[i].weight
             }
         }
+        print("daysDic")
         print(daysDic) // 값만 받아옴
-        
+        print("----------")
         
         let sorteddaysDicKeys = Array(daysDic.keys).sorted(by: >)
+        print("sorteddaysDicKeys")
         print(sorteddaysDicKeys) //daysDic key값 내림차순 정렬
+        print(sorteddaysDicKeys.count)
         print("----------")
         
         var sorteddaysDicValues = Array(daysDic.values).sorted(by: >) //갯수 맞게 array 생성
         
-        sorteddaysDicValues[0] = Double(0)
-        
-        for i in 1..<sorteddaysDicKeys.count{
-            //sorteddaysDicValues[i] = daysDic[sorteddaysDicKeys.count - 1 - i]! - daysDic[sorteddaysDicKeys.count - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
+        if daysDic.count != 0{
+            sorteddaysDicValues[0] = Double(0)
+            
+            for i in 1..<sorteddaysDicKeys.count{
+                //sorteddaysDicKeys에 맞게 값 뿌려주기
+                sorteddaysDicValues[i] = daysDic[sorteddaysDicKeys[i]]! - daysDic[sorteddaysDicKeys[0]]!
+            }
         }
+        
+        
+        
+        
         print("----------")
-        print(sorteddaysDicKeys.count)
-        print("----------")
+        print("sorteddaysDicValues")
         print(sorteddaysDicValues)
         
         
@@ -684,7 +693,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                     fourMMAgo.append(sortedNotes[i].weight)
                 } else if (tempMonth == "10" && tempYear == String(lastYear)){
                     fiveMMAgo.append(sortedNotes[i].weight)
-                } else if (tempMonth == "19" && tempYear == String(lastYear)){
+                } else if (tempMonth == "09" && tempYear == String(lastYear)){
                     sixMMAgo.append(sortedNotes[i].weight)
                 }
             }
@@ -782,7 +791,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         }
         
         if fiveMMAgo.count > 0 {
-            let count = fourMMAgo.count - 1
+            let count = fiveMMAgo.count - 1
             let fiveMMAgodata = fiveMMAgo[count]
             
             monthsDic[5] = fiveMMAgodata
@@ -798,17 +807,18 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         //print(monthsDic)
         
         
-        let sortedMonthsDicKeys = Array(monthsDic.keys).sorted(by: >)
-        print(sortedMonthsDicKeys) //daysDic key값 내림차순 정렬
-        print("----------")
+        let sortedMonthsDicKeys = Array(monthsDic.keys).sorted(by: >) //daysDic key값 내림차순 정렬
+        print("----sortedMonthsDicKeys-----")
+        print(sortedMonthsDicKeys)
 
         var sortedMonthsDicValues = Array(monthsDic.values).sorted(by: >) //갯수 맞게 array 생성
 
         sortedMonthsDicValues[0] = Double(0)
 
         for i in 1..<sortedMonthsDicKeys.count{
-            sortedMonthsDicValues[i] = monthsDic[sortedMonthsDicKeys.count - 1 - i]! - monthsDic[sortedMonthsDicKeys.count - i]! //sorteddaysDicKeys에 맞게 값 뿌려주기
+            sortedMonthsDicValues[i] = monthsDic[sortedMonthsDicKeys[i]]! - monthsDic[sortedMonthsDicKeys[0]]!
         }
+        
         print("----------")
         print(sortedMonthsDicValues)
 
