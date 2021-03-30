@@ -60,6 +60,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     var yValues: [ChartDataEntry] = []
     
     var daysDic:[Int:Double] = [:]
+    var weeksDic:[Int:Double] = [:]
     var monthsDic:[Int:Double] = [:]
     
     override func viewDidLoad() {
@@ -276,7 +277,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
                     ]
                 } else {
                     yValues.removeAll()
-                    //weekssData()
+                    weeksData()
                 }
             return yValues
             }
@@ -378,6 +379,322 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         
         for i in 0..<sorteddaysDicKeys.count {
             yValues.append(ChartDataEntry(x:Double(6 - sorteddaysDicKeys[i]), y: sorteddaysDicValues[i]))
+        }
+        
+        print(yValues)
+    }
+    
+    //MARK : segment : week
+    func weeksData(){
+        //이번 주
+        let thisWeek1 = Date()
+        let thisWeek2 = thisWeek1.addingTimeInterval(-86400 * 1)
+        let thisWeek3 = thisWeek1.addingTimeInterval(-86400 * 2)
+        let thisWeek4 = thisWeek1.addingTimeInterval(-86400 * 3)
+        let thisWeek5 = thisWeek1.addingTimeInterval(-86400 * 4)
+        let thisWeek6 = thisWeek1.addingTimeInterval(-86400 * 5)
+        let thisWeek7 = thisWeek1.addingTimeInterval(-86400 * 6)
+        
+        //1주 전
+        let oneWWAgo1 = thisWeek1.addingTimeInterval(-86400 * 7)
+        let oneWWAgo2 = thisWeek1.addingTimeInterval(-86400 * 8)
+        let oneWWAgo3 = thisWeek1.addingTimeInterval(-86400 * 9)
+        let oneWWAgo4 = thisWeek1.addingTimeInterval(-86400 * 10)
+        let oneWWAgo5 = thisWeek1.addingTimeInterval(-86400 * 11)
+        let oneWWAgo6 = thisWeek1.addingTimeInterval(-86400 * 12)
+        let oneWWAgo7 = thisWeek1.addingTimeInterval(-86400 * 13)
+        
+        //2주 전
+        let twoWWAgo1 = thisWeek1.addingTimeInterval(-86400 * 14)
+        let twoWWAgo2 = thisWeek1.addingTimeInterval(-86400 * 15)
+        let twoWWAgo3 = thisWeek1.addingTimeInterval(-86400 * 16)
+        let twoWWAgo4 = thisWeek1.addingTimeInterval(-86400 * 17)
+        let twoWWAgo5 = thisWeek1.addingTimeInterval(-86400 * 18)
+        let twoWWAgo6 = thisWeek1.addingTimeInterval(-86400 * 19)
+        let twoWWAgo7 = thisWeek1.addingTimeInterval(-86400 * 20)
+        
+        //3주 전
+        let threeWWAgo1 = thisWeek1.addingTimeInterval(-86400 * 21)
+        let threeWWAgo2 = thisWeek1.addingTimeInterval(-86400 * 22)
+        let threeWWAgo3 = thisWeek1.addingTimeInterval(-86400 * 23)
+        let threeWWAgo4 = thisWeek1.addingTimeInterval(-86400 * 24)
+        let threeWWAgo5 = thisWeek1.addingTimeInterval(-86400 * 25)
+        let threeWWAgo6 = thisWeek1.addingTimeInterval(-86400 * 26)
+        let threeWWAgo7 = thisWeek1.addingTimeInterval(-86400 * 27)
+        
+        //4주 전
+        let fourWWAgo1 = thisWeek1.addingTimeInterval(-86400 * 28)
+        let fourWWAgo2 = thisWeek1.addingTimeInterval(-86400 * 29)
+        let fourWWAgo3 = thisWeek1.addingTimeInterval(-86400 * 30)
+        let fourWWAgo4 = thisWeek1.addingTimeInterval(-86400 * 31)
+        let fourWWAgo5 = thisWeek1.addingTimeInterval(-86400 * 32)
+        let fourWWAgo6 = thisWeek1.addingTimeInterval(-86400 * 33)
+        let fourWWAgo7 = thisWeek1.addingTimeInterval(-86400 * 34)
+        
+        //5주 전
+        let fiveWWAgo1 = thisWeek1.addingTimeInterval(-86400 * 35)
+        let fiveWWAgo2 = thisWeek1.addingTimeInterval(-86400 * 36)
+        let fiveWWAgo3 = thisWeek1.addingTimeInterval(-86400 * 37)
+        let fiveWWAgo4 = thisWeek1.addingTimeInterval(-86400 * 38)
+        let fiveWWAgo5 = thisWeek1.addingTimeInterval(-86400 * 39)
+        let fiveWWAgo6 = thisWeek1.addingTimeInterval(-86400 * 40)
+        let fiveWWAgo7 = thisWeek1.addingTimeInterval(-86400 * 41)
+        
+        //6주 전
+        let sixWWAgo1 = thisWeek1.addingTimeInterval(-86400 * 42)
+        let sixWWAgo2 = thisWeek1.addingTimeInterval(-86400 * 43)
+        let sixWWAgo3 = thisWeek1.addingTimeInterval(-86400 * 44)
+        let sixWWAgo4 = thisWeek1.addingTimeInterval(-86400 * 45)
+        let sixWWAgo5 = thisWeek1.addingTimeInterval(-86400 * 46)
+        let sixWWAgo6 = thisWeek1.addingTimeInterval(-86400 * 47)
+        let sixWWAgo7 = thisWeek1.addingTimeInterval(-86400 * 48)
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "MM월 dd일, 20YY"
+        
+        let days = [
+            //이번 주
+            formatter.string(from: thisWeek1), //days0
+            formatter.string(from: thisWeek2),
+            formatter.string(from: thisWeek3),
+            formatter.string(from: thisWeek4),
+            formatter.string(from: thisWeek5),
+            formatter.string(from: thisWeek6),
+            formatter.string(from: thisWeek7), //days6
+            
+            //1주 전
+            formatter.string(from: oneWWAgo1),//day 7
+            formatter.string(from: oneWWAgo2),
+            formatter.string(from: oneWWAgo3),
+            formatter.string(from: oneWWAgo4),
+            formatter.string(from: oneWWAgo5),
+            formatter.string(from: oneWWAgo6),
+            formatter.string(from: oneWWAgo7),//day 13
+            
+            //2주 전
+            formatter.string(from: twoWWAgo1),//day 14
+            formatter.string(from: twoWWAgo2),
+            formatter.string(from: twoWWAgo3),
+            formatter.string(from: twoWWAgo4),
+            formatter.string(from: twoWWAgo5),
+            formatter.string(from: twoWWAgo6),
+            formatter.string(from: twoWWAgo7),//day 20
+            
+            //3주 전
+            formatter.string(from: threeWWAgo1),//day 21
+            formatter.string(from: threeWWAgo2),
+            formatter.string(from: threeWWAgo3),
+            formatter.string(from: threeWWAgo4),
+            formatter.string(from: threeWWAgo5),
+            formatter.string(from: threeWWAgo6),
+            formatter.string(from: threeWWAgo7),//day 27
+            
+            //4주 전
+            formatter.string(from: fourWWAgo1),//day 28
+            formatter.string(from: fourWWAgo2),
+            formatter.string(from: fourWWAgo3),
+            formatter.string(from: fourWWAgo4),
+            formatter.string(from: fourWWAgo5),
+            formatter.string(from: fourWWAgo6),
+            formatter.string(from: fourWWAgo7),//day 34
+            
+            //5주 전
+            formatter.string(from: fiveWWAgo1),//day 35
+            formatter.string(from: fiveWWAgo2),
+            formatter.string(from: fiveWWAgo3),
+            formatter.string(from: fiveWWAgo4),
+            formatter.string(from: fiveWWAgo5),
+            formatter.string(from: fiveWWAgo6),
+            formatter.string(from: fiveWWAgo7),//day 41
+            
+            //6주 전
+            formatter.string(from: sixWWAgo1),//day 42
+            formatter.string(from: sixWWAgo2),
+            formatter.string(from: sixWWAgo3),
+            formatter.string(from: sixWWAgo4),
+            formatter.string(from: sixWWAgo5),
+            formatter.string(from: sixWWAgo6),
+            formatter.string(from: sixWWAgo7)//day 48
+        ]
+        
+        let count = sortedNotes.count
+        
+        //일주일 이내 data와 같은게 있다면 daysDic에 집어넣어라
+        for i in 0..<count{
+            //첫주
+            if formatter.string(from: sortedNotes[i].date) == days[6]{
+                weeksDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[5] {
+                weeksDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[4] {
+                weeksDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[3] {
+                weeksDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[2] {
+                weeksDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[1] {
+                weeksDic[0] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[0] {
+                weeksDic[0] = sortedNotes[i].weight
+            }
+            
+            //1주 전
+            else if formatter.string(from: sortedNotes[i].date) == days[13]{
+                weeksDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[12] {
+                weeksDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[11] {
+                weeksDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[10] {
+                weeksDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[9] {
+                weeksDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[8] {
+                weeksDic[1] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[7] {
+                weeksDic[1] = sortedNotes[i].weight
+            }
+            
+            //2주 전
+            else if formatter.string(from: sortedNotes[i].date) == days[20]{
+                weeksDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[19] {
+                weeksDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[18] {
+                weeksDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[17] {
+                weeksDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[16] {
+                weeksDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[15] {
+                weeksDic[2] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[14] {
+                weeksDic[2] = sortedNotes[i].weight
+            }
+            
+            //3주 전
+            else if formatter.string(from: sortedNotes[i].date) == days[27]{
+                weeksDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[26] {
+                weeksDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[25] {
+                weeksDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[24] {
+                weeksDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[23] {
+                weeksDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[22] {
+                weeksDic[3] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[21] {
+                weeksDic[3] = sortedNotes[i].weight
+            }
+            
+            //4주 전
+            else if formatter.string(from: sortedNotes[i].date) == days[34]{
+                weeksDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[33] {
+                weeksDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[32] {
+                weeksDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[31] {
+                weeksDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[30] {
+                weeksDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[29] {
+                weeksDic[4] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[28] {
+                weeksDic[4] = sortedNotes[i].weight
+            }
+            
+            //5주 전
+            else if formatter.string(from: sortedNotes[i].date) == days[41]{
+                weeksDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[40] {
+                weeksDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[39] {
+                weeksDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[38] {
+                weeksDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[37] {
+                weeksDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[36] {
+                weeksDic[5] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[35] {
+                weeksDic[5] = sortedNotes[i].weight
+            }
+            
+            //6주 전
+            else if formatter.string(from: sortedNotes[i].date) == days[48]{
+                weeksDic[6] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[47] {
+                weeksDic[6] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[46] {
+                weeksDic[6] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[45] {
+                weeksDic[6] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[44] {
+                weeksDic[6] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[43] {
+                weeksDic[6] = sortedNotes[i].weight
+            } else if formatter.string(from: sortedNotes[i].date) == days[42] {
+                weeksDic[6] = sortedNotes[i].weight
+            }
+            
+        }
+        
+        
+//        for i in 0..<count{
+//            if formatter.string(from: sortedNotes[i].date) == days[0]{
+//                weeksDic[0] = sortedNotes[i].weight
+//            } else if formatter.string(from: sortedNotes[i].date) == days[1] {
+//                weeksDic[1] = sortedNotes[i].weight
+//            } else if formatter.string(from: sortedNotes[i].date) == days[2] {
+//                weeksDic[2] = sortedNotes[i].weight
+//            } else if formatter.string(from: sortedNotes[i].date) == days[3] {
+//                weeksDic[3] = sortedNotes[i].weight
+//            } else if formatter.string(from: sortedNotes[i].date) == days[4] {
+//                weeksDic[4] = sortedNotes[i].weight
+//            } else if formatter.string(from: sortedNotes[i].date) == days[5] {
+//                weeksDic[5] = sortedNotes[i].weight
+//            } else if formatter.string(from: sortedNotes[i].date) == days[6] {
+//                weeksDic[6] = sortedNotes[i].weight
+//            }
+//        }
+        
+        print("weeksDic")
+        print(weeksDic) // 값만 받아옴
+        print("----------")
+        
+        let sortedWeeksDicKeys = Array(weeksDic.keys).sorted(by: >)
+        print("sorteddaysDicKeys")
+        print(sortedWeeksDicKeys) //daysDic key값 내림차순 정렬
+        print(sortedWeeksDicKeys.count)
+        print("----------")
+        
+        var sortedWeeksDicValues = Array(weeksDic.values).sorted(by: >) //갯수 맞게 array 생성
+        
+        if weeksDic.count != 0{ //data가 없는 경우 out of range error
+            sortedWeeksDicValues[0] = Double(0)
+            
+            for i in 1..<sortedWeeksDicKeys.count{
+                //sorteddaysDicKeys에 맞게 값 뿌려주기
+                print(i)
+                sortedWeeksDicValues[i] = weeksDic[sortedWeeksDicKeys[i]]! - weeksDic[sortedWeeksDicKeys[0]]!
+                
+                //sorteddaysDicValues[i] = daysDic[sorteddaysDicKeys[i]]! - daysDic[sorteddaysDicKeys[0]]!
+            }
+        }
+        
+        
+        print("----------")
+        print("sortedWeeksDicValues")
+        print(sortedWeeksDicValues)
+        
+        
+        for i in 0..<sortedWeeksDicKeys.count {
+            yValues.append(ChartDataEntry(x:Double(6 - sortedWeeksDicKeys[i]), y: sortedWeeksDicValues[i]))
         }
         
         print(yValues)
