@@ -359,7 +359,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         
         var sorteddaysDicValues = Array(daysDic.values).sorted(by: >) //갯수 맞게 array 생성
         
-        if daysDic.count != 0{
+        if daysDic.count != 0{ //data가 없는 경우 out of range error 
             sorteddaysDicValues[0] = Double(0)
             
             for i in 1..<sorteddaysDicKeys.count{
@@ -813,11 +813,15 @@ class ChartViewController: UIViewController, ChartViewDelegate {
 
         var sortedMonthsDicValues = Array(monthsDic.values).sorted(by: >) //갯수 맞게 array 생성
 
-        sortedMonthsDicValues[0] = Double(0)
+        if monthsDic.count != 0{ //data가 없는 경우 out of range error
+            sortedMonthsDicValues[0] = Double(0)
 
-        for i in 1..<sortedMonthsDicKeys.count{
-            sortedMonthsDicValues[i] = monthsDic[sortedMonthsDicKeys[i]]! - monthsDic[sortedMonthsDicKeys[0]]!
+            for i in 1..<sortedMonthsDicKeys.count{
+                sortedMonthsDicValues[i] = monthsDic[sortedMonthsDicKeys[i]]! - monthsDic[sortedMonthsDicKeys[0]]!
+            }
         }
+        
+        
         
         print("----------")
         print(sortedMonthsDicValues)
