@@ -9,6 +9,9 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var galleryButton: UIButton!
+    
+    
     
     @IBOutlet weak var cellView: UIView!
     
@@ -21,11 +24,7 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+    
+    
 
 }

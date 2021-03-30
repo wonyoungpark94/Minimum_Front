@@ -11,26 +11,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     struct CellData {
         var date : String?
-        var weight : String?
+        var comparedDay : String?
+        var comparedWeight : String?
         var memo : String?
-        var image : UIImage?
+        var imagePath : String?
     }
-    
     
     @IBOutlet weak var tableView: UITableView!
     
-
-    
-    
-    
     //더미데이터 test
-    let dataList = [
-        CellData(date: "2021년 1월 21일 오전 10시 17분", weight: "1일 전과 비교해서", memo: "어제 고은이랑 떡볶이를 먹었다. 내가 미쳤지", image: nil),
-        CellData(date: "2021년 1월 20일 오전 10시 01분", weight: "1일 전과 비교해서", memo: "야식을 안 먹고 잤더니 몸이 가볍네", image: nil),
-        CellData(date: "2021년 1월 19일 오전 09시 52분", weight: "1일 전과 비교해서", memo: "어제 운동 빡시게 함!!!", image: nil),
-        CellData(date: "2021년 1월 18일 오전 10시 02분", weight: "2일 전과 비교해서", memo: "며칠 째 그대로네", image: nil),
-        CellData(date: "2021년 1월 16일 오전 09시 52분", weight: "1일 전과 비교해서", memo: "운동하고나서 찜닭먹었더니 ㅜㅜ", image: nil)
-    ]
+    var dataList = [CellData]()
     
     //data 받아오기
     var notes: [Note] = []
@@ -42,6 +32,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         loadData()
         sortData()
+        getData()
         print(sortedNotes[0].date)
         print(sortedNotes[1].date)
         print(sortedNotes[2].date)
@@ -74,8 +65,48 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func getData(){
+        for i in 0..<sortedNotes.count {
+            let rawDate = sortedNotes[i].date
+            let rawWeight = sortedNotes[i].weight
+            var memo = sortedNotes[i].memo
+            
+            if memo == "메모를 입력해주세요" {
+                memo = ""
+            }
+            print(rawDate)
+            
+            
+            let imagePath = sortedNotes[i].imagePath
+            
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier:"ko_KR")
+            formatter.timeZone = TimeZone(abbreviation: "KST")
+            formatter.dateFormat = "20YY년 MM월 dd일 hh시 mm분"
+            
+            //date
+            let date = formatter.string(from: rawDate)
+            
+            if i == sortedNotes.count - 1 { //마지막 data
+                let comparedDay = "첫 기록입니다."
+                let comparedWeight = "-0.0kg"
+                let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, memo: memo, imagePath: imagePath)
+                dataList.append(cellData)
+            } else {
+                let diffComponents = Calendar.current.dateComponents([.day], from: sortedNotes[i+1].date, to: sortedNotes[i].date)
+                let hours = diffComponents.day
+                print(hours)
+                print(hours!/24)
+                let days = hours!/24
+                
+                let comparedDay = "이전 기록과 비교해서"
+                let comparedWeight = "\(sortedNotes[i].weight - sortedNotes[i + 1].weight) kg"
+                let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, memo: memo, imagePath: imagePath)
+                dataList.append(cellData)
+            }
+        }
+    }
     
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataList.count
     }
@@ -87,11 +118,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
+        cell.galleryButton.addTarget(self, action: #selector(HistoryViewController.onClickedMapButton(_:)), for: .touchUpInside)
+        
         cell.dateLabel.text = dataList[indexPath.row].date
-        cell.changedDaysLabel.text = dataList[indexPath.row].weight
+        cell.changedDaysLabel.text = dataList[indexPath.row].comparedDay
+        cell.changedWeightLabel.text = dataList[indexPath.row].comparedWeight
         cell.memoLabel.text = dataList[indexPath.row].memo
         
         return cell
+    }
+    
+    @objc func onClickedMapButton(_ sender: UIButton?) {
+
+        let tag = sender?.tag
+            print(tag)
     }
 
 }

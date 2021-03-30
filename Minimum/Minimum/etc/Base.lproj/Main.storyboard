@@ -691,7 +691,7 @@
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="trash.fill" catalog="system"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-Z9-XXq">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-Z9-XXq">
                                                     <rect key="frame" x="301.66666666666669" y="167" width="17.333333333333314" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="17.329999999999998" id="43A-bg-sxq"/>
@@ -722,6 +722,7 @@
                                             <outlet property="changedDaysLabel" destination="vSm-aI-aTk" id="RzB-hB-KKH"/>
                                             <outlet property="changedWeightLabel" destination="LB6-DD-2xX" id="y2z-8g-H8a"/>
                                             <outlet property="dateLabel" destination="Zwy-xC-b3G" id="Hx4-kP-BUM"/>
+                                            <outlet property="galleryButton" destination="sQr-rR-45V" id="mx2-8N-hcX"/>
                                             <outlet property="memoLabel" destination="YHO-vB-243" id="4yE-TO-DF1"/>
                                         </connections>
                                     </tableViewCell>
