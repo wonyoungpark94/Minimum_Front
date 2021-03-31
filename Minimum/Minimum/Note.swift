@@ -68,13 +68,13 @@ class Note: Codable {
             Note(date: date0, weight: 55.5, memo: "어제 고은이랑 떡볶이를 먹었다.내가 미쳤지", imagePath: nil),
             Note(date: date1, weight: 55.5, memo: "야식을 안 먹고 잤더니 몸이 가볍네", imagePath: nil),
             Note(date: date2, weight: 54.5, memo: "어제 운동 빡시게 함!!! ", imagePath: nil),
-            Note(date: date3, weight: 53.5, memo: "며칠 째 그대로네", imagePath: nil),
-            Note(date: date4, weight: 53.5, memo: "운동하고나서 찜닭먹었더니 ㅜㅜ", imagePath: nil),
-            Note(date: date5, weight: 52.5, memo: nil, imagePath: nil),
-            Note(date: date6, weight: 53.5, memo: nil, imagePath: nil),
-            Note(date: date7, weight: 52.5, memo: nil, imagePath: nil),
-            Note(date: date8, weight: 51.5, memo: nil, imagePath: nil),
-            Note(date: date9, weight: 50.5, memo: nil, imagePath: nil)
+            Note(date: date3, weight: 53.5, memo: "아싸 오늘도 감량! 계속 이렇게 가자!!", imagePath: nil),
+            Note(date: date4, weight: 53.5, memo: "운동 빡시게 했는데 저녁에 맥주를 마셔서 쪄버렸다. 다시 초심으로 돌아가자!", imagePath: nil),
+            Note(date: date5, weight: 52.5, memo: "다행이다! 2일동안 그대로다가 빠졌다.", imagePath: nil),
+            Note(date: date6, weight: 53.5, memo: "아 꾸준히 빠졌는데 오늘 처음으로 쪘다. 운동하고나서는 요거트랑 닭가슴살을 먹도록 하자.", imagePath: nil),
+            Note(date: date7, weight: 52.5, memo: "오늘 드디어 감량했다! 이제 운동 강도를 조금 높여볼까.", imagePath: nil),
+            Note(date: date8, weight: 51.5, memo: "2일 연속 빠지는 중!! 앞으로 야식은 절대 먹지 말자!!", imagePath: nil),
+            Note(date: date9, weight: 50.5, memo: "곧 앞자리 바꿀 수 있겠어!", imagePath: nil)
         ]
     }
 }

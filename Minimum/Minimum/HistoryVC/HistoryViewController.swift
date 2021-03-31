@@ -103,7 +103,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                print(hours!/24)
 //                let days = hours!/24
                 
-                let comparedDay = "이전보다"
+                let comparedDay = "이전 기록보다"
 
                 let roundComparedWeight = round((sortedNotes[i].weight - sortedNotes[i + 1].weight) * 10) / 10 //소숫점 자리수 표현
                 let comparedWeight = String(roundComparedWeight)+"kg"
