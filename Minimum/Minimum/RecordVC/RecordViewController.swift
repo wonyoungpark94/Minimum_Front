@@ -44,11 +44,15 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     var sameArrayNum = 0
     var sameDay = ""
     
+    let picker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //날짜//
         getDate()
         loadData()
+        
+        picker.delegate = self
         
         let count = notes.count
         let i = 0
@@ -166,12 +170,58 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     
     //사진// 버튼
     @IBAction func cameraButton(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .camera
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
+//        let picker = UIImagePickerController()
+//        picker.sourceType = .camera
+//        picker.allowsEditing = true
+//        picker.delegate = self
+//        present(picker, animated: true)
+
+        let alert =  UIAlertController(title: "눈바디 사진", message: "눈바디 이미지를 업로드 하기 위해 사진 선택 방식을 골라주세요.", preferredStyle: .actionSheet)
+
+
+        let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
+
+        }
+
+
+        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+
+        self.openCamera()
+
+        }
+
+
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+
+        alert.addAction(library)
+
+        alert.addAction(camera)
+
+        alert.addAction(cancel)
+
+        present(alert, animated: true, completion: nil)
+
+
     }
+    
+    func openLibrary(){
+
+      picker.sourceType = .photoLibrary
+
+      present(picker, animated: false, completion: nil)
+
+    }
+
+    func openCamera(){
+
+      picker.sourceType = .camera
+
+      present(picker, animated: false, completion: nil)
+
+    }
+    
+    
     
 
     //Cancelbutton//
@@ -271,8 +321,6 @@ class RecordViewController: UIViewController, UITextViewDelegate {
                 print(notes.count)
             }
         }
-        
-        
     }
     
     //체중 미입력시 alert
@@ -342,7 +390,7 @@ class RecordViewController: UIViewController, UITextViewDelegate {
 
 //사진//
 extension RecordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    
+        
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
@@ -351,21 +399,20 @@ extension RecordViewController: UIImagePickerControllerDelegate, UINavigationCon
         
         picker.dismiss(animated: true, completion: nil)
         
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
         
         imageView.image = image
         
         //이미지 경로 저장
+        print(image)
+        
         note.imagePath = (saveImageToDocumentDirectory(image))
 
+        print(note.imagePath)
+        
         //경로 받아와서 이미지 뿌려주기
-//        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-//        print(documentsPath)
-//
-//        documentsPath.append("/20210328101726.jpg")
-//        imageView.image = UIImage(contentsOfFile: documentsPath)
         
         takePhoto.setTitle("", for: .normal)
     }

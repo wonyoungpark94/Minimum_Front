@@ -136,7 +136,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.memoLabel.text = dataList[indexPath.row].memo
         
         //imagePath 없으면 이미지 버튼 없애기
-        if dataList[indexPath.row].imagePath == nil {
+        
+        print("imagePath")
+        print(dataList[indexPath.row].imagePath)
+        
+        if dataList[indexPath.row].imagePath != nil {
+            cell.galleryOutlet.isHidden = false
+        } else {
             cell.galleryOutlet.isHidden = true
         }
         

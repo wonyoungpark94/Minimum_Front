@@ -567,7 +567,7 @@
                                                                     <action selector="cameraButton:" destination="edq-UH-L1M" eventType="touchUpInside" id="8aA-lE-D4h"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLh-Hx-qeW">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLh-Hx-qeW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="74" height="74"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="74" id="fEu-aJ-CLL"/>
