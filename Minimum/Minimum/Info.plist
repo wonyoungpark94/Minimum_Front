@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>카메라 씀</string>
+	<string>눈바디 기록을 위해서 카메라를 사용하려합니다. 접근 권한을 허용해주세요.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>라이브러리 씀</string>
+	<string>눈바디 기록을 위해서 라이브러리에 접근하려합니다. 접근 권한을 허용해주세요.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>GamjaFlower-Regular.ttf</string>
