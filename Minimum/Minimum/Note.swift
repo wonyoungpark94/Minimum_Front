@@ -65,11 +65,11 @@ class Note: Codable {
         let date9:Date = dateFormatter.date(from: dateString[9])!
 
         return [
-            Note(date: date0, weight: 55.5, memo: nil, imagePath: nil),
-            Note(date: date1, weight: 55.5, memo: nil, imagePath: nil),
-            Note(date: date2, weight: 54.5, memo: nil, imagePath: nil),
-            Note(date: date3, weight: 53.5, memo: nil, imagePath: nil),
-            Note(date: date4, weight: 53.5, memo: nil, imagePath: nil),
+            Note(date: date0, weight: 55.5, memo: "어제 고은이랑 떡볶이를 먹었다.내가 미쳤지", imagePath: nil),
+            Note(date: date1, weight: 55.5, memo: "야식을 안 먹고 잤더니 몸이 가볍네", imagePath: nil),
+            Note(date: date2, weight: 54.5, memo: "어제 운동 빡시게 함!!! ", imagePath: nil),
+            Note(date: date3, weight: 53.5, memo: "며칠 째 그대로네", imagePath: nil),
+            Note(date: date4, weight: 53.5, memo: "운동하고나서 찜닭먹었더니 ㅜㅜ", imagePath: nil),
             Note(date: date5, weight: 52.5, memo: nil, imagePath: nil),
             Note(date: date6, weight: 53.5, memo: nil, imagePath: nil),
             Note(date: date7, weight: 52.5, memo: nil, imagePath: nil),
