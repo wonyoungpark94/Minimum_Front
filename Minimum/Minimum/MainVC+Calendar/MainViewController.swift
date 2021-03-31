@@ -125,12 +125,20 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             firstDay = sortedNotes[0].date
             emojiLabel.text = ""
             weightLabel.text = ""
-            changedWeightLabel.text = "\(sortedNotes[0].weight) kg"
+            
+            let roundChangedWeight = round((sortedNotes[0].weight) * 10) / 10 //소숫점 자리수 표현
+            changedWeightLabel.text = String(roundChangedWeight)+"kg"
+            
+            //changedWeightLabel.text = "\(sortedNotes[0].weight) kg"
             descriptionLabel.text = "현재 체중 기록이 1개 있습니다. \n 체중 변화량을 보기 위해서 \n 2개 이상의 체중 기록을 해주세요."
         } else {
             firstDay = sortedNotes[0].date
             changedWeight = sortedNotes[sortedNotes.count - 1].weight - sortedNotes[0].weight
-            weightLabel.text = "\(changedWeight) kg"
+            
+            let roundChangedWeight = round((changedWeight) * 10) / 10 //소숫점 자리수 표현
+            weightLabel.text = String(roundChangedWeight)+"kg"
+            
+            //weightLabel.text = "\(changedWeight) kg"
             
             if changedWeight < 0 {
                 minus = true
@@ -140,7 +148,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 magnitudeWeight = changedWeight
             }
             
-            changedWeightLabel.text = "\(sortedNotes[0].weight) kg >> \(sortedNotes[sortedNotes.count - 1].weight) kg"
+            let roundFirstWeight = round((sortedNotes[0].weight) * 10) / 10 //소숫점 자리수 표현
+            let roundLastWeight = round((sortedNotes[sortedNotes.count - 1].weight) * 10) / 10 //소숫점 자리수 표현
+            
+            changedWeightLabel.text = "\(String(roundFirstWeight)) kg >> \(String(roundLastWeight)) kg"
+            
+            //changedWeightLabel.text = "\(sortedNotes[0].weight) kg >> \(sortedNotes[sortedNotes.count - 1].weight) kg"
             uploadEmojiandDescription()
         }
         

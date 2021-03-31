@@ -104,7 +104,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                let days = hours!/24
                 
                 let comparedDay = "이전보다"
-                let comparedWeight = "\(sortedNotes[i].weight - sortedNotes[i + 1].weight) kg"
+
+                let roundComparedWeight = round((sortedNotes[i].weight - sortedNotes[i + 1].weight) * 10) / 10 //소숫점 자리수 표현
+                let comparedWeight = String(roundComparedWeight)+"kg"
+                
+                
+                //let comparedWeight = "\(sortedNotes[i].weight - sortedNotes[i + 1].weight) kg"
                 let cellWeight = sortedNotes[i].weight - sortedNotes[i + 1].weight
                 
                 let cellData = CellData(date: date, comparedDay: comparedDay, comparedWeight: comparedWeight, cellWeight: cellWeight, memo: memo, imagePath: imagePath)

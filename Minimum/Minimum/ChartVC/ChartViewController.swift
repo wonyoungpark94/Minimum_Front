@@ -730,9 +730,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         
         period.text = tempPeriodLabel
         
-        
         let today = Date()
-                
         var thisMM = [Double]()
         var oneMMAgo = [Double]()
         var twoMMAgo = [Double]()
