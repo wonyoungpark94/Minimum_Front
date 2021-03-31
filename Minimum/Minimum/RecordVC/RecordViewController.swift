@@ -206,6 +206,14 @@ class RecordViewController: UIViewController, UITextViewDelegate {
     }
     
     func saveData(){
+        
+        //미래 날짜 입력 불가
+        let today = Date()
+        if note.date > today {
+            futerDayInfoAlert()
+            return
+        }
+        
         if defaultData == true { //기록이 없으면 default data 지우고 첫 data 추가
             notes.removeAll()
             notes.append(note)
@@ -263,11 +271,24 @@ class RecordViewController: UIViewController, UITextViewDelegate {
                 print(notes.count)
             }
         }
+        
+        
     }
     
     //체중 미입력시 alert
     func showWeightInfoAlert() {
         let alert = UIAlertController(title: "체중 입력", message: "체중이 입력되지 않았습니다.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { action in
+            print("tapped dismiss")
+        }))
+        
+        present(alert, animated: true)
+    }
+    
+    //미래 날짜 기록 alert
+    func futerDayInfoAlert() {
+        let alert = UIAlertController(title: "기록 날짜 오류", message: "오늘 이후의 데이터는 기록할 수 없습니다. \n 날짜를 다시 입력해주세요", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { action in
             print("tapped dismiss")
